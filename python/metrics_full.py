@@ -59,6 +59,7 @@ def main():
             continue
         mm = re.search(r"(Cam\d)", ip.name)
         recs.append(dict(path=ip, dets=dets, cam=mm.group(1) if mm else "NA"))
+    recs = D.dedup_recs(recs)   # 剔除 2 张字节级重复的 " - 副本" 正常帧
 
     rows, hit, ndef = [], 0, 0
     px_s, px_l = [], []          # 像素级分数/标签（仅带内，下采样后）

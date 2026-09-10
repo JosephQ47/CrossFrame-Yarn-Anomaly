@@ -7,7 +7,7 @@
   python black_yarn_detector.py                      # 在黑纱基准上评估+出图
   DET_LAYERS=8 DET_TOPK=1 python black_yarn_detector.py
 """
-import os, json, glob, re, base64
+import os, json, glob, re, base64, hashlib
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"; os.environ["PYTHONUTF8"] = "1"
 from pathlib import Path
 import numpy as np, cv2, torch, timm
@@ -28,6 +28,20 @@ MEAN = np.array([0.485,0.456,0.406], np.float32); STD = np.array([0.229,0.224,0.
 def read_bgr(p): return cv2.imdecode(np.fromfile(str(p), np.uint8), cv2.IMREAD_COLOR)
 def pbox(pts):
     a = np.array(pts, float); return [a[:,0].min(), a[:,1].min(), a[:,0].max(), a[:,1].max()]
+
+
+def dedup_recs(recs):
+    """剔除**字节级重复**的图。基准目录里有 2 张 " - 副本" 复制件（Cam3/Cam6 各 1，均为正常帧）。
+    重复帧互为完美参考 → 异常度≈0 → 这两张正常帧分数恒为 0，会虚高 AUROC、压低误报率。
+    去重后基准为 69 帧 / 16 缺陷 / 53 正常。"""
+    seen, out = set(), []
+    for r in recs:
+        h = hashlib.md5(Path(r["path"]).read_bytes()).hexdigest()
+        if h in seen:
+            print(f"  [去重] 跳过重复帧 {Path(r['path']).name}")
+            continue
+        seen.add(h); out.append(r)
+    return out
 
 
 @torch.no_grad()
@@ -114,6 +128,7 @@ def main():
         if not ip.exists(): continue
         mm = re.search(r"(Cam\d)", ip.name)
         recs.append(dict(path=ip, dets=dets, cam=mm.group(1) if mm else "NA"))
+    recs = dedup_recs(recs)
     cams = sorted(set(r["cam"] for r in recs))
 
     hit=ndef=0; scores=[]; labels=[]; uris=[]

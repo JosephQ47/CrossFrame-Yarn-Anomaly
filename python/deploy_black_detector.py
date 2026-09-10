@@ -9,6 +9,7 @@
 
 用法:
   python deploy_black_detector.py <帧目录> [--out 输出目录] [--cam-regex "(Cam\\d)"]
+  DET_INTRUDER_MASK=1 python deploy_black_detector.py ...   # 开启外观级入侵屏蔽（人手/白卡），默认关
 目录内文件名需可解析相机标识与时间顺序（默认按文件名排序）。
 输出: 报警叠加图 + alarms.jsonl（含相机/时间/分数/阈值/框）。
 """
@@ -17,6 +18,8 @@ os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"; os.environ["PYTHONUTF8"] = "1"
 from pathlib import Path
 from collections import deque, defaultdict
 import numpy as np, cv2, torch, timm
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from black_yarn_detector import INTRUDER_MASK, band_lab, intruder_mask   # 可选入侵屏蔽，默认关
 
 MODEL = os.environ.get("DET_MODEL", "vit_base_patch14_dinov2.lvd142m")
 LAYERS = int(os.environ.get("DET_LAYERS", 8))
@@ -69,15 +72,20 @@ def robust_thr(scores, k=None):
     return float(med + k * max(mad, 1.0))
 
 
-def analyze(cur, refs, hw, y0, y1):
-    """→ (图级分数, 定位框, 异常热图)"""
+def analyze(cur, refs, hw, y0, y1, valid=None):
+    """→ (图级分数, 定位框, 异常热图)。valid: 可选 patch 级有效掩膜（False=入侵物，剔除）"""
     R = np.stack(refs)
     sims = np.einsum('tijc,ijc->tij', R, cur)
     kk = max(1, min(TOPK, sims.shape[0]))
     anom = 1.0 - np.sort(sims, axis=0)[-kk:].mean(axis=0)
     # 图级：P99 二值化后最大连通域面积
-    thr = np.percentile(anom, 99)
-    bw = (anom >= thr).astype(np.uint8)
+    if valid is None:
+        thr = np.percentile(anom, 99)
+        bw = (anom >= thr).astype(np.uint8)
+    else:   # 预算=全网格 1%（绝对数），在有效 patch 上取前 K 个，与 black_yarn_detector 一致
+        K = max(1, min(int(round(anom.size * 0.01)), int(valid.sum())))
+        thr = np.sort(anom[valid])[-K]
+        bw = ((anom >= thr) & valid).astype(np.uint8)
     n, lab, stats, _ = cv2.connectedComponentsWithStats(bw, connectivity=8)
     areas = [(stats[i, cv2.CC_STAT_AREA], i) for i in range(1, n)]
     score = float(max([a for a,_ in areas] or [0]))
@@ -107,9 +115,13 @@ def main():
 
     dev = "cuda" if torch.cuda.is_available() else "cpu"
     model = timm.create_model(MODEL, pretrained=True, num_classes=0, dynamic_img_size=True).eval().to(dev)
-    print(f"模型 {MODEL} | 最后{LAYERS}层 | top-{TOPK} | 缓冲{BUF} | warm-up≥{MIN_REF} | device={dev}")
+    print(f"模型 {MODEL} | 最后{LAYERS}层 | top-{TOPK} | 缓冲{BUF} | warm-up≥{MIN_REF} | "
+          f"入侵屏蔽={'开' if INTRUDER_MASK else '关'} | device={dev}")
 
     bufs = defaultdict(lambda: deque(maxlen=BUF))     # cam → 历史特征
+    labs = defaultdict(lambda: deque(maxlen=BUF))     # cam → 历史帧筘齿带 LAB 缩略图（入侵屏蔽用，约 1 MB/帧）
+    def mask_for(lab_cur, lab_refs, gh, gw):
+        return ~intruder_mask(lab_cur, list(lab_refs), gh, gw) if INTRUDER_MASK else None
     warm = defaultdict(list)                          # cam → warm-up 期分数(用于自校准)
     thrs = {}                                         # cam → 阈值
     # ── 标定阶段:用确认正常的帧预填缓冲并定阈(产线流程) ──
@@ -121,15 +133,18 @@ def main():
             img = read_bgr(p)
             if img is None: continue
             f, y0, y1 = band_feat(model, dev, img)
-            cal[m.group(1) if m else "default"].append((f, img.shape[:2], y0, y1))
+            lb = band_lab(img, y0, y1, f.shape[0], f.shape[1]) if INTRUDER_MASK else None
+            cal[m.group(1) if m else "default"].append((f, img.shape[:2], y0, y1, lb))
         for cam, items in cal.items():
-            for f, _, _, _ in items[-BUF:]:
+            for f, _, _, _, lb in items[-BUF:]:
                 bufs[cam].append(f)
+                if INTRUDER_MASK: labs[cam].append(lb)
             loo = []
-            for i, (f, hw, y0, y1) in enumerate(items):
-                rest = [g for j,(g,_,_,_) in enumerate(items) if j != i]
+            for i, (f, hw, y0, y1, lb) in enumerate(items):
+                rest = [g for j,(g,_,_,_,_) in enumerate(items) if j != i]
                 if len(rest) >= MIN_REF:
-                    s, _, _ = analyze(f, rest, hw, y0, y1); loo.append(s)
+                    v = mask_for(lb, [it[4] for j, it in enumerate(items) if j != i], *f.shape[:2])
+                    s, _, _ = analyze(f, rest, hw, y0, y1, valid=v); loo.append(s)
             if len(loo) >= MIN_REF:
                 thrs[cam] = robust_thr(loo)
                 print(f"  [标定 {cam}] {len(items)}帧正常 → 阈值={thrs[cam]:.0f} "
@@ -146,19 +161,23 @@ def main():
         img = read_bgr(p)
         if img is None: continue
         feat, y0, y1 = band_feat(model, dev, img)
+        lab_cur = band_lab(img, y0, y1, feat.shape[0], feat.shape[1]) if INTRUDER_MASK else None
         refs = list(bufs[cam])
         status = "warmup"
         if len(refs) >= MIN_REF:
-            score, box, hm = analyze(feat, refs, img.shape[:2], y0, y1)
+            valid = mask_for(lab_cur, labs[cam], *feat.shape[:2])
+            score, box, hm = analyze(feat, refs, img.shape[:2], y0, y1, valid=valid)
             thr = a.thr if a.thr is not None else thrs.get(cam)
             if thr is None:
                 # 留一法(LOO)自校准:用缓冲区自身立刻定阈,无需额外等待帧
                 # (缓冲帧假定以正常为主 —— 无监督校准的标准假设)
                 loo = []
+                ref_labs = list(labs[cam]) if INTRUDER_MASK else []
                 for i in range(len(refs)):
                     rest = refs[:i] + refs[i+1:]
                     if len(rest) >= MIN_REF - 1:
-                        s, _, _ = analyze(refs[i], rest, img.shape[:2], y0, y1)
+                        v = mask_for(ref_labs[i], ref_labs[:i] + ref_labs[i+1:], *feat.shape[:2]) if INTRUDER_MASK else None
+                        s, _, _ = analyze(refs[i], rest, img.shape[:2], y0, y1, valid=v)
                         loo.append(s)
                 if len(loo) >= MIN_REF - 1:
                     thrs[cam] = robust_thr(loo)
@@ -182,6 +201,7 @@ def main():
                                           threshold=round(thr,1), alarm=bool(alarm), box=box),
                                      ensure_ascii=False)+"\n")
         bufs[cam].append(feat)
+        if INTRUDER_MASK: labs[cam].append(lab_cur)
         print(f"  {p.name[:44]:<44} {cam:<6} {status}")
     log.close()
     print(f"\n处理 {len(files)} 帧 | 报警 {n_alarm} 次 | 输出 {a.out}")

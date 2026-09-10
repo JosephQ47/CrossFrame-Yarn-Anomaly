@@ -14,7 +14,9 @@ import numpy as np, cv2, torch, timm
 from sklearn.metrics import roc_auc_score
 
 BF = Path(r"D:\dataset\black_fabric")
-WORK = Path(r"D:\研究生课程\课题\色纱研究\黑纱评估基准\检测器叠加图"); WORK.mkdir(parents=True, exist_ok=True)
+WORK = Path(r"D:\研究生课程\课题\色纱研究\黑纱评估基准\检测器叠加图"
+            + ("_外观屏蔽" if os.environ.get("DET_INTRUDER_MASK", "0") == "1" else ""))
+WORK.mkdir(parents=True, exist_ok=True)
 SCRATCH = Path(r"C:\Users\QUANZH~1\AppData\Local\Temp\claude\D---------------\16e543fc-e508-4327-8253-40ffb430b66b\scratchpad")
 
 MODEL  = os.environ.get("DET_MODEL", "vit_base_patch14_dinov2.lvd142m")
@@ -85,8 +87,42 @@ def anomaly_map(F, k, shape, y0, y1):
 AREA_CAP = int(os.environ.get("DET_AREA_CAP", 55))   # 异常块面积上限(patch数),筛人手等大面积入侵
                                                      # 45~56 为等效平台;取55离断崖(42)最远,且仍低于人手块(57)
 
+# ---- 可选：外观级入侵物屏蔽（默认关，DET_INTRUDER_MASK=1 开启）----
+# 人手/白纸卡这类入侵物在异常图里会被 P99 预算切成多个 ≤cap 的碎块，面积判据抓不住；
+# 但它们在**外观**上是与背景差异巨大的大面积区域。做法：参考帧筘齿带取逐像素 LAB 中值当背景，
+# 当前帧 ΔE > T 的像素开运算后只留大连通域，映射到 patch 网格并膨胀 1 格，从异常图里剔除。
+# 基准实测（去重后 69 帧）：15/16 → 16/16（Cam3 手臂漏检翻正），AUROC 98.2 → 97.4，P95 召回/误报不变。
+# 16 个样本上分不清 AUROC 那 0.8 是噪声还是代价，故**默认关闭**，等 F2 第二测试集再定；
+# 参数 T=20 / 面积 1.5% / 膨胀 1 在 F1 红纱与黑纱两域共用、事先固定，未扫参。
+INTRUDER_MASK = os.environ.get("DET_INTRUDER_MASK", "0") == "1"
+MASK_DE_T, MASK_AREA_FRAC, MASK_DIL, MASK_GRID = 20.0, 0.015, 1, 4
 
-def score_and_locate(anom, hw, y0, y1, q=99, cap=None):
+
+def band_lab(img, y0, y1, gh, gw):
+    """筘齿带缩到 patch 网格 MASK_GRID 倍分辨率的 LAB 图（float32），供背景中值与 ΔE 用。"""
+    b = cv2.resize(img[y0:y1], (gw * MASK_GRID, gh * MASK_GRID), interpolation=cv2.INTER_AREA)
+    return cv2.cvtColor(b, cv2.COLOR_BGR2LAB).astype(np.float32)
+
+
+def intruder_mask(cur_lab, ref_labs, gh, gw):
+    """→ patch 级布尔掩膜（True=入侵物）。ref_labs: 参考帧 LAB 列表（取逐像素中值作背景）。"""
+    if not ref_labs:
+        return np.zeros((gh, gw), bool)
+    bg = np.median(np.stack(ref_labs), axis=0)
+    de = np.linalg.norm(cur_lab - bg, axis=-1)
+    bw = cv2.morphologyEx((de > MASK_DE_T).astype(np.uint8), cv2.MORPH_OPEN, np.ones((5, 5), np.uint8))
+    n, lab, stats, _ = cv2.connectedComponentsWithStats(bw, connectivity=8)
+    keep = [i for i in range(1, n) if stats[i, cv2.CC_STAT_AREA] >= MASK_AREA_FRAC * bw.size]
+    if not keep:
+        return np.zeros((gh, gw), bool)
+    frac = cv2.resize(np.isin(lab, keep).astype(np.float32), (gw, gh), interpolation=cv2.INTER_AREA)
+    pm = (frac > 0.30).astype(np.uint8)
+    if MASK_DIL:
+        pm = cv2.dilate(pm, np.ones((2 * MASK_DIL + 1,) * 2, np.uint8))
+    return pm.astype(bool)
+
+
+def score_and_locate(anom, hw, y0, y1, q=99, cap=None, valid=None):
     """图级分数 = 面积≤cap 的最大连通域面积；定位 = 该连通域**重心**。
 
     · 空间聚集性(连通域面积)远优于 max：AUROC 96.4 vs 81.1、100%召回误报 9% vs 62%，
@@ -99,9 +135,16 @@ def score_and_locate(anom, hw, y0, y1, q=99, cap=None):
     · 定位用连通域重心优于平滑图峰值(实测 15/16 vs 14/16)。
     """
     cap = AREA_CAP if cap is None else cap
-    thr = np.percentile(anom, q)
-    n, lab, stats, cent = cv2.connectedComponentsWithStats(
-        (anom >= thr).astype(np.uint8), connectivity=8)
+    if valid is None:
+        thr = np.percentile(anom, q)
+        bw = (anom >= thr).astype(np.uint8)
+    else:
+        # 有入侵屏蔽时预算改为**绝对 patch 数**（= 全网格的 1%，与无屏蔽时等价），
+        # 在剩余有效 patch 上取前 K 个；若按剩余数的 1% 取，屏蔽越多预算越少，会额外压低分数
+        K = max(1, min(int(round(anom.size * (100 - q) / 100)), int(valid.sum())))
+        thr = np.sort(anom[valid])[-K]
+        bw = ((anom >= thr) & valid).astype(np.uint8)
+    n, lab, stats, cent = cv2.connectedComponentsWithStats(bw, connectivity=8)
     cands = [(stats[i, cv2.CC_STAT_AREA], i) for i in range(1, n)
              if cap is None or stats[i, cv2.CC_STAT_AREA] <= cap]
     if not cands:
@@ -118,7 +161,7 @@ def score_and_locate(anom, hw, y0, y1, q=99, cap=None):
 def main():
     dev = "cuda" if torch.cuda.is_available() else "cpu"
     model = timm.create_model(MODEL, pretrained=True, num_classes=0, dynamic_img_size=True).eval().to(dev)
-    print(f"模型 {MODEL} | 最后{LAYERS}层 | top-{TOPK} | device={dev}")
+    print(f"模型 {MODEL} | 最后{LAYERS}层 | top-{TOPK} | 入侵屏蔽={'开' if INTRUDER_MASK else '关'} | device={dev}")
 
     recs = []
     for jp in sorted(glob.glob(str(BF/"*.json"))):
@@ -134,16 +177,21 @@ def main():
     hit=ndef=0; scores=[]; labels=[]; uris=[]
     for c in cams:
         sub = [r for r in recs if r["cam"]==c]
-        feats=[]
+        feats=[]; labs=[]
         for r in sub:
             img = read_bgr(r["path"])
             f, y0, y1 = band_feat(model, dev, img)
             r["_y0"], r["_y1"], r["_hw"] = y0, y1, img.shape[:2]
             feats.append(f)
+            if INTRUDER_MASK:
+                labs.append(band_lab(img, y0, y1, f.shape[0], f.shape[1]))
         F = np.stack(feats)
         for k, r in enumerate(sub):
             m, anom = anomaly_map(F, k, r["_hw"], r["_y0"], r["_y1"])
-            sc_i, pk, bx = score_and_locate(anom, r["_hw"], r["_y0"], r["_y1"])
+            valid = None
+            if INTRUDER_MASK:   # 背景 = 同机位其余帧的 LAB 中值（与特征参考同为留一）
+                valid = ~intruder_mask(labs[k], labs[:k] + labs[k+1:], *anom.shape)
+            sc_i, pk, bx = score_and_locate(anom, r["_hw"], r["_y0"], r["_y1"], valid=valid)
             scores.append(sc_i); labels.append(1 if r["dets"] else 0)
             if not r["dets"]: continue
             ndef += 1

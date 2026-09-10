@@ -10,6 +10,7 @@
 用法:
   python deploy_black_detector.py <帧目录> [--out 输出目录] [--cam-regex "(Cam\\d)"]
   DET_INTRUDER_MASK=1 python deploy_black_detector.py ...   # 开启外观级入侵屏蔽（人手/白卡），默认关
+  DET_GATED=1 python deploy_black_detector.py ...           # 门控参考缓冲：报警帧不入池，防持续缺陷被吸收，默认关
 目录内文件名需可解析相机标识与时间顺序（默认按文件名排序）。
 输出: 报警叠加图 + alarms.jsonl（含相机/时间/分数/阈值/框）。
 """
@@ -27,6 +28,10 @@ TOPK   = int(os.environ.get("DET_TOPK", 1))   # 扫参最优:topk=1 抗参考池
 BUF     = int(os.environ.get("DET_BUF", 16))     # 滚动缓冲帧数
 MIN_REF = int(os.environ.get("DET_MIN_REF", 8))  # warm-up 最少参考帧
 CAL_Q   = float(os.environ.get("DET_CAL_Q", 95)) # 自校准分位
+GATED   = os.environ.get("DET_GATED", "0") == "1"  # 门控参考缓冲：报警帧不进参考池，防止持续性缺陷被吸收为"正常"
+                                                  # 代价：低于阈值的漏检帧仍会被吸收；warm-up/标定期不门控
+GATE_MAX = int(os.environ.get("DET_GATE_MAX", 30))  # 连续 N 帧都被门控挡在池外时强制放行 1 帧：
+                                                    # 否则场景漂移(换光/机修)会让每帧都报警、每帧都不入池，缓冲永远追不上新常态
 BAND_Y0, BAND_Y1 = 0.34, 0.60
 TILE_W, TILE_H, OVERLAP = 588, 448, 140
 MEAN = np.array([0.485,0.456,0.406], np.float32); STD = np.array([0.229,0.224,0.225], np.float32)
@@ -116,10 +121,11 @@ def main():
     dev = "cuda" if torch.cuda.is_available() else "cpu"
     model = timm.create_model(MODEL, pretrained=True, num_classes=0, dynamic_img_size=True).eval().to(dev)
     print(f"模型 {MODEL} | 最后{LAYERS}层 | top-{TOPK} | 缓冲{BUF} | warm-up≥{MIN_REF} | "
-          f"入侵屏蔽={'开' if INTRUDER_MASK else '关'} | device={dev}")
+          f"入侵屏蔽={'开' if INTRUDER_MASK else '关'} | 门控缓冲={'开' if GATED else '关'} | device={dev}")
 
     bufs = defaultdict(lambda: deque(maxlen=BUF))     # cam → 历史特征
     labs = defaultdict(lambda: deque(maxlen=BUF))     # cam → 历史帧筘齿带 LAB 缩略图（入侵屏蔽用，约 1 MB/帧）
+    gate_run = defaultdict(int)                       # cam → 连续被门控挡在池外的帧数
     def mask_for(lab_cur, lab_refs, gh, gw):
         return ~intruder_mask(lab_cur, list(lab_refs), gh, gw) if INTRUDER_MASK else None
     warm = defaultdict(list)                          # cam → warm-up 期分数(用于自校准)
@@ -200,8 +206,15 @@ def main():
                 log.write(json.dumps(dict(file=p.name, cam=cam, score=round(score,1),
                                           threshold=round(thr,1), alarm=bool(alarm), box=box),
                                      ensure_ascii=False)+"\n")
-        bufs[cam].append(feat)
-        if INTRUDER_MASK: labs[cam].append(lab_cur)
+        if GATED and status == "ALARM" and gate_run[cam] < GATE_MAX:
+            status = "ALARM(未入池)"          # 门控：报警帧不进参考池
+            gate_run[cam] += 1
+        else:
+            if GATED and status == "ALARM":
+                status = "ALARM(强制入池)"    # 连续被挡 GATE_MAX 帧，放行以跟上新常态
+            gate_run[cam] = 0
+            bufs[cam].append(feat)
+            if INTRUDER_MASK: labs[cam].append(lab_cur)
         print(f"  {p.name[:44]:<44} {cam:<6} {status}")
     log.close()
     print(f"\n处理 {len(files)} 帧 | 报警 {n_alarm} 次 | 输出 {a.out}")

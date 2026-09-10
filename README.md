@@ -235,6 +235,7 @@ python python/deploy_black_detector.py <帧目录> --calib-dir <确认正常的�
 | `DET_AREA_CAP` | 55 | 异常块面积上限（patch 数） |
 | `DET_K_MAD` | 3.5 | 鲁棒定阈 中位数 + K×MAD |
 | `DET_INTRUDER_MASK` | 0 | **=1 开启外观级入侵屏蔽**（人手/白卡，见 §4.1）。默认关：基准成绩不变；开启后黑纱 16/16、AUROC 97.4 |
+| `DET_GATED` / `DET_GATE_MAX` | 0 / 30 | **=1 门控参考缓冲**：报警帧不入池，防持续缺陷被吸收；连续 GATE_MAX 帧被挡则放行 1 帧防漂移饿死。基准数据上与无门控判定完全相同（最长持续序列仅 2 帧，测不出长时吸收），默认关，见 `docs/修复实验结论.md` §七 |
 
 输出：报警叠加图 + `alarms.jsonl`（含相机、分数、阈值、定位框）。
 

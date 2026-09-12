@@ -71,7 +71,7 @@
 > 重复帧互为完美参考，会把这两张正常帧的分数压到 0、虚高 AUROC 并压低误报率，
 > 因此评估时由 `dedup_recs()` 剔除。去重前后差异：FPR@TPR100% 7.3→7.5、像素 AUROC 91.3→90.8、PRO 76.8→76.3，其余不变。
 
-全部指标由 `python/metrics_full.py` 一次跑出，原始结果 `data/metrics_黑纱基准.json`。
+全部指标由 `src/metrics_full.py` 一次跑出，原始结果 `data/metrics_黑纱基准.json`。
 
 ![基准指标](assets/fig1_基准指标.png)
 
@@ -120,7 +120,7 @@
 
 协议：输入与本方法完全相同（同一筘齿带、同一切 tile 几何）；按机位独立，基线训练集 = 该机位**全部正常帧**（干净），
 本方法参考池 = 其他全部帧（含缺陷帧，更难）；PaDiM / PatchCore / PatchCore-DINOv2 对正常帧留一；
-⚠ SimpleNet 需训练，其正常帧同时在训练集与测试集，AUROC 偏乐观。复现：`python/sota_baselines.py`，原始数据 `data/sota_baselines.csv`。
+⚠ SimpleNet 需训练，其正常帧同时在训练集与测试集，AUROC 偏乐观。复现：`src/sota_baselines.py`，原始数据 `data/sota_baselines.csv`。
 
 三条结论：
 1. **定位不是分水岭**——PaDiM 14/16、PatchCore 12/16，标准基线在这个协议下能找到缺陷位置。此前文档里"PatchCore 0/16"来自另一份数据、整图缩放的旧协议，**已更正**。
@@ -142,7 +142,7 @@ structure-tensor 方向一致性、周期塌陷法、同相位周期比对、**D
 
 ![机理量化](assets/fig9_机理量化.png)
 
-四个实验（`python/mech_exp.py`，原始数据 `data/mech_results_black.json`），**结论比预想的更有意思——起作用的不是 patch 级可分性，而是缺陷块的空间完整性**：
+四个实验（`src/mech_exp.py`，原始数据 `data/mech_results_black.json`），**结论比预想的更有意思——起作用的不是 patch 级可分性，而是缺陷块的空间完整性**：
 
 **(a) patch 级：两种参考系的可分裕度相近。** 正常 patch 异常度（1 − max cos）P99：同位置 0.169 vs 任意位置 0.173；
 缺陷 patch 中位数 0.097 vs 0.112；"缺陷中位 / 正常 P99" 裕度 0.57 vs 0.64。
@@ -179,7 +179,7 @@ structure-tensor 方向一致性、周期塌陷法、同相位周期比对、**D
 
 现行的 `中位数 + 3.5×MAD` 与 `P95` 给出的误报率都是**经验值，没有保证**——无法回答"一个班次会被叫几次"。
 本节把它换成两条只用正常帧、且误报率有数学保证的规则，并量化代价。
-脚本 `python/p1_threshold_guarantee.py`、`p1_variants.py`；结论见 [docs/定阈实验结论.md](docs/定阈实验结论.md)。
+脚本 `src/p1_threshold_guarantee.py`、`p1_variants.py`；结论见 [docs/定阈实验结论.md](docs/定阈实验结论.md)。
 
 - **保形 p 值**（conformal，Bates 等，*Ann. Statist.* 2023）：`p(s) = (1 + #{校准分 ≥ s}) / (n+1)`，`p ≤ α` 报警。
   只要校准帧与测试帧可交换，`P(误报) ≤ α` 严格成立。n 帧校准的**最小可声明** `α = 1/(n+1)`。
@@ -319,7 +319,7 @@ C 与 D 是假设性口径，用于量化定性改变的影响，不作为成绩
 
 同一套代码搬到 **F1 真实工厂红纱**（24 帧、单机位、16 缺陷实例 + 9 张确认正常）上失败：
 **定位 3/15、图级 AUROC 67.0、P95 定阈召回 13% / 误报 11%**
-（复现 `python/f1_crossframe_eval.py`，明细 `data/f1_crossframe_红纱负结果.json`）。
+（复现 `src/f1_crossframe_eval.py`，明细 `data/f1_crossframe_红纱负结果.json`）。
 
 ![红纱失败](assets/fig3_红纱失败.jpg)
 
@@ -336,7 +336,7 @@ C 与 D 是假设性口径，用于量化定性改变的影响，不作为成绩
 
 ### 4.1 修复：两处改动，F1 定位 3/15 → 10/15，黑纱 15/16 → 16/16
 
-上面三条诊断逐个验证后（`python/f1_repair_exp.py` / `f1_repair_exp2.py`，
+上面三条诊断逐个验证后（`src/f1_repair_exp.py` / `f1_repair_exp2.py`，
 结果 `data/repair_round1_F1修复.csv` / `repair_round2_外观屏蔽.csv`，详见 [docs/修复实验结论.md](docs/修复实验结论.md)）：
 
 ![修复实验](assets/fig5_修复实验.png)
@@ -377,9 +377,9 @@ C 与 D 是假设性口径，用于量化定性改变的影响，不作为成绩
 
 | 形态 | 脚本 | 参考帧来源 | 用途 |
 |---|---|---|---|
-| 基准评估 | `python/black_yarn_detector.py` | 同相机**全部**测试帧（留一法） | 论文/复现成绩 |
-| 完整指标 | `python/metrics_full.py` | 同上 | 出图级 + 像素级 + PRO 全套指标 |
-| **现场部署** | `python/deploy_black_detector.py` | 同相机**历史**帧滚动缓冲（因果） | 产线真实流程 |
+| 基准评估 | `src/black_yarn_detector.py` | 同相机**全部**测试帧（留一法） | 论文/复现成绩 |
+| 完整指标 | `src/metrics_full.py` | 同上 | 出图级 + 像素级 + PRO 全套指标 |
+| **现场部署** | `src/deploy_black_detector.py` | 同相机**历史**帧滚动缓冲（因果） | 产线真实流程 |
 | 产线集成 | `csharp/BlackYarnDetector.cs` | 同上 | 已集成进工厂 C# 系统 |
 
 基准用留一法（transductive）是产线合法的——因为部署时同样只需要该机位的其他帧；
@@ -390,13 +390,13 @@ C 与 D 是假设性口径，用于量化定性改变的影响，不作为成绩
 安装依赖：
 
 ```bash
-pip install -r python/requirements.txt
+pip install -r src/requirements.txt
 ```
 
 在自己的帧目录上跑（**上线前先录一段确认正常的运行，用它标定**）：
 
 ```bash
-python python/deploy_black_detector.py <帧目录> --calib-dir <确认正常的帧目录> --out <输出目录>
+python src/deploy_black_detector.py <帧目录> --calib-dir <确认正常的帧目录> --out <输出目录>
 ```
 
 关键参数（环境变量覆盖，**改动须回基准复测**）：
@@ -427,10 +427,10 @@ python python/deploy_black_detector.py <帧目录> --calib-dir <确认正常的�
 用仓库脚本自行导出：
 
 ```bash
-python python/export_dinov2_onnx.py
+python src/export_dinov2_onnx.py
 ```
 
-导出后用 `python/verify_onnx_pipeline.py` 核对与 PyTorch 前向一致。
+导出后用 `src/verify_onnx_pipeline.py` 核对与 PyTorch 前向一致。
 
 ### 5.4 资源实测（RTX 4060 Laptop，3200×1800 现场原图，7 个 tile）
 
@@ -449,7 +449,8 @@ python python/export_dinov2_onnx.py
 ## 六、仓库结构
 
 ```
-python/
+src/                          脚本索引见 src/README.md（按 核心/评测/实验/出图/部署 分组）
+  README.md                   本目录脚本索引
   black_yarn_detector.py      基准评估（留一法参考）+ 叠加图 + HTML 画廊
   metrics_full.py             完整指标：图级 + 像素级 + PRO + 框级
   deploy_black_detector.py    现场部署版（因果滚动缓冲 + 按相机自校准）
@@ -504,9 +505,17 @@ assets/
   fig8_SOTA对比.png           标准基线：定位 / 定阈召回 / AUROC
   fig9_机理量化.png           patch 级分布 / 参考帧数 / 抖动 / 连通域完整性
   fig10_白纱回归.png          白纱 27 帧正常帧回归
+  fig11_定阈校准曲线.png      保形 / POT 定阈的校准曲线
+  fig12_定阈敏感性与跨机位.png 四口径敏感性 + 跨机位时刻热力图
+  fig13_分数分布与阈值.png    各规则阈值落点
+  fig14_定阈样本量.png        校准样本量对阈值的影响
+  fig15_基线保形召回.png      基线在保形规则下的召回
+  fig16_Cam3疑似漏标.jpg      高分正常帧人工复核材料
+  fig17_Cam5人手入侵.jpg      同上（人手入侵，非纱线缺陷）
+LICENSE                       MIT
 ```
 
-全部配图由 `python/make_figs.py` 一键重绘（依赖 `metrics_full.py` 的输出）。
+配图分四个脚本重绘：`src/make_figs.py`（fig1~fig4，依赖 `metrics_full.py` 的输出）、`src/make_mech_figs.py`（fig9/fig10）、`src/p1_figs.py`（fig11/fig13/fig14/fig15）、`src/p1_figs_variants.py`（fig12）。fig5~fig8、fig16、fig17 由对应实验脚本跑进 `outputs/` 后手工挑选入库，暂无一键脚本。各脚本分工见 [src/README.md](src/README.md)。
 
 ---
 

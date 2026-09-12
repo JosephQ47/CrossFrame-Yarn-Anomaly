@@ -30,10 +30,10 @@ OpenCvSharp + ONNX Runtime）中的落地实现，已集成进现役系统作为
 用本仓库的脚本自行导出：
 
 ```bash
-python python/export_dinov2_onnx.py
+python src/export_dinov2_onnx.py
 ```
 
-导出后用 `python/verify_onnx_pipeline.py` 核对 ONNX 与 PyTorch 前向一致，再放到
+导出后用 `src/verify_onnx_pipeline.py` 核对 ONNX 与 PyTorch 前向一致，再放到
 部署目录的 `testdll/` 下。
 
 ## 性能实测（RTX 4060 Laptop / 3200×1800 现场原图 / 7 个 tile）

@@ -185,3 +185,24 @@ desc = "每小时误报必须有显式连续时长"
 spec_ref = "spec.md#4.8"
 file = "tools/evaluate_detection_metrics.py"
 must_contain = ["observation_hours", "frame_period_seconds", "hourly_metric_unavailable_reason"]
+
+[[checks]]
+id = "routing.algorithm_modes"
+desc = "白纱与黑纱模式枚举齐全"
+spec_ref = "spec.md#4.9"
+file = "csharp/YarnAlgorithmMode.cs"
+must_contain = ["WhiteSupervised", "BlackCrossFrame"]
+
+[[checks]]
+id = "routing.legacy_migration"
+desc = "旧BlackYarnDetect配置有兼容迁移"
+spec_ref = "spec.md#4.9"
+file = "csharp/YarnAlgorithmMode.cs"
+must_contain = ["ParseWithLegacy", "legacyBlackYarnDetect", "WhiteSupervised", "BlackCrossFrame"]
+
+[[checks]]
+id = "routing.mutual_exclusion"
+desc = "算法路由明确白纱与黑纱互斥"
+spec_ref = "spec.md#4.9"
+file = "csharp/YarnAlgorithmMode.cs"
+must_contain = ["RunWhite", "RunBlack"]

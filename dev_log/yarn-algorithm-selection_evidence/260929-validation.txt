@@ -1,0 +1,34 @@
+Feature: unified upper-computer merge and yarn algorithm selection
+Date: 2026-09-29 Asia/Shanghai
+
+[1] Pure routing / migration / hand-gate tests
+Command: dotnet run --project D:\研究生课程\课题\色纱研究\浆纱检测系统\tests\YarnAlgorithmSelectionTests.csproj
+Exit: 0
+Output: PASS: 15 assertions
+
+[2] Specification contract
+Command: python tools\spec_check.py
+Exit: 0
+Result: 42 checks; FAIL 0; WARN 16; PASS 26
+Note: 16 warnings are pre-existing missing @spec back-references in research scripts.
+
+[3] WinForms Debug x64 rebuild
+Tool: Visual Studio 2022 MSBuild 17.14.40
+Configuration: Debug|x64
+Exit: 0
+Result: 0 errors, 4 existing CamreaInitial warnings
+Artifact: 浆纱检测系统\YarnDection\bin\x64\Debug\YarnDectionSys.exe
+
+[4] WinForms Release x64 rebuild
+Tool: Visual Studio 2022 MSBuild 17.14.40
+Configuration: Release|x64
+Exit: 0
+Result: 0 errors, 4 existing CamreaInitial warnings
+Artifact: 浆纱检测系统\YarnDection\bin\x64\Release\YarnDectionSys.exe
+
+[5] Hardware-dependent acceptance still required
+- DetectPerson.dll / persons.onnx and DetectKCERR/model deployment
+- DINOv2 ONNX and CUDA/CPU backend display
+- six live cameras, DI2 physical input, alarm/light/slowdown chain
+- hand intrusion and two-clear-frame recovery in both yarn modes
+- two-hour stability run

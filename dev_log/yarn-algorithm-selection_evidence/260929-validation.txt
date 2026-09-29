@@ -32,3 +32,11 @@ Artifact: 浆纱检测系统\YarnDection\bin\x64\Release\YarnDectionSys.exe
 - six live cameras, DI2 physical input, alarm/light/slowdown chain
 - hand intrusion and two-clear-frame recovery in both yarn modes
 - two-hour stability run
+
+[6] Diverged Git history reconciliation (2026-09-30)
+Observed: local main and origin/main had no common ancestor and reported 12/12 divergence.
+Semantic check: git log --left-right --cherry-pick produced no unique patches.
+Tree check: main^{tree} == origin/main^{tree} == 2e9734931fb5771b1bd9e8247c71fb09741c2f6d.
+Action: connected both histories on feat/yarn-algorithm-selection with an ours-strategy merge.
+Merge commit: 6731ef8.
+Safety check: feature tree before == feature tree after == 6d68cd055a5b5892ac894796af46e830e65878c6.

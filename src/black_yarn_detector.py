@@ -158,6 +158,36 @@ def score_and_locate(anom, hw, y0, y1, q=99, cap=None, valid=None):
     return float(area), (px, py), box
 
 
+def render_anomaly_overlay(img, anom_full, y0, y1, valid=None, alpha=0.45):
+    """画与定位决策一致的异常图。
+
+    ``valid=False`` 的 patch 已被 LAB 入侵屏蔽从阈值和连通域中剔除，
+    因而在图上也必须显示为灰色，而不能继续显示其原始异常响应。
+    """
+    H, W = img.shape[:2]
+    in_band = np.zeros((H, W), bool)
+    in_band[y0:y1] = True
+    if valid is None:
+        valid_full = in_band
+    else:
+        valid_band = cv2.resize(valid.astype(np.uint8), (W, y1-y0), interpolation=cv2.INTER_NEAREST).astype(bool)
+        valid_full = np.zeros((H, W), bool)
+        valid_full[y0:y1] = valid_band
+
+    # 只以参与决策的像素归一化；否则被屏蔽的人手仍会拉高色标。
+    vals = anom_full[valid_full]
+    hn = np.zeros((H, W), np.float32)
+    if vals.size and vals.max() > vals.min():
+        hn[valid_full] = (anom_full[valid_full] - vals.min()) / (vals.max() - vals.min())
+    heat = cv2.applyColorMap((np.clip(hn, 0, 1) * 255).astype(np.uint8), cv2.COLORMAP_JET)
+    vis = img.copy()
+    vis[valid_full] = ((1 - alpha) * img[valid_full] + alpha * heat[valid_full]).astype(np.uint8)
+    # 仅在开启屏蔽时出现；灰色表示该区域没有参与异常判定。
+    blocked = in_band & ~valid_full
+    vis[blocked] = (70, 70, 70)
+    return vis
+
+
 def main():
     dev = "cuda" if torch.cuda.is_available() else "cpu"
     model = timm.create_model(MODEL, pretrained=True, num_classes=0, dynamic_img_size=True).eval().to(dev)
@@ -198,8 +228,7 @@ def main():
             px, py = pk if pk else (-1, -1)
             ok = any(b[0]<=px<=b[2] and b[1]<=py<=b[3] for b in r["dets"]); hit += ok
             img = read_bgr(r["path"]); H, W = r["_hw"]
-            hn = np.clip((m-m.min())/(m.max()-m.min()+1e-6),0,1)
-            vis = cv2.addWeighted(img, 0.55, cv2.applyColorMap((hn*255).astype(np.uint8), cv2.COLORMAP_JET), 0.45, 0)
+            vis = render_anomaly_overlay(img, m, r["_y0"], r["_y1"], valid)
             for b in r["dets"]: cv2.rectangle(vis,(int(b[0]),int(b[1])),(int(b[2]),int(b[3])),(255,255,255),3)
             cv2.circle(vis,(int(px),int(py)),16,(0,255,0) if ok else (0,0,255),3)
             cv2.imencode(".jpg", vis, [int(cv2.IMWRITE_JPEG_QUALITY),85])[1].tofile(

@@ -1,0 +1,108 @@
+{
+  "valid_cameras": [
+    "Cam1",
+    "Cam2",
+    "Cam3",
+    "Cam5",
+    "Cam6"
+  ],
+  "excluded_underfilled": [
+    "Cam4"
+  ],
+  "normal_reference_counts": {
+    "Cam1": 9,
+    "Cam2": 9,
+    "Cam3": 11,
+    "Cam4": 5,
+    "Cam5": 8,
+    "Cam6": 11
+  },
+  "primary_frames": 62,
+  "primary_normal": 48,
+  "primary_defect": 14,
+  "baseline_true_positives": 13,
+  "exposure_boundaries": {
+    "original_ref": {
+      "contiguous_safe_values": [
+        -1.5,
+        -1.25,
+        -1.0,
+        -0.75,
+        -0.5,
+        -0.25,
+        0.0
+      ],
+      "min_ev": -1.5,
+      "max_ev": 0.0,
+      "non_contiguous_safe_values": [
+        -1.5,
+        -1.25,
+        -1.0,
+        -0.75,
+        -0.5,
+        -0.25,
+        0.0
+      ]
+    },
+    "adjusted_reference": {
+      "contiguous_safe_values": [
+        -1.5,
+        -1.25,
+        -1.0,
+        -0.75,
+        -0.5,
+        -0.25,
+        0.0,
+        0.25
+      ],
+      "min_ev": -1.5,
+      "max_ev": 0.25,
+      "non_contiguous_safe_values": [
+        -1.5,
+        -1.25,
+        -1.0,
+        -0.75,
+        -0.5,
+        -0.25,
+        0.0,
+        0.25,
+        0.75,
+        1.0,
+        1.25,
+        1.5
+      ]
+    },
+    "matched_recalibration": {
+      "contiguous_safe_values": [
+        0.0,
+        0.25
+      ],
+      "min_ev": 0.0,
+      "max_ev": 0.25,
+      "non_contiguous_safe_values": [
+        -1.25,
+        -1.0,
+        -0.5,
+        0.0,
+        0.25,
+        1.25,
+        1.5
+      ]
+    }
+  },
+  "family_failure_counts": {
+    "exposure_ev/adjusted_reference": {
+      "safe": 12,
+      "fail": 1
+    },
+    "exposure_ev/matched_recalibration": {
+      "fail": 6,
+      "safe": 7
+    },
+    "exposure_ev/original_ref": {
+      "safe": 7,
+      "fail": 6
+    }
+  },
+  "caveat": "合成边界只反映光度变换敏感性；真实照度、色温和空间光场必须现场复验。"
+}

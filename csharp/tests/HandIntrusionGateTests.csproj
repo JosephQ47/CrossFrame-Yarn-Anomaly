@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <AssemblyName>HandIntrusionGateTests</AssemblyName>
+    <IntermediateOutputPath>obj\hand_gate\</IntermediateOutputPath>
+    <OutputPath>bin\hand_gate\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\HandIntrusionGate.cs" Link="HandIntrusionGate.cs" />
+    <Compile Include="Program.cs" />
+  </ItemGroup>
+</Project>

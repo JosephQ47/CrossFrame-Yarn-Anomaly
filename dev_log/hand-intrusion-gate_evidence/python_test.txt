@@ -1,0 +1,6 @@
+命令：python tools/test_hand_gate.py
+结果：Ran 8 tests ... OK
+覆盖：无人手兼容路径、两帧恢复、恢复期间重新入侵清零、参考池不增长、相机隔离、CSV 合法/非法输入、Python/C# 共用事件序列。
+
+命令：python -m py_compile src/hand_gate.py src/deploy_black_detector.py tools/test_hand_gate.py
+结果：exit 0

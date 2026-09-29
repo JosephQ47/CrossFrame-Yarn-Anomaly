@@ -1,0 +1,8 @@
+step,hand_intrusion,expected_gate_state,allow_yarn
+1,0,NONE,1
+2,1,HAND_INTRUSION,0
+3,0,RECOVERING,0
+4,1,HAND_INTRUSION,0
+5,0,RECOVERING,0
+6,0,NONE,1
+7,0,NONE,1

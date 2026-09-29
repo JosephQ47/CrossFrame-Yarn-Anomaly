@@ -24,6 +24,11 @@ namespace YarnDection
     ///   CPU  推理 4.7s  + 其余 45ms ≈ 5s
     /// 非推理部分已做 SIMD + 并行优化(见 Dot/Parallel.For)，占比 <10%；
     /// 因此**是否挂上 CUDA EP 直接决定 10 倍差距**，务必用 --selftest 确认。
+    /// @spec docs/spec.md#4.1
+    /// @spec docs/spec.md#4.2
+    /// @spec docs/spec.md#4.3
+    /// @spec docs/spec.md#4.4
+    /// @spec docs/spec.md#4.5
     /// </summary>
     public class BlackYarnDetector : IDisposable
     {
@@ -34,6 +39,7 @@ namespace YarnDection
         private const double BandY0 = 0.34, BandY1 = 0.60; // 筘齿带(占图高比例)
         private const int AreaCap = 55;                    // 异常块面积上限(patch数)，筛人手等大目标
         private const double KMad = 3.5;                   // 鲁棒定阈: 中位数 + K×MAD
+        private const int HandClearFrames = HandIntrusionGate.DefaultClearFrames;
 
         /// <summary>滚动参考缓冲帧数。实测 ≥8 帧达满性能，&lt;8 明显下降。</summary>
         public int BufSize { get; set; } = 8;
@@ -61,9 +67,19 @@ namespace YarnDection
             public readonly List<float[]> Buffer = new List<float[]>(); // 每帧带特征(gh*cols*FeatDim 扁平)
             public int Cols;                                            // 特征列数 = 图宽/14
             public double Threshold = -1;                               // 自校准阈值(<0=未校准)
+            public readonly HandIntrusionGate HandGate = new HandIntrusionGate(HandClearFrames);
         }
         private readonly Dictionary<int, CamState> states = new Dictionary<int, CamState>();
         private readonly object stateLock = new object();
+
+        public enum DetectionState
+        {
+            NotReady,
+            Normal,
+            HandIntrusion,
+            Recovering,
+            YarnDefect
+        }
 
         public class Result
         {
@@ -72,6 +88,7 @@ namespace YarnDection
             public double Score;      // 图级分数 = 面积≤cap 的最大异常连通域面积
             public double Threshold;
             public Rect Box;          // 异常区域(原图坐标)
+            public DetectionState State = DetectionState.NotReady;
         }
 
         /// <param name="log">日志回调。必须在构造时传入——CUDA 是否启用是在构造函数里判定的，
@@ -98,17 +115,39 @@ namespace YarnDection
         /// </summary>
         public Result Process(int camIdx, Mat frame)
         {
+            return Process(camIdx, frame, false);
+        }
+
+        /// <summary>
+        /// 处理一帧并消费现役人手检测结果。人手及第一张恢复帧在特征提取前返回，
+        /// 不产生纱线报警，也不改变参考池和阈值。
+        /// </summary>
+        public Result Process(int camIdx, Mat frame, bool handIntrusion)
+        {
             var r = new Result();
             if (frame == null || frame.Empty()) return r;
+
+            CamState st;
+            lock (stateLock)
+            {
+                if (!states.TryGetValue(camIdx, out st)) { st = new CamState(); states[camIdx] = st; }
+            }
+            lock (st)
+            {
+                DetectionState? gateState = st.HandGate.Update(handIntrusion);
+                if (gateState.HasValue)
+                {
+                    r.State = gateState.Value;
+                    return r;
+                }
+            }
 
             int y0 = (int)(frame.Height * BandY0), y1 = (int)(frame.Height * BandY1);
             int cols; float[] feat = ExtractBandFeature(frame, out cols);
             if (feat == null) return r;
 
-            CamState st;
             lock (stateLock)
             {
-                if (!states.TryGetValue(camIdx, out st)) { st = new CamState { Cols = cols }; states[camIdx] = st; }
                 if (st.Cols != cols) { st.Buffer.Clear(); st.Threshold = -1; st.Cols = cols; } // 分辨率变了,重建
             }
 
@@ -146,6 +185,8 @@ namespace YarnDection
                     r.Threshold = st.Threshold;
                     r.Ready = st.Threshold >= 0;
                     r.Alarm = r.Ready && score >= st.Threshold;
+                    if (r.Ready)
+                        r.State = r.Alarm ? DetectionState.YarnDefect : DetectionState.Normal;
                     if (gridBox.Width > 0)
                     {
                         double sx = (double)frame.Width / st.Cols, sy = (double)(y1 - y0) / Gh;
@@ -165,7 +206,11 @@ namespace YarnDection
         {
             lock (stateLock)
             {
-                foreach (var st in states.Values) lock (st) { st.Buffer.Clear(); st.Threshold = -1; }
+                foreach (var st in states.Values) lock (st)
+                {
+                    st.Buffer.Clear(); st.Threshold = -1;
+                    st.HandGate.Reset();
+                }
             }
             Log("BlackYarn: 参考缓冲已重置");
         }

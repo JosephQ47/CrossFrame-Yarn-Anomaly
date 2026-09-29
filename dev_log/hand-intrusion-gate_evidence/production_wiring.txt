@@ -1,0 +1,25 @@
+产线工程：D:\研究生课程\课题\添加按键拍照功能\纱浆检测
+
+源码核对：
+- ImageProcessPerson.DetectPerson 返回值写入 CameraVar.HandIntrusion。
+- MainForm 六路检测流程先调用 CameraJPGESPersonProcess，再调用 CameraJPGESKCProcess。
+- CameraJPGESKCProcess 在 imageProcessKC.DetectKC 前调用 CameraVar.HandGate.Update。
+- HAND_INTRUSION/RECOVERING 直接返回，不更新 cameraResult、cameraResultPic、cameraPicTime、errflag、Ring。
+- 原有人手日志、SQLite 人手记录和 Err2 存图逻辑保留。
+
+产线工程构建：Visual Studio 2022 MSBuild 17.14.40
+- Rebuild Debug/x64：成功，生成 `YarnDectionSys.exe`
+- Rebuild Release/x64：成功，生成 `YarnDectionSys.exe`
+- 仅有既有 `CamreaInitial` 未使用字段警告，无新增错误。
+
+配置核对：
+- `System.ParamConfig.xml`：`DetectPerson=true`
+- `PersonModelPath=persons.onnx`
+- `bin\x64\Release\testdll\persons.onnx` 存在
+- Debug/Release 输出配置均已复制 `DetectPerson=true` 与 `PersonModelPath=persons.onnx`；按项目既有约定，推理 DLL/模型资产只随 Release 目录提供。
+
+补充：本机 dotnet 9 SDK 直接构建会触发旧 WinForms .resx 资源依赖错误；已改用项目实际兼容的 Visual Studio MSBuild 完成构建。
+
+外部门控类独立编译验证：
+dotnet run --project csharp/tests/ProductionHandGateTests.csproj
+结果：PASS（7 assertions）；验证的是外部产线工程实际引用的 HandIntrusionGate.cs。

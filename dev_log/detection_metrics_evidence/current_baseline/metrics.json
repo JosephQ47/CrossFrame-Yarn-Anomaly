@@ -1,0 +1,52 @@
+{
+  "frames": 62,
+  "confusion_matrix": {
+    "tp": 13,
+    "fp": 2,
+    "tn": 46,
+    "fn": 1
+  },
+  "detection": {
+    "false_positive_rate": 0.041666666666666664,
+    "false_positive_rate_ci95": [
+      0.011501893489386586,
+      0.13975655870455445
+    ],
+    "recall": 0.9285714285714286,
+    "recall_ci95": [
+      0.6853129557584889,
+      0.9872777847521093
+    ],
+    "precision": 0.8666666666666667,
+    "precision_ci95": [
+      0.6211801716767764,
+      0.9626387408969346
+    ],
+    "auroc": 0.9791666666666666,
+    "false_alarms_per_hour": null,
+    "observation_hours": null,
+    "hourly_duration_source": null,
+    "hourly_metric_unavailable_reason": "未提供连续观测小时数或固定帧周期；离散抽样图片不能按文件首末时间换算每小时误报警"
+  },
+  "localization": {
+    "point_hit_count": 13,
+    "point_hit_denominator": 14,
+    "point_hit_rate": 0.9285714285714286,
+    "box_iou_mean": 0.4855021356711878,
+    "box_iou_median": 0.5148051934939978,
+    "box_recall_iou_0_1": 0.9285714285714286,
+    "box_recall_iou_0_3": 0.9285714285714286,
+    "box_recall_iou_0_5": 0.6428571428571429,
+    "alarm_and_point_hit_count": 12,
+    "alarm_and_point_hit_rate": 0.8571428571428571,
+    "alarm_and_point_hit_precision": 0.8
+  },
+  "selection": {
+    "input": "dev_log\\illumination_robustness_evidence\\illumination_per_frame.csv",
+    "strategy": "original_ref",
+    "condition": "ev_+0.00",
+    "excluded_cameras": [
+      "Cam4"
+    ]
+  }
+}

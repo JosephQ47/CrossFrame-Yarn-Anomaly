@@ -1,0 +1,92 @@
+<meta charset="utf-8">
+<title><标题> · <副标题></title>
+<!--
+  研发日志模板。另存为 dev_log/YYMMDD-HH-MM-<提炼标题>.html
+  规则：只追加不修改；证据文件放 dev_log/<slug>_evidence/ 并在正文引用。
+  无外部依赖，双击即可打开，自带亮/暗色。
+-->
+<style>
+  :root{--fg:#1a1a1a;--mut:#666;--bg:#fff;--card:#f6f7f9;--acc:#0b6b3a;--warn:#a15c00;--bad:#b00020;--code:#0d1117;--codefg:#e6edf3;--line:#e3e6ea}
+  @media (prefers-color-scheme:dark){:root{--fg:#e6e6e6;--mut:#9aa0a6;--bg:#14161a;--card:#1c1f24;--acc:#4ec98a;--warn:#e0a458;--bad:#ff6b81;--line:#2a2e35}}
+  *{box-sizing:border-box}
+  body{margin:0 auto;max-width:900px;padding:32px 20px 80px;font:16px/1.65 -apple-system,"PingFang SC",Segoe UI,Roboto,sans-serif;color:var(--fg);background:var(--bg)}
+  h1{font-size:24px;line-height:1.35;margin:0 0 6px}
+  .sub{color:var(--mut);margin:0 0 24px;font-size:14px}
+  h2{font-size:19px;margin:34px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+  h3{font-size:16px;margin:22px 0 8px}
+  p{margin:10px 0}
+  code{background:var(--card);padding:1px 6px;border-radius:5px;font:13.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}
+  pre{background:var(--code);color:var(--codefg);padding:14px 16px;border-radius:9px;overflow:auto;font:13px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace}
+  pre code{background:none;padding:0;color:inherit}
+  table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+  th{background:var(--card)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:14px 0}
+  .ok{color:var(--acc);font-weight:600}
+  .warn{color:var(--warn);font-weight:600}
+  .bad{color:var(--bad);font-weight:600}
+  .tag{display:inline-block;font-size:12px;padding:2px 9px;border-radius:20px;background:var(--card);border:1px solid var(--line);color:var(--mut);margin-right:6px}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0;font-size:13.5px}
+  .flow span{background:var(--card);border:1px solid var(--line);border-radius:7px;padding:6px 10px}
+  .arrow{color:var(--mut)}
+  figure{margin:16px 0}
+  figure img{max-width:100%;border:1px solid var(--line);border-radius:8px}
+  figcaption{color:var(--mut);font-size:13px;margin-top:6px}
+  ul{margin:8px 0;padding-left:22px}
+  li{margin:4px 0}
+</style>
+
+<h1><标题：现象 / 主题 —— 做了什么></h1>
+<p class="sub"><项目> · <硬件/模块> · YYYY-MM-DD HH:MM ·
+<span class="tag">标签1</span><span class="tag">标签2</span><span class="tag">标签3</span></p>
+
+<div class="card">
+<b>一句话结论</b>：<把结论写在最前面。读者只读这一段也能知道发生了什么、结果如何。>
+<span class="ok">（结论状态：通过 / 部分通过 / 未通过）</span>
+</div>
+
+<h2>1. 现象 / 目标</h2>
+<p><要解决什么、观察到什么。可复现步骤写清楚。></p>
+
+<h2>2. 根因分析（第一性原理）</h2>
+<p><从机制出发推导，不停在"改了这个就好了"。></p>
+<div class="flow">
+  <span>环节A</span><span class="arrow">→</span>
+  <span>环节B</span><span class="arrow">→</span>
+  <span>环节C</span>
+</div>
+<pre><code>// 关键代码位置与片段
+</code></pre>
+
+<h2>3. 实现 / 修复</h2>
+<ul>
+  <li><改动点 1 及理由></li>
+  <li><改动点 2 及理由></li>
+</ul>
+
+<h2>4. 端到端验证</h2>
+<table>
+  <tr><th>验收项</th><th>方法</th><th>实测</th><th>结论</th></tr>
+  <tr><td></td><td></td><td></td><td class="ok">✅</td></tr>
+</table>
+
+<figure>
+  <img src="<slug>_evidence/xxx.png" alt="">
+  <figcaption>图 1：<说明></figcaption>
+</figure>
+
+<h3>证据清单</h3>
+<table>
+  <tr><th>文件</th><th>内容</th></tr>
+  <tr><td><code>&lt;slug&gt;_evidence/xxx.txt</code></td><td></td></tr>
+</table>
+
+<h2>5. 遗留 / 待补</h2>
+<table>
+  <tr><th>项</th><th>阻塞原因</th><th>解锁条件</th></tr>
+  <tr><td></td><td></td><td></td></tr>
+</table>
+
+<h2>6. 复现命令</h2>
+<pre><code>make bfm
+make stress CMD='... --secs 30'</code></pre>

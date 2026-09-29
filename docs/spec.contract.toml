@@ -1,0 +1,187 @@
+spec = "docs/spec.md"
+
+[coverage]
+enabled = true
+severity = "warn"
+require_backref = true
+src_globs = ["src/*.py", "csharp/*.cs", "tools/*.py"]
+backref_exempt = ["src/make_*.py", "src/*_figs*.py", "tools/day_end.py", "tools/spec_check.py"]
+require_section_covered = true
+section_exempt = ["0", "1", "2", "3", "5", "6", "7", "8"]
+
+[[checks]]
+id = "python.hand_clear_frames"
+desc = "人手离开后连续两帧恢复"
+spec_ref = "spec.md#4.3"
+file = "src/deploy_black_detector.py"
+pattern = 'HAND_CLEAR_FRAMES\s*=\s*int\([^\n]*?"(\d+)"'
+expect = "2"
+
+[[checks]]
+id = "python.states"
+desc = "Python 状态集合齐全"
+spec_ref = "spec.md#4.5"
+file = "src/hand_gate.py"
+must_contain = ["NOT_READY", "NORMAL", "HAND_INTRUSION", "RECOVERING", "YARN_DEFECT"]
+
+[[checks]]
+id = "python.mask_default"
+desc = "LAB 外观屏蔽默认关闭"
+spec_ref = "spec.md#4.2"
+file = "src/black_yarn_detector.py"
+pattern = 'DET_INTRUDER_MASK",\s*"(\d+)"'
+expect = "0"
+
+[[checks]]
+id = "python.min_ref"
+desc = "Python 最小参考帧数"
+spec_ref = "spec.md#3"
+file = "src/deploy_black_detector.py"
+pattern = 'MIN_REF\s*=\s*int\([^\n]*?,\s*(\d+)\)'
+expect = "8"
+
+[[checks]]
+id = "python.topk"
+desc = "Python 同位置参考 top-1"
+spec_ref = "spec.md#3"
+file = "src/deploy_black_detector.py"
+pattern = 'TOPK\s*=\s*int\([^\n]*?,\s*(\d+)\)'
+expect = "1"
+
+[[checks]]
+id = "python.band_y0"
+desc = "Python 检测带上界"
+spec_ref = "spec.md#3"
+file = "src/deploy_black_detector.py"
+pattern = 'BAND_Y0,\s*BAND_Y1\s*=\s*([0-9.]+),'
+expect = "0.34"
+
+[[checks]]
+id = "python.band_y1"
+desc = "Python 检测带下界"
+spec_ref = "spec.md#3"
+file = "src/deploy_black_detector.py"
+pattern = 'BAND_Y0,\s*BAND_Y1\s*=\s*[0-9.]+,\s*([0-9.]+)'
+expect = "0.60"
+
+[[checks]]
+id = "csharp.hand_clear_frames"
+desc = "C# 人手恢复帧数"
+spec_ref = "spec.md#4.3"
+file = "csharp/HandIntrusionGate.cs"
+pattern = 'DefaultClearFrames\s*=\s*(\d+)'
+expect = "2"
+
+[[checks]]
+id = "csharp.states"
+desc = "C# 状态集合齐全"
+spec_ref = "spec.md#4.5"
+file = "csharp/BlackYarnDetector.cs"
+must_contain = ["NotReady", "Normal", "HandIntrusion", "Recovering", "YarnDefect"]
+
+[[checks]]
+id = "csharp.compat_overload"
+desc = "C# 保留两参数兼容接口"
+spec_ref = "spec.md#4.5"
+file = "csharp/BlackYarnDetector.cs"
+must_contain = ["Process(int camIdx, Mat frame)", "Process(int camIdx, Mat frame, bool handIntrusion)"]
+
+[[checks]]
+id = "csharp.area_cap"
+desc = "C# 连通域面积上限"
+spec_ref = "spec.md#3"
+file = "csharp/BlackYarnDetector.cs"
+pattern = 'AreaCap\s*=\s*(\d+)'
+expect = "55"
+
+[[checks]]
+id = "csharp.buffer_size"
+desc = "C# 默认参考池帧数"
+spec_ref = "spec.md#3"
+file = "csharp/BlackYarnDetector.cs"
+pattern = 'BufSize\s*\{\s*get;\s*set;\s*\}\s*=\s*(\d+)'
+expect = "8"
+
+[[checks]]
+id = "csharp.band_y0"
+desc = "C# 检测带上界"
+spec_ref = "spec.md#3"
+file = "csharp/BlackYarnDetector.cs"
+pattern = 'BandY0\s*=\s*([0-9.]+)'
+expect = "0.34"
+
+[[checks]]
+id = "csharp.band_y1"
+desc = "C# 检测带下界"
+spec_ref = "spec.md#3"
+file = "csharp/BlackYarnDetector.cs"
+pattern = 'BandY1\s*=\s*([0-9.]+)'
+expect = "0.60"
+
+[[checks]]
+id = "csharp.feature_layers"
+desc = "C# DINOv2 拼接最后八层"
+spec_ref = "spec.md#2"
+file = "csharp/BlackYarnDetector.cs"
+pattern = 'FeatDim\s*=\s*768\s*\*\s*(\d+)'
+expect = "8"
+
+[[checks]]
+id = "illumination.ev_min"
+desc = "光照压力测试曝光下界"
+spec_ref = "spec.md#4.7"
+file = "src/illumination_stress_eval.py"
+pattern = 'EV_MIN\s*=\s*([-0-9.]+)'
+expect = "-1.5"
+
+[[checks]]
+id = "illumination.ev_max"
+desc = "光照压力测试曝光上界"
+spec_ref = "spec.md#4.7"
+file = "src/illumination_stress_eval.py"
+pattern = 'EV_MAX\s*=\s*([-0-9.]+)'
+expect = "1.5"
+
+[[checks]]
+id = "illumination.ev_step"
+desc = "光照压力测试曝光步长"
+spec_ref = "spec.md#4.7"
+file = "src/illumination_stress_eval.py"
+pattern = 'EV_STEP\s*=\s*([0-9.]+)'
+expect = "0.25"
+
+[[checks]]
+id = "illumination.safe_fpr"
+desc = "光照安全范围正常误报上限"
+spec_ref = "spec.md#4.7"
+file = "src/illumination_stress_eval.py"
+pattern = 'SAFE_FPR\s*=\s*([0-9.]+)'
+expect = "0.05"
+
+[[checks]]
+id = "illumination.reference_purity"
+desc = "光照实验参考库只允许正常帧"
+spec_ref = "spec.md#4.7"
+file = "src/illumination_stress_eval.py"
+must_contain = ["assert all(not r.dets for r in refs)", "original_ref", "adjusted_reference", "matched_recalibration"]
+
+[[checks]]
+id = "metrics.required_detection"
+desc = "统一评估器包含五项检测指标"
+spec_ref = "spec.md#4.8"
+file = "tools/evaluate_detection_metrics.py"
+must_contain = ["false_positive_rate", "recall", "precision", "auroc", "false_alarms_per_hour"]
+
+[[checks]]
+id = "metrics.required_localization"
+desc = "统一评估器包含点定位、框IoU和联合成功率"
+spec_ref = "spec.md#4.8"
+file = "tools/evaluate_detection_metrics.py"
+must_contain = ["point_hit_rate", "box_iou_median", "box_recall_iou_0_1", "box_recall_iou_0_3", "box_recall_iou_0_5", "alarm_and_point_hit_rate"]
+
+[[checks]]
+id = "metrics.hourly_requires_duration"
+desc = "每小时误报必须有显式连续时长"
+spec_ref = "spec.md#4.8"
+file = "tools/evaluate_detection_metrics.py"
+must_contain = ["observation_hours", "frame_period_seconds", "hourly_metric_unavailable_reason"]

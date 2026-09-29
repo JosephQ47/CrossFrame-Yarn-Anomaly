@@ -13,6 +13,13 @@
   DET_GATED=1 python deploy_black_detector.py ...           # 门控参考缓冲：报警帧不入池，防持续缺陷被吸收，默认关
 目录内文件名需可解析相机标识与时间顺序（默认按文件名排序）。
 输出: 报警叠加图 + alarms.jsonl（含相机/时间/分数/阈值/框）。
+
+@spec docs/spec.md#4.1
+@spec docs/spec.md#4.2
+@spec docs/spec.md#4.3
+@spec docs/spec.md#4.4
+@spec docs/spec.md#4.5
+@spec docs/spec.md#4.6
 """
 import os, sys, json, re, argparse
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"; os.environ["PYTHONUTF8"] = "1"
@@ -21,6 +28,7 @@ from collections import deque, defaultdict
 import numpy as np, cv2, torch, timm
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from black_yarn_detector import INTRUDER_MASK, band_lab, intruder_mask   # 可选入侵屏蔽，默认关
+from hand_gate import DetectionState, HandIntrusionGate, load_hand_events
 
 MODEL = os.environ.get("DET_MODEL", "vit_base_patch14_dinov2.lvd142m")
 LAYERS = int(os.environ.get("DET_LAYERS", 8))
@@ -32,6 +40,7 @@ GATED   = os.environ.get("DET_GATED", "0") == "1"  # 门控参考缓冲：报警
                                                   # 代价：低于阈值的漏检帧仍会被吸收；warm-up/标定期不门控
 GATE_MAX = int(os.environ.get("DET_GATE_MAX", 30))  # 连续 N 帧都被门控挡在池外时强制放行 1 帧：
                                                     # 否则场景漂移(换光/机修)会让每帧都报警、每帧都不入池，缓冲永远追不上新常态
+HAND_CLEAR_FRAMES = int(os.environ.get("HAND_CLEAR_FRAMES", "2"))
 BAND_Y0, BAND_Y1 = 0.34, 0.60
 TILE_W, TILE_H, OVERLAP = 588, 448, 140
 MEAN = np.array([0.485,0.456,0.406], np.float32); STD = np.array([0.229,0.224,0.225], np.float32)
@@ -115,8 +124,11 @@ def main():
     ap.add_argument("--thr", type=float, default=None, help="固定阈值(不给则按相机自校准)")
     ap.add_argument("--calib-dir", type=Path, default=None,
                     help="确认正常的帧目录:用于预填参考缓冲+定阈(真实产线流程,上线前先录一段正常运行)")
+    ap.add_argument("--hand-events", type=Path, default=None,
+                    help="可选 CSV，列为 file,hand_intrusion；复用现役人手检测结果做门控")
     a = ap.parse_args()
     a.out.mkdir(parents=True, exist_ok=True)
+    hand_events = load_hand_events(a.hand_events)
 
     dev = "cuda" if torch.cuda.is_available() else "cpu"
     model = timm.create_model(MODEL, pretrained=True, num_classes=0, dynamic_img_size=True).eval().to(dev)
@@ -126,9 +138,9 @@ def main():
     bufs = defaultdict(lambda: deque(maxlen=BUF))     # cam → 历史特征
     labs = defaultdict(lambda: deque(maxlen=BUF))     # cam → 历史帧筘齿带 LAB 缩略图（入侵屏蔽用，约 1 MB/帧）
     gate_run = defaultdict(int)                       # cam → 连续被门控挡在池外的帧数
+    hand_gates = defaultdict(lambda: HandIntrusionGate(HAND_CLEAR_FRAMES))
     def mask_for(lab_cur, lab_refs, gh, gw):
         return ~intruder_mask(lab_cur, list(lab_refs), gh, gw) if INTRUDER_MASK else None
-    warm = defaultdict(list)                          # cam → warm-up 期分数(用于自校准)
     thrs = {}                                         # cam → 阈值
     # ── 标定阶段:用确认正常的帧预填缓冲并定阈(产线流程) ──
     if a.calib_dir and a.calib_dir.exists():
@@ -136,11 +148,17 @@ def main():
         for p in sorted(a.calib_dir.iterdir()):
             if p.suffix.lower() not in (".jpg", ".jpeg", ".png"): continue
             m = re.search(a.cam_regex, p.name)
+            cam = m.group(1) if m else "default"
+            hand_intrusion = hand_events.get(p.name, False)
+            gate_state = hand_gates[cam].update(hand_intrusion)
+            if gate_state is not None:
+                print(f"  [标定跳过 {cam}] {p.name[:44]:<44} {gate_state.value}")
+                continue
             img = read_bgr(p)
             if img is None: continue
             f, y0, y1 = band_feat(model, dev, img)
             lb = band_lab(img, y0, y1, f.shape[0], f.shape[1]) if INTRUDER_MASK else None
-            cal[m.group(1) if m else "default"].append((f, img.shape[:2], y0, y1, lb))
+            cal[cam].append((f, img.shape[:2], y0, y1, lb))
         for cam, items in cal.items():
             for f, _, _, _, lb in items[-BUF:]:
                 bufs[cam].append(f)
@@ -164,15 +182,28 @@ def main():
     for p in files:
         m = re.search(a.cam_regex, p.name)
         cam = m.group(1) if m else "default"
+        hand_intrusion = hand_events.get(p.name, False)
+        gate_state = hand_gates[cam].update(hand_intrusion)
+        if gate_state is not None:
+            log.write(json.dumps(dict(
+                file=p.name, cam=cam, state=gate_state.value,
+                hand_intrusion=bool(hand_intrusion), score=None,
+                threshold=None, alarm=False, box=None,
+            ), ensure_ascii=False) + "\n")
+            print(f"  {p.name[:44]:<44} {cam:<6} {gate_state.value}")
+            continue
+
         img = read_bgr(p)
         if img is None: continue
         feat, y0, y1 = band_feat(model, dev, img)
         lab_cur = band_lab(img, y0, y1, feat.shape[0], feat.shape[1]) if INTRUDER_MASK else None
         refs = list(bufs[cam])
-        status = "warmup"
+        state = DetectionState.NOT_READY
+        score = threshold = box = None
+        alarm = False
         if len(refs) >= MIN_REF:
             valid = mask_for(lab_cur, labs[cam], *feat.shape[:2])
-            score, box, hm = analyze(feat, refs, img.shape[:2], y0, y1, valid=valid)
+            score, box, _hm = analyze(feat, refs, img.shape[:2], y0, y1, valid=valid)
             thr = a.thr if a.thr is not None else thrs.get(cam)
             if thr is None:
                 # 留一法(LOO)自校准:用缓冲区自身立刻定阈,无需额外等待帧
@@ -191,31 +222,36 @@ def main():
                           f"(缓冲{len(loo)}帧, 中位{np.median(loo):.0f})")
                     thr = thrs[cam]
             if thr is None:
-                status = "calibrating"
+                state = DetectionState.NOT_READY
             else:
+                threshold = float(thr)
                 alarm = score >= thr
-                status = "ALARM" if alarm else "ok"
+                state = DetectionState.YARN_DEFECT if alarm else DetectionState.NORMAL
                 if alarm:
                     n_alarm += 1
-                    hn = np.clip((hm-hm.min())/(hm.max()-hm.min()+1e-6),0,1)
-                    vis = cv2.addWeighted(img, 0.6, cv2.applyColorMap((hn*255).astype(np.uint8), cv2.COLORMAP_JET), 0.4, 0)
+                    vis = img.copy()
                     if box: cv2.rectangle(vis, (box[0],box[1]), (box[2],box[3]), (0,0,255), 4)
                     cv2.putText(vis, f"ALARM score={score:.0f} thr={thr:.0f}", (30, 60),
                                 cv2.FONT_HERSHEY_SIMPLEX, 1.6, (0,0,255), 3)
                     imwrite(a.out/f"ALARM_{p.stem}.jpg", vis)
-                log.write(json.dumps(dict(file=p.name, cam=cam, score=round(score,1),
-                                          threshold=round(thr,1), alarm=bool(alarm), box=box),
-                                     ensure_ascii=False)+"\n")
-        if GATED and status == "ALARM" and gate_run[cam] < GATE_MAX:
-            status = "ALARM(未入池)"          # 门控：报警帧不进参考池
+        display_state = state.value
+        if GATED and alarm and gate_run[cam] < GATE_MAX:
+            display_state += "(未入池)"          # 门控：报警帧不进参考池
             gate_run[cam] += 1
         else:
-            if GATED and status == "ALARM":
-                status = "ALARM(强制入池)"    # 连续被挡 GATE_MAX 帧，放行以跟上新常态
+            if GATED and alarm:
+                display_state += "(强制入池)"    # 连续被挡 GATE_MAX 帧，放行以跟上新常态
             gate_run[cam] = 0
             bufs[cam].append(feat)
             if INTRUDER_MASK: labs[cam].append(lab_cur)
-        print(f"  {p.name[:44]:<44} {cam:<6} {status}")
+        log.write(json.dumps(dict(
+            file=p.name, cam=cam, state=state.value,
+            hand_intrusion=False,
+            score=round(float(score), 1) if score is not None else None,
+            threshold=round(threshold, 1) if threshold is not None else None,
+            alarm=bool(alarm), box=box,
+        ), ensure_ascii=False) + "\n")
+        print(f"  {p.name[:44]:<44} {cam:<6} {display_state}")
     log.close()
     print(f"\n处理 {len(files)} 帧 | 报警 {n_alarm} 次 | 输出 {a.out}")
     print(f"日志: {a.out/'alarms.jsonl'}")

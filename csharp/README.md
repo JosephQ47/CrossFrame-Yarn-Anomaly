@@ -19,6 +19,37 @@ OpenCvSharp + ONNX Runtime）中的落地实现，已集成进现役系统作为
 **一致性核验结论**：同后端（均 CPU）下，80 张现场图、32 个判定帧，
 **分数与阈值 32/32 完全相同**。
 
+## 人手入侵门控
+
+黑纱检测器不自行判断人手，而是消费现役系统已经得到的逐帧布尔结果：
+
+```csharp
+BlackYarnDetector.Result result = detector.Process(camIdx, frame, handDetected);
+switch (result.State)
+{
+    case BlackYarnDetector.DetectionState.HandIntrusion:
+        // 继续使用原系统的人手报警、存图和日志；此处不报纱线缺陷
+        break;
+    case BlackYarnDetector.DetectionState.Recovering:
+    case BlackYarnDetector.DetectionState.NotReady:
+        // 暂不判定
+        break;
+    case BlackYarnDetector.DetectionState.YarnDefect:
+        // result.Alarm == true，可使用 result.Box 画普通检测框
+        break;
+}
+```
+
+人手出现时输出 `HandIntrusion`，不提取纱线特征、不判定、不更新阈值或参考池；
+人手消失后的第一帧输出 `Recovering`，连续第二帧无人手才恢复。原有
+`Process(camIdx, frame)` 保留，等价于第三个参数传 `false`。
+
+纯状态机回归可独立运行，不需要模型和 OpenCvSharp：
+
+```bash
+dotnet run --project csharp/tests/HandIntrusionGateTests.csproj
+```
+
 **⚠️ CPU 与 GPU 会有细微差别**：同一批图，C#(CPU) 与 Python(GPU) 有 6/32 帧不同
 （如 Cam2 阈值 47.82 ↔ 44.23、某帧分数 8 ↔ 6）。这是 Transformer 前向的浮点差异
 在 P99 边界翻动了个别 patch，**两边都不算错**；但意味着基准里那组 94% 召回 / 5% 误报

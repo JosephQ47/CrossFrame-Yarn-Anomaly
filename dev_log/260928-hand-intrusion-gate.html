@@ -1,0 +1,14 @@
+<meta charset="utf-8">
+<title>人手入侵与纱线缺陷双状态门控</title>
+<style>body{font:16px/1.65 -apple-system,"Microsoft YaHei",sans-serif;max-width:900px;margin:32px auto;padding:0 20px;color:#222}h1{font-size:26px}h2{border-bottom:1px solid #ddd;padding-bottom:5px;margin-top:30px}.ok{color:#087f45;font-weight:600}code,pre{background:#f4f5f7;padding:2px 5px;border-radius:4px}pre{padding:12px;overflow:auto}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ddd;padding:7px;text-align:left}</style>
+<h1>人手入侵与纱线缺陷双状态门控</h1>
+<p>CrossFrame-Yarn-Anomaly · 2026-09-28 · <span class="ok">自动化验收通过</span></p>
+<h2>结论</h2>
+<p>人手检测结果现在在纱线特征提取前作为每路相机的门控输入。人手帧输出 <code>HAND_INTRUSION</code>，人手消失后的第一帧输出 <code>RECOVERING</code>，第二帧无人手后才恢复原检测；门控帧不产生纱线分数、框、报警，也不进入参考池。</p>
+<h2>实现</h2>
+<ul><li><code>docs/spec.md</code>：新增批准规格与状态/接口契约。</li><li><code>src/hand_gate.py</code>：Python 状态机和 CSV 事件输入。</li><li><code>src/deploy_black_detector.py</code>：部署回放门控，包含标定阶段。</li><li><code>csharp/HandIntrusionGate.cs</code>：C# 纯状态机；<code>BlackYarnDetector.cs</code> 新增三参数重载并保留旧接口。</li></ul>
+<h2>证据</h2>
+<table><tr><th>命令</th><th>结果</th></tr><tr><td><code>python tools/test_hand_gate.py</code></td><td>8 tests OK</td></tr><tr><td><code>dotnet run --project csharp/tests/HandIntrusionGateTests.csproj</code></td><td>25 assertions PASS</td></tr><tr><td><code>python tools/spec_check.py --root .</code></td><td>15/15 contracts PASS</td></tr></table>
+<p>详细验收：<code>docs/acceptance-hand-intrusion-gate.md</code>；原始输出：<code>dev_log/hand-intrusion-gate_evidence/</code>。</p>
+<h2>边界</h2>
+<p>现役人手检测器和调用源码不在仓库，因此尚未执行现场接线、影子模式和完整产线工程编译。这些不影响本仓库状态机与接口验收。</p>

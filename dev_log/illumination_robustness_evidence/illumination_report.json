@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-09-28 23:41:38",
+  "device": "cuda",
+  "suite": "ev",
+  "cams": [
+    "Cam1",
+    "Cam2",
+    "Cam3",
+    "Cam4",
+    "Cam5",
+    "Cam6"
+  ],
+  "dataset": {
+    "frames": 69,
+    "normal": 53,
+    "defect": 16
+  },
+  "baseline_recall_count": 15,
+  "safe_rule": {
+    "fpr_max": 0.05,
+    "recall_drop_frames": 1,
+    "location_hits_min": 14
+  },
+  "exposure_boundaries": {
+    "original_ref": {
+      "safe_values": [],
+      "contiguous_safe_values": [],
+      "min_ev": null,
+      "max_ev": null
+    },
+    "adjusted_reference": {
+      "safe_values": [],
+      "contiguous_safe_values": [],
+      "min_ev": null,
+      "max_ev": null
+    },
+    "matched_recalibration": {
+      "safe_values": [
+        1.5
+      ],
+      "contiguous_safe_values": [],
+      "min_ev": null,
+      "max_ev": null
+    }
+  },
+  "caveat": "合成光度边界不等于真实照度/色温边界，须由冻结参数的现场早中晚数据复验。"
+}

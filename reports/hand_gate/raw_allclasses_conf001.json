@@ -1,0 +1,13 @@
+{
+  "model": "D:\\研究生课程\\课题\\添加按键拍照功能\\纱浆检测\\YarnDection\\bin\\x64\\Release\\testdll\\persons.onnx",
+  "classes": [
+    "person",
+    "face",
+    "hand"
+  ],
+  "confidence": 0.01,
+  "iou": 0.45,
+  "images": 80,
+  "labelled_images": 0,
+  "note": "No labels supplied; prediction inventory only."
+}

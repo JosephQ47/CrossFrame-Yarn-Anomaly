@@ -102,13 +102,8 @@ def run(recs, F, labs, clean_ref, use_mask, tag, save_overlay):
             m = np.zeros((H, W), np.float32)
             m[r["y0"]:r["y1"]] = cv2.resize(anom, (W, r["y1"] - r["y0"]), interpolation=cv2.INTER_CUBIC)
             m = cv2.GaussianBlur(m, (0, 0), 9)
-            hn = np.clip((m - m.min()) / (m.max() - m.min() + 1e-6), 0, 1)
-            vis = cv2.addWeighted(img, 0.62, cv2.applyColorMap((hn * 255).astype(np.uint8), cv2.COLORMAP_JET), 0.38, 0)
-            if (~valid).any():
-                mk = cv2.resize((~valid).astype(np.uint8), (W, r["y1"] - r["y0"]), interpolation=cv2.INTER_NEAREST)
-                full = np.zeros((H, W), np.uint8); full[r["y0"]:r["y1"]] = mk
-                grey = vis.copy(); grey[full > 0] = (70, 70, 70)
-                vis = cv2.addWeighted(vis, 0.35, grey, 0.65, 0)
+            # 可视化使用与 score_with_valid 相同的有效区域；灰色区域不参与定位。
+            vis = D.render_anomaly_overlay(img, m, r["y0"], r["y1"], valid, alpha=0.38)
             for b in r["dets"]:
                 cv2.rectangle(vis, (int(b[0]), int(b[1])), (int(b[2]), int(b[3])), (255, 255, 255), 4)
             if bx: cv2.rectangle(vis, (bx[0], bx[1]), (bx[2], bx[3]), (0, 0, 255), 4)

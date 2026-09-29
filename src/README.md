@@ -62,7 +62,8 @@ gitignore 掉的 `outputs/` 后手工挑选重命名入库。`fig16`/`fig17` 同
 
 | 脚本 | 作用 |
 |---|---|
-| `deploy_black_detector.py` | 现场部署版：参考只用**历史帧**（因果滚动缓冲），warm-up ≥8 帧才判定，阈值按相机自校准取 P95。与基准评估的留一法不同，这是产线真实流程。 |
+| `deploy_black_detector.py` | 现场部署版：参考只用**历史帧**（因果滚动缓冲），warm-up ≥8 帧才判定，阈值按相机自校准；可用 `--hand-events file.csv` 回放现役人手检测事件，门控人手帧和第一张恢复帧。与基准评估的留一法不同，这是产线真实流程。 |
+| `hand_gate.py` | 无模型的人手门控状态机与 `file,hand_intrusion` CSV 解析；状态为 `HAND_INTRUSION/RECOVERING` 时不进入纱线检测和参考池。 |
 | `export_dinov2_onnx.py` | 导出特征骨干为 ONNX 给 C#/onnxruntime。输入 (1,3,448,588)，输出 (1,1344,6144) 已 L2 归一化。 |
 | `verify_onnx_pipeline.py` | 整条流水线一致性核验（切 tile / 归一化 / 特征拼接 / 连通域 / 自校准）。**工厂部署前必跑**——任何一处写错都是静默失效，不报错、只是不报警。 |
 

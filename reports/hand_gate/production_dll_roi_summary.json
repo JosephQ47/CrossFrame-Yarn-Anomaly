@@ -1,0 +1,15 @@
+{
+  "implementation": "production DetectPerson.dll",
+  "fallback_crops": false,
+  "dark_fallbacks": false,
+  "model": "D:\\研究生课程\\课题\\添加按键拍照功能\\纱浆检测\\YarnDection\\bin\\x64\\Release\\testdll\\persons.onnx",
+  "images": 186,
+  "tp": 5,
+  "fp": 0,
+  "tn": 181,
+  "fn": 0,
+  "recall": 1.0,
+  "false_positive_rate": 0.0,
+  "precision": 1.0,
+  "f1": 1.0
+}

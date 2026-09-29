@@ -1,0 +1,2 @@
+命令：python tools/spec_check.py --root .
+结果：契约 15 项 PASS，FAIL 0；回指检查 0 FAIL（既有未标记脚本为 WARN）。

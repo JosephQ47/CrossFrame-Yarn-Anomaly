@@ -40,3 +40,12 @@ Tree check: main^{tree} == origin/main^{tree} == 2e9734931fb5771b1bd9e8247c71fb0
 Action: connected both histories on feat/yarn-algorithm-selection with an ours-strategy merge.
 Merge commit: 6731ef8.
 Safety check: feature tree before == feature tree after == 6d68cd055a5b5892ac894796af46e830e65878c6.
+
+[7] UI safety and visibility completion (2026-09-30)
+- Opening parameter editor is rejected while connect.StartFlag is true.
+- Editor uses a fresh form instance each time; active runtime mode remains immutable until restart.
+- Main window title exposes active mode, CPU/CUDA backend, black-yarn state counts, disabled camera count, and pending-restart state.
+- White/black model initialization failures write UI, file log, and SQLite system log without cross-algorithm fallback.
+- Pure tests: PASS, 15 assertions.
+- Debug|x64 rebuild: 0 errors, 4 pre-existing warnings.
+- Release|x64 rebuild: 0 errors, 4 pre-existing warnings.

@@ -1,0 +1,9220 @@
+{
+  "summary": {
+    "m4_p99_component": {
+      "auroc": 0.8667452830188679,
+      "ap": 0.6845709213845459,
+      "detected": 10,
+      "false_alarms": 11,
+      "point_hits": 15,
+      "alarm_and_point_hits": 10
+    },
+    "m4_original": {
+      "method": "M4",
+      "frames": 69,
+      "positive_frames": 16,
+      "image_auroc": 0.8195754716981132,
+      "image_ap": 0.5248664944446678,
+      "fixed_val_threshold_recall": 0.8125,
+      "fixed_val_threshold_fpr": 0.1320754716981132,
+      "point_hits": 15,
+      "alarm_and_point_hits": 12,
+      "point_total": 16,
+      "epochs": 20,
+      "seed": 20261024,
+      "projection_dim": 64,
+      "retrospective_reference": true,
+      "independent_fault_test": false,
+      "elapsed_seconds": 278.11
+    },
+    "max_m4_top_mean_replay_delta": 9.936094284057617e-05,
+    "m0_candidate_point_coverage": {
+      "top1": 15,
+      "top3": 15,
+      "top5": 15
+    },
+    "positive_frames": 16,
+    "all_frames": 69,
+    "data_scope": "69 frames, one known defect event; exploratory only"
+  },
+  "m4_rows": [
+    {
+      "id": "DI2_Cam1_2026-07-18_10-10-14-549",
+      "cam": "Cam1",
+      "defect": false,
+      "score": 20.0,
+      "top_mean": 0.07541247457265854,
+      "point": [
+        184,
+        911
+      ],
+      "pred_box": [
+        154,
+        889,
+        238,
+        948
+      ],
+      "point_hit": false,
+      "fold": 1,
+      "val_cam": "Cam2",
+      "threshold": 25.999999999999996,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-11-40-176",
+      "cam": "Cam1",
+      "defect": true,
+      "score": 27.0,
+      "top_mean": 0.2517662048339844,
+      "point": [
+        1438,
+        846
+      ],
+      "pred_box": [
+        1389,
+        816,
+        1501,
+        889
+      ],
+      "point_hit": true,
+      "fold": 1,
+      "val_cam": "Cam2",
+      "threshold": 25.999999999999996,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-11-45-636",
+      "cam": "Cam1",
+      "defect": true,
+      "score": 34.0,
+      "top_mean": 0.2965911328792572,
+      "point": [
+        1870,
+        833
+      ],
+      "pred_box": [
+        1810,
+        787,
+        1922,
+        889
+      ],
+      "point_hit": true,
+      "fold": 1,
+      "val_cam": "Cam2",
+      "threshold": 25.999999999999996,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-11-55-175",
+      "cam": "Cam1",
+      "defect": false,
+      "score": 23.0,
+      "top_mean": 0.01883254386484623,
+      "point": [
+        300,
+        909
+      ],
+      "pred_box": [
+        266,
+        875,
+        350,
+        963
+      ],
+      "point_hit": false,
+      "fold": 1,
+      "val_cam": "Cam2",
+      "threshold": 25.999999999999996,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-11-56-690",
+      "cam": "Cam1",
+      "defect": false,
+      "score": 16.0,
+      "top_mean": 0.1396487057209015,
+      "point": [
+        653,
+        910
+      ],
+      "pred_box": [
+        631,
+        875,
+        687,
+        963
+      ],
+      "point_hit": false,
+      "fold": 1,
+      "val_cam": "Cam2",
+      "threshold": 25.999999999999996,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-14-15-404",
+      "cam": "Cam1",
+      "defect": false,
+      "score": 20.0,
+      "top_mean": 0.10136022418737411,
+      "point": [
+        677,
+        891
+      ],
+      "pred_box": [
+        631,
+        860,
+        743,
+        977
+      ],
+      "point_hit": false,
+      "fold": 1,
+      "val_cam": "Cam2",
+      "threshold": 25.999999999999996,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-14-40-482",
+      "cam": "Cam1",
+      "defect": true,
+      "score": 49.0,
+      "top_mean": 0.4279976189136505,
+      "point": [
+        685,
+        914
+      ],
+      "pred_box": [
+        631,
+        846,
+        757,
+        992
+      ],
+      "point_hit": true,
+      "fold": 1,
+      "val_cam": "Cam2",
+      "threshold": 25.999999999999996,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-14-54-478",
+      "cam": "Cam1",
+      "defect": true,
+      "score": 53.0,
+      "top_mean": 0.6227841377258301,
+      "point": [
+        1882,
+        833
+      ],
+      "pred_box": [
+        1810,
+        787,
+        1964,
+        889
+      ],
+      "point_hit": true,
+      "fold": 1,
+      "val_cam": "Cam2",
+      "threshold": 25.999999999999996,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-17-33-756",
+      "cam": "Cam1",
+      "defect": false,
+      "score": 13.0,
+      "top_mean": 0.032883793115615845,
+      "point": [
+        720,
+        860
+      ],
+      "pred_box": [
+        687,
+        846,
+        771,
+        889
+      ],
+      "point_hit": false,
+      "fold": 1,
+      "val_cam": "Cam2",
+      "threshold": 25.999999999999996,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-17-44-354",
+      "cam": "Cam1",
+      "defect": false,
+      "score": 11.0,
+      "top_mean": 0.0602668859064579,
+      "point": [
+        1426,
+        832
+      ],
+      "pred_box": [
+        1389,
+        816,
+        1487,
+        860
+      ],
+      "point_hit": false,
+      "fold": 1,
+      "val_cam": "Cam2",
+      "threshold": 25.999999999999996,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-17-49-889",
+      "cam": "Cam1",
+      "defect": false,
+      "score": 26.0,
+      "top_mean": 0.054185885936021805,
+      "point": [
+        165,
+        938
+      ],
+      "pred_box": [
+        112,
+        889,
+        238,
+        1021
+      ],
+      "point_hit": false,
+      "fold": 1,
+      "val_cam": "Cam2",
+      "threshold": 25.999999999999996,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-18-02-377",
+      "cam": "Cam1",
+      "defect": false,
+      "score": 11.0,
+      "top_mean": 0.025585660710930824,
+      "point": [
+        719,
+        861
+      ],
+      "pred_box": [
+        687,
+        846,
+        757,
+        889
+      ],
+      "point_hit": false,
+      "fold": 1,
+      "val_cam": "Cam2",
+      "threshold": 25.999999999999996,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-18-03-404",
+      "cam": "Cam1",
+      "defect": false,
+      "score": 23.0,
+      "top_mean": 0.1251891553401947,
+      "point": [
+        178,
+        941
+      ],
+      "pred_box": [
+        140,
+        889,
+        224,
+        1021
+      ],
+      "point_hit": false,
+      "fold": 1,
+      "val_cam": "Cam2",
+      "threshold": 25.999999999999996,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-10-14-552",
+      "cam": "Cam2",
+      "defect": false,
+      "score": 11.0,
+      "top_mean": 0.19833993911743164,
+      "point": [
+        1351,
+        798
+      ],
+      "pred_box": [
+        1333,
+        772,
+        1375,
+        846
+      ],
+      "point_hit": false,
+      "fold": 2,
+      "val_cam": "Cam3",
+      "threshold": 41.0,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-11-40-181",
+      "cam": "Cam2",
+      "defect": true,
+      "score": 33.0,
+      "top_mean": 0.6988121271133423,
+      "point": [
+        2101,
+        852
+      ],
+      "pred_box": [
+        2063,
+        802,
+        2161,
+        933
+      ],
+      "point_hit": true,
+      "fold": 2,
+      "val_cam": "Cam3",
+      "threshold": 41.0,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-11-45-634",
+      "cam": "Cam2",
+      "defect": true,
+      "score": 37.0,
+      "top_mean": 0.5791398286819458,
+      "point": [
+        2417,
+        866
+      ],
+      "pred_box": [
+        2371,
+        831,
+        2484,
+        919
+      ],
+      "point_hit": true,
+      "fold": 2,
+      "val_cam": "Cam3",
+      "threshold": 41.0,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-11-55-176",
+      "cam": "Cam2",
+      "defect": false,
+      "score": 11.0,
+      "top_mean": 0.22469337284564972,
+      "point": [
+        743,
+        770
+      ],
+      "pred_box": [
+        729,
+        743,
+        785,
+        816
+      ],
+      "point_hit": false,
+      "fold": 2,
+      "val_cam": "Cam3",
+      "threshold": 41.0,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-11-56-689",
+      "cam": "Cam2",
+      "defect": false,
+      "score": 13.0,
+      "top_mean": 0.45505642890930176,
+      "point": [
+        2377,
+        838
+      ],
+      "pred_box": [
+        2357,
+        816,
+        2414,
+        875
+      ],
+      "point_hit": false,
+      "fold": 2,
+      "val_cam": "Cam3",
+      "threshold": 41.0,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-14-15-408",
+      "cam": "Cam2",
+      "defect": false,
+      "score": 14.0,
+      "top_mean": 0.37406232953071594,
+      "point": [
+        1347,
+        802
+      ],
+      "pred_box": [
+        1305,
+        772,
+        1389,
+        846
+      ],
+      "point_hit": false,
+      "fold": 2,
+      "val_cam": "Cam3",
+      "threshold": 41.0,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-14-40-480",
+      "cam": "Cam2",
+      "defect": true,
+      "score": 55.0,
+      "top_mean": 0.8254247307777405,
+      "point": [
+        1342,
+        830
+      ],
+      "pred_box": [
+        1277,
+        758,
+        1417,
+        904
+      ],
+      "point_hit": true,
+      "fold": 2,
+      "val_cam": "Cam3",
+      "threshold": 41.0,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-14-54-481",
+      "cam": "Cam2",
+      "defect": true,
+      "score": 44.0,
+      "top_mean": 0.7623516321182251,
+      "point": [
+        2432,
+        862
+      ],
+      "pred_box": [
+        2371,
+        816,
+        2512,
+        933
+      ],
+      "point_hit": true,
+      "fold": 2,
+      "val_cam": "Cam3",
+      "threshold": 41.0,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-17-33-758",
+      "cam": "Cam2",
+      "defect": false,
+      "score": 16.0,
+      "top_mean": 0.37118837237358093,
+      "point": [
+        1356,
+        792
+      ],
+      "pred_box": [
+        1333,
+        758,
+        1389,
+        846
+      ],
+      "point_hit": false,
+      "fold": 2,
+      "val_cam": "Cam3",
+      "threshold": 41.0,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-17-44-355",
+      "cam": "Cam2",
+      "defect": false,
+      "score": 15.0,
+      "top_mean": 0.33958813548088074,
+      "point": [
+        1343,
+        795
+      ],
+      "pred_box": [
+        1319,
+        758,
+        1375,
+        860
+      ],
+      "point_hit": false,
+      "fold": 2,
+      "val_cam": "Cam3",
+      "threshold": 41.0,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-17-49-889",
+      "cam": "Cam2",
+      "defect": false,
+      "score": 15.0,
+      "top_mean": 0.34694522619247437,
+      "point": [
+        2458,
+        842
+      ],
+      "pred_box": [
+        2414,
+        816,
+        2512,
+        889
+      ],
+      "point_hit": false,
+      "fold": 2,
+      "val_cam": "Cam3",
+      "threshold": 41.0,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-18-02-517",
+      "cam": "Cam2",
+      "defect": false,
+      "score": 17.0,
+      "top_mean": 0.4059024751186371,
+      "point": [
+        1357,
+        792
+      ],
+      "pred_box": [
+        1333,
+        758,
+        1389,
+        846
+      ],
+      "point_hit": false,
+      "fold": 2,
+      "val_cam": "Cam3",
+      "threshold": 41.0,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-18-03-407",
+      "cam": "Cam2",
+      "defect": false,
+      "score": 10.0,
+      "top_mean": 0.4210594892501831,
+      "point": [
+        2364,
+        838
+      ],
+      "pred_box": [
+        2343,
+        816,
+        2400,
+        875
+      ],
+      "point_hit": false,
+      "fold": 2,
+      "val_cam": "Cam3",
+      "threshold": 41.0,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-10-14-550",
+      "cam": "Cam3",
+      "defect": false,
+      "score": 16.0,
+      "top_mean": 0.1009199246764183,
+      "point": [
+        2863,
+        880
+      ],
+      "pred_box": [
+        2821,
+        860,
+        2905,
+        933
+      ],
+      "point_hit": false,
+      "fold": 3,
+      "val_cam": "Cam4",
+      "threshold": 44.4,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-11-40-175",
+      "cam": "Cam3",
+      "defect": false,
+      "score": 18.0,
+      "top_mean": 0.5732495784759521,
+      "point": [
+        2884,
+        909
+      ],
+      "pred_box": [
+        2863,
+        875,
+        2933,
+        977
+      ],
+      "point_hit": false,
+      "fold": 3,
+      "val_cam": "Cam4",
+      "threshold": 44.4,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-11-45-637",
+      "cam": "Cam3",
+      "defect": false,
+      "score": 18.0,
+      "top_mean": 0.12722612917423248,
+      "point": [
+        2867,
+        882
+      ],
+      "pred_box": [
+        2821,
+        860,
+        2919,
+        933
+      ],
+      "point_hit": false,
+      "fold": 3,
+      "val_cam": "Cam4",
+      "threshold": 44.4,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-11-55-177",
+      "cam": "Cam3",
+      "defect": false,
+      "score": 55.0,
+      "top_mean": 0.6319382786750793,
+      "point": [
+        698,
+        906
+      ],
+      "pred_box": [
+        631,
+        860,
+        814,
+        977
+      ],
+      "point_hit": false,
+      "fold": 3,
+      "val_cam": "Cam4",
+      "threshold": 44.4,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-11-56-691",
+      "cam": "Cam3",
+      "defect": true,
+      "score": 37.0,
+      "top_mean": 0.8587028384208679,
+      "point": [
+        689,
+        910
+      ],
+      "pred_box": [
+        631,
+        875,
+        771,
+        977
+      ],
+      "point_hit": true,
+      "fold": 3,
+      "val_cam": "Cam4",
+      "threshold": 44.4,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-14-15-409",
+      "cam": "Cam3",
+      "defect": true,
+      "score": 44.0,
+      "top_mean": 0.928573727607727,
+      "point": [
+        679,
+        900
+      ],
+      "pred_box": [
+        617,
+        860,
+        743,
+        992
+      ],
+      "point_hit": true,
+      "fold": 3,
+      "val_cam": "Cam4",
+      "threshold": 44.4,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-14-40-488",
+      "cam": "Cam3",
+      "defect": false,
+      "score": 22.0,
+      "top_mean": 0.6516091227531433,
+      "point": [
+        2868,
+        893
+      ],
+      "pred_box": [
+        2821,
+        860,
+        2933,
+        948
+      ],
+      "point_hit": false,
+      "fold": 3,
+      "val_cam": "Cam4",
+      "threshold": 44.4,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-14-54-482",
+      "cam": "Cam3",
+      "defect": false,
+      "score": 33.0,
+      "top_mean": 0.7412578463554382,
+      "point": [
+        2895,
+        906
+      ],
+      "pred_box": [
+        2863,
+        860,
+        2975,
+        977
+      ],
+      "point_hit": false,
+      "fold": 3,
+      "val_cam": "Cam4",
+      "threshold": 44.4,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-17-33-757",
+      "cam": "Cam3",
+      "defect": false,
+      "score": 35.0,
+      "top_mean": 0.23261615633964539,
+      "point": [
+        2882,
+        903
+      ],
+      "pred_box": [
+        2821,
+        860,
+        2933,
+        977
+      ],
+      "point_hit": false,
+      "fold": 3,
+      "val_cam": "Cam4",
+      "threshold": 44.4,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-17-44-358",
+      "cam": "Cam3",
+      "defect": false,
+      "score": 37.0,
+      "top_mean": 0.4682605266571045,
+      "point": [
+        2899,
+        898
+      ],
+      "pred_box": [
+        2835,
+        860,
+        2989,
+        977
+      ],
+      "point_hit": false,
+      "fold": 3,
+      "val_cam": "Cam4",
+      "threshold": 44.4,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-17-49-891",
+      "cam": "Cam3",
+      "defect": false,
+      "score": 26.0,
+      "top_mean": 0.27586469054222107,
+      "point": [
+        268,
+        902
+      ],
+      "pred_box": [
+        210,
+        875,
+        336,
+        948
+      ],
+      "point_hit": false,
+      "fold": 3,
+      "val_cam": "Cam4",
+      "threshold": 44.4,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-18-02-520 - 副本",
+      "cam": "Cam3",
+      "defect": false,
+      "score": 31.0,
+      "top_mean": 0.24053210020065308,
+      "point": [
+        2869,
+        893
+      ],
+      "pred_box": [
+        2821,
+        860,
+        2933,
+        948
+      ],
+      "point_hit": false,
+      "fold": 3,
+      "val_cam": "Cam4",
+      "threshold": 44.4,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-18-03-405",
+      "cam": "Cam3",
+      "defect": false,
+      "score": 23.0,
+      "top_mean": 0.6911213397979736,
+      "point": [
+        2876,
+        900
+      ],
+      "pred_box": [
+        2835,
+        875,
+        2933,
+        963
+      ],
+      "point_hit": false,
+      "fold": 3,
+      "val_cam": "Cam4",
+      "threshold": 44.4,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-10-14-561",
+      "cam": "Cam4",
+      "defect": false,
+      "score": 38.0,
+      "top_mean": 0.06569749861955643,
+      "point": [
+        2869,
+        833
+      ],
+      "pred_box": [
+        2821,
+        787,
+        2933,
+        919
+      ],
+      "point_hit": false,
+      "fold": 4,
+      "val_cam": "Cam5",
+      "threshold": 25.849999999999994,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-11-40-179",
+      "cam": "Cam4",
+      "defect": false,
+      "score": 28.0,
+      "top_mean": 0.3768535256385803,
+      "point": [
+        2824,
+        820
+      ],
+      "pred_box": [
+        2764,
+        772,
+        2877,
+        904
+      ],
+      "point_hit": false,
+      "fold": 4,
+      "val_cam": "Cam5",
+      "threshold": 25.849999999999994,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-11-45-648",
+      "cam": "Cam4",
+      "defect": false,
+      "score": 40.0,
+      "top_mean": 0.054353006184101105,
+      "point": [
+        2855,
+        832
+      ],
+      "pred_box": [
+        2807,
+        772,
+        2933,
+        904
+      ],
+      "point_hit": false,
+      "fold": 4,
+      "val_cam": "Cam5",
+      "threshold": 25.849999999999994,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-11-55-179",
+      "cam": "Cam4",
+      "defect": true,
+      "score": 51.0,
+      "top_mean": 0.3437897861003876,
+      "point": [
+        1353,
+        795
+      ],
+      "pred_box": [
+        1291,
+        743,
+        1431,
+        875
+      ],
+      "point_hit": true,
+      "fold": 4,
+      "val_cam": "Cam5",
+      "threshold": 25.849999999999994,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-11-56-694",
+      "cam": "Cam4",
+      "defect": true,
+      "score": 24.0,
+      "top_mean": 0.7709309458732605,
+      "point": [
+        1367,
+        817
+      ],
+      "pred_box": [
+        1305,
+        772,
+        1431,
+        875
+      ],
+      "point_hit": true,
+      "fold": 4,
+      "val_cam": "Cam5",
+      "threshold": 25.849999999999994,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-14-15-405",
+      "cam": "Cam4",
+      "defect": false,
+      "score": 28.0,
+      "top_mean": 0.6012291312217712,
+      "point": [
+        1420,
+        833
+      ],
+      "pred_box": [
+        1375,
+        787,
+        1501,
+        889
+      ],
+      "point_hit": false,
+      "fold": 4,
+      "val_cam": "Cam5",
+      "threshold": 25.849999999999994,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-14-40-475",
+      "cam": "Cam4",
+      "defect": false,
+      "score": 34.0,
+      "top_mean": 0.9800888299942017,
+      "point": [
+        2489,
+        867
+      ],
+      "pred_box": [
+        2400,
+        802,
+        2568,
+        919
+      ],
+      "point_hit": false,
+      "fold": 4,
+      "val_cam": "Cam5",
+      "threshold": 25.849999999999994,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-11-55-176",
+      "cam": "Cam5",
+      "defect": true,
+      "score": 48.0,
+      "top_mean": 0.6121827363967896,
+      "point": [
+        1995,
+        772
+      ],
+      "pred_box": [
+        1936,
+        714,
+        2077,
+        860
+      ],
+      "point_hit": true,
+      "fold": 5,
+      "val_cam": "Cam6",
+      "threshold": 23.5,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-11-56-689",
+      "cam": "Cam5",
+      "defect": true,
+      "score": 11.0,
+      "top_mean": 0.7183523178100586,
+      "point": [
+        1145,
+        717
+      ],
+      "pred_box": [
+        1108,
+        699,
+        1192,
+        743
+      ],
+      "point_hit": false,
+      "fold": 5,
+      "val_cam": "Cam6",
+      "threshold": 23.5,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-14-15-402",
+      "cam": "Cam5",
+      "defect": false,
+      "score": 23.0,
+      "top_mean": 0.9386940598487854,
+      "point": [
+        1715,
+        823
+      ],
+      "pred_box": [
+        1670,
+        772,
+        1768,
+        875
+      ],
+      "point_hit": false,
+      "fold": 5,
+      "val_cam": "Cam6",
+      "threshold": 23.5,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-14-40-474",
+      "cam": "Cam5",
+      "defect": false,
+      "score": 13.0,
+      "top_mean": 0.3090774416923523,
+      "point": [
+        809,
+        725
+      ],
+      "pred_box": [
+        771,
+        699,
+        856,
+        772
+      ],
+      "point_hit": false,
+      "fold": 5,
+      "val_cam": "Cam6",
+      "threshold": 23.5,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-14-54-477",
+      "cam": "Cam5",
+      "defect": false,
+      "score": 14.0,
+      "top_mean": 0.45282474160194397,
+      "point": [
+        2314,
+        720
+      ],
+      "pred_box": [
+        2287,
+        699,
+        2357,
+        772
+      ],
+      "point_hit": false,
+      "fold": 5,
+      "val_cam": "Cam6",
+      "threshold": 23.5,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-17-33-755",
+      "cam": "Cam5",
+      "defect": false,
+      "score": 9.0,
+      "top_mean": 0.15569515526294708,
+      "point": [
+        2287,
+        717
+      ],
+      "pred_box": [
+        2245,
+        714,
+        2343,
+        743
+      ],
+      "point_hit": false,
+      "fold": 5,
+      "val_cam": "Cam6",
+      "threshold": 23.5,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-17-44-353",
+      "cam": "Cam5",
+      "defect": false,
+      "score": 10.0,
+      "top_mean": 0.42920345067977905,
+      "point": [
+        2328,
+        720
+      ],
+      "pred_box": [
+        2287,
+        714,
+        2371,
+        743
+      ],
+      "point_hit": false,
+      "fold": 5,
+      "val_cam": "Cam6",
+      "threshold": 23.5,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-17-49-885",
+      "cam": "Cam5",
+      "defect": false,
+      "score": 9.0,
+      "top_mean": 0.31966614723205566,
+      "point": [
+        1980,
+        725
+      ],
+      "pred_box": [
+        1950,
+        699,
+        2007,
+        758
+      ],
+      "point_hit": false,
+      "fold": 5,
+      "val_cam": "Cam6",
+      "threshold": 23.5,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-18-02-459",
+      "cam": "Cam5",
+      "defect": false,
+      "score": 9.0,
+      "top_mean": 0.1737515777349472,
+      "point": [
+        2217,
+        719
+      ],
+      "pred_box": [
+        2175,
+        714,
+        2259,
+        743
+      ],
+      "point_hit": false,
+      "fold": 5,
+      "val_cam": "Cam6",
+      "threshold": 23.5,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-18-03-402",
+      "cam": "Cam5",
+      "defect": false,
+      "score": 11.0,
+      "top_mean": 0.4543725550174713,
+      "point": [
+        1579,
+        714
+      ],
+      "pred_box": [
+        1543,
+        699,
+        1628,
+        743
+      ],
+      "point_hit": false,
+      "fold": 5,
+      "val_cam": "Cam6",
+      "threshold": 23.5,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-10-14-550",
+      "cam": "Cam6",
+      "defect": false,
+      "score": 38.0,
+      "top_mean": 0.03599304333329201,
+      "point": [
+        2860,
+        924
+      ],
+      "pred_box": [
+        2835,
+        860,
+        2905,
+        992
+      ],
+      "point_hit": false,
+      "fold": 6,
+      "val_cam": "Cam1",
+      "threshold": 27.6,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-11-40-177",
+      "cam": "Cam6",
+      "defect": false,
+      "score": 25.0,
+      "top_mean": 0.14225125312805176,
+      "point": [
+        2864,
+        905
+      ],
+      "pred_box": [
+        2835,
+        860,
+        2905,
+        977
+      ],
+      "point_hit": false,
+      "fold": 6,
+      "val_cam": "Cam1",
+      "threshold": 27.6,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-11-45-648",
+      "cam": "Cam6",
+      "defect": false,
+      "score": 34.0,
+      "top_mean": 0.01757996529340744,
+      "point": [
+        2860,
+        927
+      ],
+      "pred_box": [
+        2835,
+        860,
+        2905,
+        992
+      ],
+      "point_hit": false,
+      "fold": 6,
+      "val_cam": "Cam1",
+      "threshold": 27.6,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-11-55-178",
+      "cam": "Cam6",
+      "defect": true,
+      "score": 55.0,
+      "top_mean": 0.32578808069229126,
+      "point": [
+        2860,
+        916
+      ],
+      "pred_box": [
+        2821,
+        846,
+        2919,
+        992
+      ],
+      "point_hit": true,
+      "fold": 6,
+      "val_cam": "Cam1",
+      "threshold": 27.6,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-11-56-719",
+      "cam": "Cam6",
+      "defect": true,
+      "score": 42.0,
+      "top_mean": 0.39554738998413086,
+      "point": [
+        2862,
+        918
+      ],
+      "pred_box": [
+        2821,
+        860,
+        2933,
+        992
+      ],
+      "point_hit": true,
+      "fold": 6,
+      "val_cam": "Cam1",
+      "threshold": 27.6,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-14-15-407",
+      "cam": "Cam6",
+      "defect": false,
+      "score": 22.0,
+      "top_mean": 0.5002315044403076,
+      "point": [
+        2842,
+        914
+      ],
+      "pred_box": [
+        2821,
+        860,
+        2877,
+        992
+      ],
+      "point_hit": false,
+      "fold": 6,
+      "val_cam": "Cam1",
+      "threshold": 27.6,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-14-40-478",
+      "cam": "Cam6",
+      "defect": false,
+      "score": 14.0,
+      "top_mean": 0.07119251787662506,
+      "point": [
+        1631,
+        828
+      ],
+      "pred_box": [
+        1585,
+        816,
+        1684,
+        860
+      ],
+      "point_hit": false,
+      "fold": 6,
+      "val_cam": "Cam1",
+      "threshold": 27.6,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-14-54-492",
+      "cam": "Cam6",
+      "defect": false,
+      "score": 15.0,
+      "top_mean": 0.20635917782783508,
+      "point": [
+        2872,
+        897
+      ],
+      "pred_box": [
+        2835,
+        875,
+        2919,
+        933
+      ],
+      "point_hit": false,
+      "fold": 6,
+      "val_cam": "Cam1",
+      "threshold": 27.6,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-17-33-774",
+      "cam": "Cam6",
+      "defect": false,
+      "score": 26.0,
+      "top_mean": 0.07653340697288513,
+      "point": [
+        2873,
+        925
+      ],
+      "pred_box": [
+        2849,
+        860,
+        2905,
+        992
+      ],
+      "point_hit": false,
+      "fold": 6,
+      "val_cam": "Cam1",
+      "threshold": 27.6,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-17-44-376",
+      "cam": "Cam6",
+      "defect": false,
+      "score": 31.0,
+      "top_mean": 0.09473814070224762,
+      "point": [
+        2865,
+        905
+      ],
+      "pred_box": [
+        2835,
+        860,
+        2905,
+        992
+      ],
+      "point_hit": false,
+      "fold": 6,
+      "val_cam": "Cam1",
+      "threshold": 27.6,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-17-49-886",
+      "cam": "Cam6",
+      "defect": false,
+      "score": 33.0,
+      "top_mean": 0.0912170335650444,
+      "point": [
+        2859,
+        907
+      ],
+      "pred_box": [
+        2835,
+        860,
+        2905,
+        977
+      ],
+      "point_hit": false,
+      "fold": 6,
+      "val_cam": "Cam1",
+      "threshold": 27.6,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-18-02-458",
+      "cam": "Cam6",
+      "defect": false,
+      "score": 27.0,
+      "top_mean": 0.0676971971988678,
+      "point": [
+        2868,
+        935
+      ],
+      "pred_box": [
+        2835,
+        875,
+        2919,
+        992
+      ],
+      "point_hit": false,
+      "fold": 6,
+      "val_cam": "Cam1",
+      "threshold": 27.6,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-18-03-408 - 副本",
+      "cam": "Cam6",
+      "defect": false,
+      "score": 26.0,
+      "top_mean": 0.1027505174279213,
+      "point": [
+        2874,
+        916
+      ],
+      "pred_box": [
+        2835,
+        875,
+        2919,
+        977
+      ],
+      "point_hit": false,
+      "fold": 6,
+      "val_cam": "Cam1",
+      "threshold": 27.6,
+      "alarm": false
+    }
+  ],
+  "candidate_rows": [
+    {
+      "id": "DI2_Cam1_2026-07-18_10-10-14-549",
+      "cam": "Cam1",
+      "defect": false,
+      "m0_score": 6.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 6,
+          "point": [
+            1754,
+            1028
+          ],
+          "box": [
+            1754,
+            992,
+            1768,
+            1080
+          ],
+          "grid_box": [
+            125,
+            26,
+            126,
+            32
+          ]
+        },
+        {
+          "area": 4,
+          "point": [
+            578,
+            794
+          ],
+          "box": [
+            561,
+            787,
+            603,
+            816
+          ],
+          "grid_box": [
+            40,
+            12,
+            43,
+            14
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1356,
+            914
+          ],
+          "box": [
+            1347,
+            904,
+            1375,
+            933
+          ],
+          "grid_box": [
+            96,
+            20,
+            98,
+            22
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            519,
+            941
+          ],
+          "box": [
+            519,
+            933,
+            533,
+            963
+          ],
+          "grid_box": [
+            37,
+            22,
+            38,
+            24
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1389,
+            911
+          ],
+          "box": [
+            1389,
+            904,
+            1403,
+            933
+          ],
+          "grid_box": [
+            99,
+            20,
+            100,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-11-40-176",
+      "cam": "Cam1",
+      "defect": true,
+      "m0_score": 34.0,
+      "m0_point_hit": true,
+      "candidate_hits": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 34,
+          "point": [
+            1434,
+            879
+          ],
+          "box": [
+            1389,
+            831,
+            1487,
+            963
+          ],
+          "grid_box": [
+            99,
+            15,
+            106,
+            24
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1333,
+            970
+          ],
+          "box": [
+            1333,
+            963,
+            1347,
+            992
+          ],
+          "grid_box": [
+            95,
+            24,
+            96,
+            26
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            996,
+            970
+          ],
+          "box": [
+            996,
+            963,
+            1010,
+            992
+          ],
+          "grid_box": [
+            71,
+            24,
+            72,
+            26
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1922,
+            897
+          ],
+          "box": [
+            1922,
+            889,
+            1936,
+            919
+          ],
+          "grid_box": [
+            137,
+            19,
+            138,
+            21
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1150,
+            867
+          ],
+          "box": [
+            1150,
+            860,
+            1164,
+            889
+          ],
+          "grid_box": [
+            82,
+            17,
+            83,
+            19
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-11-45-636",
+      "cam": "Cam1",
+      "defect": true,
+      "m0_score": 32.0,
+      "m0_point_hit": true,
+      "candidate_hits": [
+        true,
+        false,
+        false,
+        false,
+        true
+      ],
+      "candidates": [
+        {
+          "area": 32,
+          "point": [
+            1857,
+            856
+          ],
+          "box": [
+            1810,
+            816,
+            1922,
+            919
+          ],
+          "grid_box": [
+            129,
+            14,
+            137,
+            21
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1352,
+            967
+          ],
+          "box": [
+            1347,
+            963,
+            1375,
+            992
+          ],
+          "grid_box": [
+            96,
+            24,
+            98,
+            26
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1845,
+            948
+          ],
+          "box": [
+            1838,
+            948,
+            1866,
+            963
+          ],
+          "grid_box": [
+            131,
+            23,
+            133,
+            24
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1810,
+            941
+          ],
+          "box": [
+            1810,
+            933,
+            1824,
+            963
+          ],
+          "grid_box": [
+            129,
+            22,
+            130,
+            24
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1887,
+            904
+          ],
+          "box": [
+            1880,
+            904,
+            1908,
+            919
+          ],
+          "grid_box": [
+            134,
+            20,
+            136,
+            21
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-11-55-175",
+      "cam": "Cam1",
+      "defect": false,
+      "m0_score": 4.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 4,
+          "point": [
+            298,
+            919
+          ],
+          "box": [
+            294,
+            904,
+            322,
+            948
+          ],
+          "grid_box": [
+            21,
+            20,
+            23,
+            23
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            523,
+            938
+          ],
+          "box": [
+            519,
+            933,
+            547,
+            963
+          ],
+          "grid_box": [
+            37,
+            22,
+            39,
+            24
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            70,
+            699
+          ],
+          "box": [
+            56,
+            699,
+            98,
+            714
+          ],
+          "grid_box": [
+            4,
+            6,
+            7,
+            7
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1389,
+            999
+          ],
+          "box": [
+            1389,
+            992,
+            1403,
+            1021
+          ],
+          "grid_box": [
+            99,
+            26,
+            100,
+            28
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            996,
+            984
+          ],
+          "box": [
+            996,
+            977,
+            1010,
+            1006
+          ],
+          "grid_box": [
+            71,
+            25,
+            72,
+            27
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-11-56-690",
+      "cam": "Cam1",
+      "defect": false,
+      "m0_score": 4.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 4,
+          "point": [
+            2070,
+            860
+          ],
+          "box": [
+            2063,
+            846,
+            2091,
+            889
+          ],
+          "grid_box": [
+            147,
+            16,
+            149,
+            19
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            973,
+            943
+          ],
+          "box": [
+            968,
+            933,
+            996,
+            963
+          ],
+          "grid_box": [
+            69,
+            22,
+            71,
+            24
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1375,
+            846
+          ],
+          "box": [
+            1361,
+            831,
+            1403,
+            875
+          ],
+          "grid_box": [
+            97,
+            15,
+            100,
+            18
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1319,
+            999
+          ],
+          "box": [
+            1319,
+            992,
+            1333,
+            1021
+          ],
+          "grid_box": [
+            94,
+            26,
+            95,
+            28
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            0,
+            1014
+          ],
+          "box": [
+            0,
+            1006,
+            14,
+            1036
+          ],
+          "grid_box": [
+            0,
+            27,
+            1,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-14-15-404",
+      "cam": "Cam1",
+      "defect": false,
+      "m0_score": 5.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 5,
+          "point": [
+            1437,
+            968
+          ],
+          "box": [
+            1417,
+            948,
+            1473,
+            992
+          ],
+          "grid_box": [
+            101,
+            23,
+            105,
+            26
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2956,
+            967
+          ],
+          "box": [
+            2947,
+            963,
+            2975,
+            992
+          ],
+          "grid_box": [
+            210,
+            24,
+            212,
+            26
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            680,
+            992
+          ],
+          "box": [
+            673,
+            992,
+            701,
+            1006
+          ],
+          "grid_box": [
+            48,
+            26,
+            50,
+            27
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            989,
+            984
+          ],
+          "box": [
+            982,
+            977,
+            1010,
+            1006
+          ],
+          "grid_box": [
+            70,
+            25,
+            72,
+            27
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1487,
+            911
+          ],
+          "box": [
+            1487,
+            904,
+            1501,
+            933
+          ],
+          "grid_box": [
+            106,
+            20,
+            107,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-14-40-482",
+      "cam": "Cam1",
+      "defect": true,
+      "m0_score": 17.0,
+      "m0_point_hit": true,
+      "candidate_hits": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 17,
+          "point": [
+            679,
+            942
+          ],
+          "box": [
+            645,
+            904,
+            729,
+            992
+          ],
+          "grid_box": [
+            46,
+            20,
+            52,
+            26
+          ]
+        },
+        {
+          "area": 4,
+          "point": [
+            1168,
+            864
+          ],
+          "box": [
+            1164,
+            846,
+            1192,
+            889
+          ],
+          "grid_box": [
+            83,
+            16,
+            85,
+            19
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1361,
+            972
+          ],
+          "box": [
+            1347,
+            963,
+            1389,
+            992
+          ],
+          "grid_box": [
+            96,
+            24,
+            99,
+            26
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            828,
+            772
+          ],
+          "box": [
+            828,
+            758,
+            842,
+            802
+          ],
+          "grid_box": [
+            59,
+            10,
+            60,
+            13
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1164,
+            984
+          ],
+          "box": [
+            1164,
+            977,
+            1178,
+            1006
+          ],
+          "grid_box": [
+            83,
+            25,
+            84,
+            27
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-14-54-478",
+      "cam": "Cam1",
+      "defect": true,
+      "m0_score": 31.0,
+      "m0_point_hit": true,
+      "candidate_hits": [
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 31,
+          "point": [
+            1887,
+            835
+          ],
+          "box": [
+            1824,
+            802,
+            1950,
+            875
+          ],
+          "grid_box": [
+            130,
+            13,
+            139,
+            18
+          ]
+        },
+        {
+          "area": 5,
+          "point": [
+            1504,
+            1024
+          ],
+          "box": [
+            1501,
+            1006,
+            1529,
+            1065
+          ],
+          "grid_box": [
+            107,
+            27,
+            109,
+            31
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1880,
+            897
+          ],
+          "box": [
+            1880,
+            889,
+            1894,
+            919
+          ],
+          "grid_box": [
+            134,
+            19,
+            135,
+            21
+          ]
+        },
+        {
+          "area": 1,
+          "point": [
+            2119,
+            1050
+          ],
+          "box": [
+            2119,
+            1050,
+            2133,
+            1065
+          ],
+          "grid_box": [
+            151,
+            30,
+            152,
+            31
+          ]
+        },
+        {
+          "area": 1,
+          "point": [
+            1249,
+            1050
+          ],
+          "box": [
+            1249,
+            1050,
+            1263,
+            1065
+          ],
+          "grid_box": [
+            89,
+            30,
+            90,
+            31
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-17-33-756",
+      "cam": "Cam1",
+      "defect": false,
+      "m0_score": 7.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 7,
+          "point": [
+            2063,
+            846
+          ],
+          "box": [
+            2063,
+            802,
+            2077,
+            904
+          ],
+          "grid_box": [
+            147,
+            13,
+            148,
+            20
+          ]
+        },
+        {
+          "area": 6,
+          "point": [
+            1090,
+            975
+          ],
+          "box": [
+            1066,
+            963,
+            1122,
+            1006
+          ],
+          "grid_box": [
+            76,
+            24,
+            80,
+            27
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            261,
+            811
+          ],
+          "box": [
+            252,
+            802,
+            280,
+            831
+          ],
+          "grid_box": [
+            18,
+            13,
+            20,
+            15
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2021,
+            1028
+          ],
+          "box": [
+            2021,
+            1021,
+            2035,
+            1050
+          ],
+          "grid_box": [
+            144,
+            28,
+            145,
+            30
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2933,
+            970
+          ],
+          "box": [
+            2933,
+            963,
+            2947,
+            992
+          ],
+          "grid_box": [
+            209,
+            24,
+            210,
+            26
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-17-44-354",
+      "cam": "Cam1",
+      "defect": false,
+      "m0_score": 3.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 3,
+          "point": [
+            1590,
+            841
+          ],
+          "box": [
+            1585,
+            831,
+            1614,
+            860
+          ],
+          "grid_box": [
+            113,
+            15,
+            115,
+            17
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1543,
+            955
+          ],
+          "box": [
+            1543,
+            948,
+            1557,
+            977
+          ],
+          "grid_box": [
+            110,
+            23,
+            111,
+            25
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1368,
+            955
+          ],
+          "box": [
+            1361,
+            948,
+            1389,
+            977
+          ],
+          "grid_box": [
+            97,
+            23,
+            99,
+            25
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1185,
+            904
+          ],
+          "box": [
+            1178,
+            904,
+            1207,
+            919
+          ],
+          "grid_box": [
+            84,
+            20,
+            86,
+            21
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            828,
+            882
+          ],
+          "box": [
+            828,
+            875,
+            842,
+            904
+          ],
+          "grid_box": [
+            59,
+            18,
+            60,
+            20
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-17-49-889",
+      "cam": "Cam1",
+      "defect": false,
+      "m0_score": 4.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 4,
+          "point": [
+            1536,
+            952
+          ],
+          "box": [
+            1529,
+            933,
+            1557,
+            977
+          ],
+          "grid_box": [
+            109,
+            22,
+            111,
+            25
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            991,
+            943
+          ],
+          "box": [
+            982,
+            933,
+            1010,
+            963
+          ],
+          "grid_box": [
+            70,
+            22,
+            72,
+            24
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            528,
+            938
+          ],
+          "box": [
+            519,
+            933,
+            547,
+            963
+          ],
+          "grid_box": [
+            37,
+            22,
+            39,
+            24
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2072,
+            860
+          ],
+          "box": [
+            2063,
+            846,
+            2091,
+            889
+          ],
+          "grid_box": [
+            147,
+            16,
+            149,
+            19
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1160,
+            860
+          ],
+          "box": [
+            1150,
+            846,
+            1178,
+            889
+          ],
+          "grid_box": [
+            82,
+            16,
+            84,
+            19
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-18-02-377",
+      "cam": "Cam1",
+      "defect": false,
+      "m0_score": 3.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 3,
+          "point": [
+            2063,
+            860
+          ],
+          "box": [
+            2063,
+            846,
+            2077,
+            889
+          ],
+          "grid_box": [
+            147,
+            16,
+            148,
+            19
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1129,
+            977
+          ],
+          "box": [
+            1122,
+            977,
+            1150,
+            992
+          ],
+          "grid_box": [
+            80,
+            25,
+            82,
+            26
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            947,
+            963
+          ],
+          "box": [
+            940,
+            963,
+            968,
+            977
+          ],
+          "grid_box": [
+            67,
+            24,
+            69,
+            25
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1340,
+            933
+          ],
+          "box": [
+            1333,
+            933,
+            1361,
+            948
+          ],
+          "grid_box": [
+            95,
+            22,
+            97,
+            23
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1164,
+            853
+          ],
+          "box": [
+            1164,
+            846,
+            1178,
+            875
+          ],
+          "grid_box": [
+            83,
+            16,
+            84,
+            18
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-18-03-404",
+      "cam": "Cam1",
+      "defect": false,
+      "m0_score": 6.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 6,
+          "point": [
+            935,
+            960
+          ],
+          "box": [
+            912,
+            933,
+            982,
+            992
+          ],
+          "grid_box": [
+            65,
+            22,
+            70,
+            26
+          ]
+        },
+        {
+          "area": 4,
+          "point": [
+            957,
+            754
+          ],
+          "box": [
+            954,
+            743,
+            982,
+            787
+          ],
+          "grid_box": [
+            68,
+            9,
+            70,
+            12
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2119,
+            802
+          ],
+          "box": [
+            2105,
+            802,
+            2147,
+            816
+          ],
+          "grid_box": [
+            150,
+            13,
+            153,
+            14
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2044,
+            816
+          ],
+          "box": [
+            2035,
+            802,
+            2063,
+            846
+          ],
+          "grid_box": [
+            145,
+            13,
+            147,
+            16
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1361,
+            1014
+          ],
+          "box": [
+            1361,
+            1006,
+            1375,
+            1036
+          ],
+          "grid_box": [
+            97,
+            27,
+            98,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-10-14-552",
+      "cam": "Cam2",
+      "defect": false,
+      "m0_score": 2.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 2,
+          "point": [
+            2112,
+            1014
+          ],
+          "box": [
+            2105,
+            1006,
+            2133,
+            1036
+          ],
+          "grid_box": [
+            150,
+            27,
+            152,
+            29
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            729,
+            970
+          ],
+          "box": [
+            729,
+            963,
+            743,
+            992
+          ],
+          "grid_box": [
+            52,
+            24,
+            53,
+            26
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            771,
+            941
+          ],
+          "box": [
+            771,
+            933,
+            785,
+            963
+          ],
+          "grid_box": [
+            55,
+            22,
+            56,
+            24
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1424,
+            838
+          ],
+          "box": [
+            1417,
+            831,
+            1445,
+            860
+          ],
+          "grid_box": [
+            101,
+            15,
+            103,
+            17
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1571,
+            794
+          ],
+          "box": [
+            1571,
+            787,
+            1585,
+            816
+          ],
+          "grid_box": [
+            112,
+            12,
+            113,
+            14
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-11-40-181",
+      "cam": "Cam2",
+      "defect": true,
+      "m0_score": 26.0,
+      "m0_point_hit": true,
+      "candidate_hits": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 26,
+          "point": [
+            2106,
+            857
+          ],
+          "box": [
+            2077,
+            816,
+            2161,
+            919
+          ],
+          "grid_box": [
+            148,
+            14,
+            154,
+            21
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            736,
+            977
+          ],
+          "box": [
+            729,
+            977,
+            757,
+            992
+          ],
+          "grid_box": [
+            52,
+            25,
+            54,
+            26
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            778,
+            853
+          ],
+          "box": [
+            771,
+            846,
+            800,
+            875
+          ],
+          "grid_box": [
+            55,
+            16,
+            57,
+            18
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1873,
+            692
+          ],
+          "box": [
+            1866,
+            685,
+            1894,
+            714
+          ],
+          "grid_box": [
+            133,
+            5,
+            135,
+            7
+          ]
+        },
+        {
+          "area": 1,
+          "point": [
+            1221,
+            1050
+          ],
+          "box": [
+            1221,
+            1050,
+            1235,
+            1065
+          ],
+          "grid_box": [
+            87,
+            30,
+            88,
+            31
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-11-45-634",
+      "cam": "Cam2",
+      "defect": true,
+      "m0_score": 16.0,
+      "m0_point_hit": true,
+      "candidate_hits": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 16,
+          "point": [
+            2411,
+            867
+          ],
+          "box": [
+            2385,
+            846,
+            2456,
+            904
+          ],
+          "grid_box": [
+            170,
+            16,
+            175,
+            20
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            865,
+            997
+          ],
+          "box": [
+            856,
+            992,
+            884,
+            1021
+          ],
+          "grid_box": [
+            61,
+            26,
+            63,
+            28
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1382,
+            1043
+          ],
+          "box": [
+            1375,
+            1036,
+            1403,
+            1065
+          ],
+          "grid_box": [
+            98,
+            29,
+            100,
+            31
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1108,
+            984
+          ],
+          "box": [
+            1108,
+            977,
+            1122,
+            1006
+          ],
+          "grid_box": [
+            79,
+            25,
+            80,
+            27
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1003,
+            824
+          ],
+          "box": [
+            996,
+            816,
+            1024,
+            846
+          ],
+          "grid_box": [
+            71,
+            14,
+            73,
+            16
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-11-55-176",
+      "cam": "Cam2",
+      "defect": false,
+      "m0_score": 9.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 9,
+          "point": [
+            1150,
+            811
+          ],
+          "box": [
+            1122,
+            787,
+            1178,
+            846
+          ],
+          "grid_box": [
+            80,
+            12,
+            84,
+            16
+          ]
+        },
+        {
+          "area": 7,
+          "point": [
+            727,
+            787
+          ],
+          "box": [
+            701,
+            772,
+            771,
+            816
+          ],
+          "grid_box": [
+            50,
+            11,
+            55,
+            14
+          ]
+        },
+        {
+          "area": 5,
+          "point": [
+            1543,
+            802
+          ],
+          "box": [
+            1515,
+            802,
+            1585,
+            816
+          ],
+          "grid_box": [
+            108,
+            13,
+            113,
+            14
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            940,
+            970
+          ],
+          "box": [
+            940,
+            963,
+            954,
+            992
+          ],
+          "grid_box": [
+            67,
+            24,
+            68,
+            26
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1200,
+            794
+          ],
+          "box": [
+            1192,
+            787,
+            1221,
+            816
+          ],
+          "grid_box": [
+            85,
+            12,
+            87,
+            14
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-11-56-689",
+      "cam": "Cam2",
+      "defect": false,
+      "m0_score": 7.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 7,
+          "point": [
+            721,
+            812
+          ],
+          "box": [
+            701,
+            787,
+            757,
+            846
+          ],
+          "grid_box": [
+            50,
+            12,
+            54,
+            16
+          ]
+        },
+        {
+          "area": 5,
+          "point": [
+            1176,
+            805
+          ],
+          "box": [
+            1164,
+            787,
+            1207,
+            831
+          ],
+          "grid_box": [
+            83,
+            12,
+            86,
+            15
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1127,
+            846
+          ],
+          "box": [
+            1122,
+            831,
+            1150,
+            875
+          ],
+          "grid_box": [
+            80,
+            15,
+            82,
+            18
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1803,
+            1050
+          ],
+          "box": [
+            1796,
+            1050,
+            1824,
+            1065
+          ],
+          "grid_box": [
+            128,
+            30,
+            130,
+            31
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            849,
+            1028
+          ],
+          "box": [
+            842,
+            1021,
+            870,
+            1050
+          ],
+          "grid_box": [
+            60,
+            28,
+            62,
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-14-15-408",
+      "cam": "Cam2",
+      "defect": false,
+      "m0_score": 4.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 4,
+          "point": [
+            1515,
+            692
+          ],
+          "box": [
+            1515,
+            670,
+            1529,
+            729
+          ],
+          "grid_box": [
+            108,
+            4,
+            109,
+            8
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            748,
+            807
+          ],
+          "box": [
+            743,
+            802,
+            771,
+            831
+          ],
+          "grid_box": [
+            53,
+            13,
+            55,
+            15
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            715,
+            787
+          ],
+          "box": [
+            715,
+            772,
+            729,
+            816
+          ],
+          "grid_box": [
+            51,
+            11,
+            52,
+            14
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            252,
+            714
+          ],
+          "box": [
+            252,
+            699,
+            266,
+            743
+          ],
+          "grid_box": [
+            18,
+            6,
+            19,
+            9
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1431,
+            1028
+          ],
+          "box": [
+            1431,
+            1021,
+            1445,
+            1050
+          ],
+          "grid_box": [
+            102,
+            28,
+            103,
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-14-40-480",
+      "cam": "Cam2",
+      "defect": true,
+      "m0_score": 32.0,
+      "m0_point_hit": true,
+      "candidate_hits": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 32,
+          "point": [
+            1349,
+            844
+          ],
+          "box": [
+            1291,
+            802,
+            1417,
+            919
+          ],
+          "grid_box": [
+            92,
+            13,
+            101,
+            21
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            771,
+            984
+          ],
+          "box": [
+            771,
+            977,
+            785,
+            1006
+          ],
+          "grid_box": [
+            55,
+            25,
+            56,
+            27
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            512,
+            984
+          ],
+          "box": [
+            505,
+            977,
+            533,
+            1006
+          ],
+          "grid_box": [
+            36,
+            25,
+            38,
+            27
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            512,
+            889
+          ],
+          "box": [
+            505,
+            889,
+            533,
+            904
+          ],
+          "grid_box": [
+            36,
+            19,
+            38,
+            20
+          ]
+        },
+        {
+          "area": 1,
+          "point": [
+            1403,
+            1050
+          ],
+          "box": [
+            1403,
+            1050,
+            1417,
+            1065
+          ],
+          "grid_box": [
+            100,
+            30,
+            101,
+            31
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-14-54-481",
+      "cam": "Cam2",
+      "defect": true,
+      "m0_score": 17.0,
+      "m0_point_hit": true,
+      "candidate_hits": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 17,
+          "point": [
+            2447,
+            856
+          ],
+          "box": [
+            2400,
+            831,
+            2498,
+            889
+          ],
+          "grid_box": [
+            171,
+            15,
+            178,
+            19
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2063,
+            826
+          ],
+          "box": [
+            2049,
+            816,
+            2091,
+            846
+          ],
+          "grid_box": [
+            146,
+            14,
+            149,
+            16
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2063,
+            984
+          ],
+          "box": [
+            2063,
+            977,
+            2077,
+            1006
+          ],
+          "grid_box": [
+            147,
+            25,
+            148,
+            27
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2000,
+            882
+          ],
+          "box": [
+            1992,
+            875,
+            2021,
+            904
+          ],
+          "grid_box": [
+            142,
+            18,
+            144,
+            20
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1214,
+            846
+          ],
+          "box": [
+            1207,
+            846,
+            1235,
+            860
+          ],
+          "grid_box": [
+            86,
+            16,
+            88,
+            17
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-17-33-758",
+      "cam": "Cam2",
+      "defect": false,
+      "m0_score": 3.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 3,
+          "point": [
+            84,
+            787
+          ],
+          "box": [
+            84,
+            772,
+            98,
+            816
+          ],
+          "grid_box": [
+            6,
+            11,
+            7,
+            14
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2077,
+            970
+          ],
+          "box": [
+            2077,
+            963,
+            2091,
+            992
+          ],
+          "grid_box": [
+            148,
+            24,
+            149,
+            26
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2098,
+            904
+          ],
+          "box": [
+            2091,
+            904,
+            2119,
+            919
+          ],
+          "grid_box": [
+            149,
+            20,
+            151,
+            21
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            540,
+            911
+          ],
+          "box": [
+            533,
+            904,
+            561,
+            933
+          ],
+          "grid_box": [
+            38,
+            20,
+            40,
+            22
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1164,
+            794
+          ],
+          "box": [
+            1164,
+            787,
+            1178,
+            816
+          ],
+          "grid_box": [
+            83,
+            12,
+            84,
+            14
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-17-44-355",
+      "cam": "Cam2",
+      "defect": false,
+      "m0_score": 5.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 5,
+          "point": [
+            712,
+            802
+          ],
+          "box": [
+            701,
+            772,
+            743,
+            846
+          ],
+          "grid_box": [
+            50,
+            11,
+            53,
+            16
+          ]
+        },
+        {
+          "area": 4,
+          "point": [
+            1838,
+            999
+          ],
+          "box": [
+            1838,
+            977,
+            1852,
+            1036
+          ],
+          "grid_box": [
+            131,
+            25,
+            132,
+            29
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            140,
+            955
+          ],
+          "box": [
+            140,
+            948,
+            154,
+            977
+          ],
+          "grid_box": [
+            10,
+            23,
+            11,
+            25
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2014,
+            926
+          ],
+          "box": [
+            2007,
+            919,
+            2035,
+            948
+          ],
+          "grid_box": [
+            143,
+            21,
+            145,
+            23
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            231,
+            882
+          ],
+          "box": [
+            224,
+            875,
+            252,
+            904
+          ],
+          "grid_box": [
+            16,
+            18,
+            18,
+            20
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-17-49-889",
+      "cam": "Cam2",
+      "defect": false,
+      "m0_score": 3.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 3,
+          "point": [
+            2063,
+            1041
+          ],
+          "box": [
+            2049,
+            1036,
+            2091,
+            1065
+          ],
+          "grid_box": [
+            146,
+            29,
+            149,
+            31
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2081,
+            992
+          ],
+          "box": [
+            2077,
+            977,
+            2105,
+            1021
+          ],
+          "grid_box": [
+            148,
+            25,
+            150,
+            28
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1614,
+            948
+          ],
+          "box": [
+            1614,
+            933,
+            1628,
+            977
+          ],
+          "grid_box": [
+            115,
+            22,
+            116,
+            25
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1258,
+            909
+          ],
+          "box": [
+            1249,
+            904,
+            1277,
+            933
+          ],
+          "grid_box": [
+            89,
+            20,
+            91,
+            22
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1291,
+            926
+          ],
+          "box": [
+            1291,
+            919,
+            1305,
+            948
+          ],
+          "grid_box": [
+            92,
+            21,
+            93,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-18-02-517",
+      "cam": "Cam2",
+      "defect": false,
+      "m0_score": 3.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 3,
+          "point": [
+            1403,
+            787
+          ],
+          "box": [
+            1403,
+            772,
+            1417,
+            816
+          ],
+          "grid_box": [
+            100,
+            11,
+            101,
+            14
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1712,
+            699
+          ],
+          "box": [
+            1712,
+            685,
+            1726,
+            729
+          ],
+          "grid_box": [
+            122,
+            5,
+            123,
+            8
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1614,
+            1028
+          ],
+          "box": [
+            1614,
+            1021,
+            1628,
+            1050
+          ],
+          "grid_box": [
+            115,
+            28,
+            116,
+            30
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            919,
+            919
+          ],
+          "box": [
+            912,
+            919,
+            940,
+            933
+          ],
+          "grid_box": [
+            65,
+            21,
+            67,
+            22
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1143,
+            838
+          ],
+          "box": [
+            1136,
+            831,
+            1164,
+            860
+          ],
+          "grid_box": [
+            81,
+            15,
+            83,
+            17
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-18-03-407",
+      "cam": "Cam2",
+      "defect": false,
+      "m0_score": 3.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 3,
+          "point": [
+            1118,
+            836
+          ],
+          "box": [
+            1108,
+            831,
+            1136,
+            860
+          ],
+          "grid_box": [
+            79,
+            15,
+            81,
+            17
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            715,
+            816
+          ],
+          "box": [
+            715,
+            802,
+            729,
+            846
+          ],
+          "grid_box": [
+            51,
+            13,
+            52,
+            16
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1705,
+            1058
+          ],
+          "box": [
+            1698,
+            1050,
+            1726,
+            1080
+          ],
+          "grid_box": [
+            121,
+            30,
+            123,
+            32
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            21,
+            1021
+          ],
+          "box": [
+            14,
+            1021,
+            42,
+            1036
+          ],
+          "grid_box": [
+            1,
+            28,
+            3,
+            29
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1143,
+            992
+          ],
+          "box": [
+            1136,
+            992,
+            1164,
+            1006
+          ],
+          "grid_box": [
+            81,
+            26,
+            83,
+            27
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-10-14-550",
+      "cam": "Cam3",
+      "defect": false,
+      "m0_score": 5.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 5,
+          "point": [
+            2068,
+            889
+          ],
+          "box": [
+            2063,
+            860,
+            2091,
+            933
+          ],
+          "grid_box": [
+            147,
+            17,
+            149,
+            22
+          ]
+        },
+        {
+          "area": 4,
+          "point": [
+            2056,
+            959
+          ],
+          "box": [
+            2049,
+            948,
+            2077,
+            992
+          ],
+          "grid_box": [
+            146,
+            23,
+            148,
+            26
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2231,
+            1006
+          ],
+          "box": [
+            2217,
+            1006,
+            2259,
+            1021
+          ],
+          "grid_box": [
+            158,
+            27,
+            161,
+            28
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            750,
+            1050
+          ],
+          "box": [
+            743,
+            1050,
+            771,
+            1065
+          ],
+          "grid_box": [
+            53,
+            30,
+            55,
+            31
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1866,
+            999
+          ],
+          "box": [
+            1866,
+            992,
+            1880,
+            1021
+          ],
+          "grid_box": [
+            133,
+            26,
+            134,
+            28
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-11-40-175",
+      "cam": "Cam3",
+      "defect": false,
+      "m0_score": 5.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 5,
+          "point": [
+            3124,
+            922
+          ],
+          "box": [
+            3115,
+            904,
+            3143,
+            948
+          ],
+          "grid_box": [
+            222,
+            20,
+            224,
+            23
+          ]
+        },
+        {
+          "area": 4,
+          "point": [
+            2077,
+            882
+          ],
+          "box": [
+            2077,
+            860,
+            2091,
+            919
+          ],
+          "grid_box": [
+            148,
+            17,
+            149,
+            21
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2250,
+            958
+          ],
+          "box": [
+            2245,
+            948,
+            2273,
+            977
+          ],
+          "grid_box": [
+            160,
+            23,
+            162,
+            25
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2502,
+            904
+          ],
+          "box": [
+            2498,
+            889,
+            2526,
+            933
+          ],
+          "grid_box": [
+            178,
+            19,
+            180,
+            22
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2231,
+            1014
+          ],
+          "box": [
+            2231,
+            1006,
+            2245,
+            1036
+          ],
+          "grid_box": [
+            159,
+            27,
+            160,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-11-45-637",
+      "cam": "Cam3",
+      "defect": false,
+      "m0_score": 6.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 6,
+          "point": [
+            2063,
+            948
+          ],
+          "box": [
+            2049,
+            919,
+            2091,
+            992
+          ],
+          "grid_box": [
+            146,
+            21,
+            149,
+            26
+          ]
+        },
+        {
+          "area": 4,
+          "point": [
+            968,
+            984
+          ],
+          "box": [
+            968,
+            963,
+            982,
+            1021
+          ],
+          "grid_box": [
+            69,
+            24,
+            70,
+            28
+          ]
+        },
+        {
+          "area": 4,
+          "point": [
+            2484,
+            926
+          ],
+          "box": [
+            2470,
+            919,
+            2512,
+            948
+          ],
+          "grid_box": [
+            176,
+            21,
+            179,
+            23
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2348,
+            972
+          ],
+          "box": [
+            2343,
+            963,
+            2371,
+            992
+          ],
+          "grid_box": [
+            167,
+            24,
+            169,
+            26
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1904,
+            753
+          ],
+          "box": [
+            1894,
+            743,
+            1922,
+            772
+          ],
+          "grid_box": [
+            135,
+            9,
+            137,
+            11
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-11-55-177",
+      "cam": "Cam3",
+      "defect": false,
+      "m0_score": 23.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 23,
+          "point": [
+            685,
+            921
+          ],
+          "box": [
+            645,
+            875,
+            743,
+            977
+          ],
+          "grid_box": [
+            46,
+            18,
+            53,
+            25
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2477,
+            941
+          ],
+          "box": [
+            2470,
+            933,
+            2498,
+            963
+          ],
+          "grid_box": [
+            176,
+            22,
+            178,
+            24
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2070,
+            867
+          ],
+          "box": [
+            2063,
+            860,
+            2091,
+            889
+          ],
+          "grid_box": [
+            147,
+            17,
+            149,
+            19
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            610,
+            626
+          ],
+          "box": [
+            603,
+            626,
+            631,
+            641
+          ],
+          "grid_box": [
+            43,
+            1,
+            45,
+            2
+          ]
+        },
+        {
+          "area": 1,
+          "point": [
+            2414,
+            1065
+          ],
+          "box": [
+            2414,
+            1065,
+            2428,
+            1080
+          ],
+          "grid_box": [
+            172,
+            31,
+            173,
+            32
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-11-56-691",
+      "cam": "Cam3",
+      "defect": true,
+      "m0_score": 18.0,
+      "m0_point_hit": true,
+      "candidate_hits": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 18,
+          "point": [
+            685,
+            924
+          ],
+          "box": [
+            659,
+            889,
+            729,
+            977
+          ],
+          "grid_box": [
+            47,
+            19,
+            52,
+            25
+          ]
+        },
+        {
+          "area": 6,
+          "point": [
+            2063,
+            945
+          ],
+          "box": [
+            2049,
+            933,
+            2091,
+            977
+          ],
+          "grid_box": [
+            146,
+            22,
+            149,
+            25
+          ]
+        },
+        {
+          "area": 4,
+          "point": [
+            1442,
+            999
+          ],
+          "box": [
+            1431,
+            977,
+            1459,
+            1036
+          ],
+          "grid_box": [
+            102,
+            25,
+            104,
+            29
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1389,
+            992
+          ],
+          "box": [
+            1389,
+            977,
+            1403,
+            1021
+          ],
+          "grid_box": [
+            99,
+            25,
+            100,
+            28
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2250,
+            948
+          ],
+          "box": [
+            2245,
+            933,
+            2273,
+            977
+          ],
+          "grid_box": [
+            160,
+            22,
+            162,
+            25
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-14-15-409",
+      "cam": "Cam3",
+      "defect": true,
+      "m0_score": 49.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 49,
+          "point": [
+            493,
+            846
+          ],
+          "box": [
+            435,
+            772,
+            575,
+            933
+          ],
+          "grid_box": [
+            31,
+            11,
+            41,
+            22
+          ]
+        },
+        {
+          "area": 15,
+          "point": [
+            482,
+            723
+          ],
+          "box": [
+            449,
+            699,
+            547,
+            758
+          ],
+          "grid_box": [
+            32,
+            6,
+            39,
+            10
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            470,
+            1006
+          ],
+          "box": [
+            463,
+            1006,
+            491,
+            1021
+          ],
+          "grid_box": [
+            33,
+            27,
+            35,
+            28
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            491,
+            955
+          ],
+          "box": [
+            491,
+            948,
+            505,
+            977
+          ],
+          "grid_box": [
+            35,
+            23,
+            36,
+            25
+          ]
+        },
+        {
+          "area": 1,
+          "point": [
+            575,
+            963
+          ],
+          "box": [
+            575,
+            963,
+            589,
+            977
+          ],
+          "grid_box": [
+            41,
+            24,
+            42,
+            25
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-14-40-488",
+      "cam": "Cam3",
+      "defect": false,
+      "m0_score": 12.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 12,
+          "point": [
+            2694,
+            930
+          ],
+          "box": [
+            2666,
+            904,
+            2750,
+            963
+          ],
+          "grid_box": [
+            190,
+            20,
+            196,
+            24
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            173,
+            1041
+          ],
+          "box": [
+            168,
+            1036,
+            196,
+            1065
+          ],
+          "grid_box": [
+            12,
+            29,
+            14,
+            31
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1494,
+            970
+          ],
+          "box": [
+            1487,
+            963,
+            1515,
+            992
+          ],
+          "grid_box": [
+            106,
+            24,
+            108,
+            26
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1326,
+            919
+          ],
+          "box": [
+            1319,
+            919,
+            1347,
+            933
+          ],
+          "grid_box": [
+            94,
+            21,
+            96,
+            22
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2673,
+            860
+          ],
+          "box": [
+            2666,
+            860,
+            2694,
+            875
+          ],
+          "grid_box": [
+            190,
+            17,
+            192,
+            18
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-14-54-482",
+      "cam": "Cam3",
+      "defect": false,
+      "m0_score": 5.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 5,
+          "point": [
+            2517,
+            927
+          ],
+          "box": [
+            2498,
+            919,
+            2554,
+            963
+          ],
+          "grid_box": [
+            178,
+            21,
+            182,
+            24
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1459,
+            1026
+          ],
+          "box": [
+            1445,
+            1021,
+            1487,
+            1050
+          ],
+          "grid_box": [
+            103,
+            28,
+            106,
+            30
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2254,
+            943
+          ],
+          "box": [
+            2245,
+            933,
+            2273,
+            963
+          ],
+          "grid_box": [
+            160,
+            22,
+            162,
+            24
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2329,
+            787
+          ],
+          "box": [
+            2329,
+            772,
+            2343,
+            816
+          ],
+          "grid_box": [
+            166,
+            11,
+            167,
+            14
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2294,
+            1014
+          ],
+          "box": [
+            2287,
+            1006,
+            2315,
+            1036
+          ],
+          "grid_box": [
+            163,
+            27,
+            165,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-17-33-757",
+      "cam": "Cam3",
+      "defect": false,
+      "m0_score": 3.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 3,
+          "point": [
+            2273,
+            1016
+          ],
+          "box": [
+            2259,
+            1006,
+            2301,
+            1036
+          ],
+          "grid_box": [
+            161,
+            27,
+            164,
+            29
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2287,
+            967
+          ],
+          "box": [
+            2273,
+            963,
+            2315,
+            992
+          ],
+          "grid_box": [
+            162,
+            24,
+            165,
+            26
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            856,
+            919
+          ],
+          "box": [
+            856,
+            904,
+            870,
+            948
+          ],
+          "grid_box": [
+            61,
+            20,
+            62,
+            23
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1929,
+            1006
+          ],
+          "box": [
+            1922,
+            1006,
+            1950,
+            1021
+          ],
+          "grid_box": [
+            137,
+            27,
+            139,
+            28
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1852,
+            999
+          ],
+          "box": [
+            1852,
+            992,
+            1866,
+            1021
+          ],
+          "grid_box": [
+            132,
+            26,
+            133,
+            28
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-17-44-358",
+      "cam": "Cam3",
+      "defect": false,
+      "m0_score": 4.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 4,
+          "point": [
+            2077,
+            941
+          ],
+          "box": [
+            2077,
+            919,
+            2091,
+            977
+          ],
+          "grid_box": [
+            148,
+            21,
+            149,
+            25
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2222,
+            1016
+          ],
+          "box": [
+            2217,
+            1006,
+            2245,
+            1036
+          ],
+          "grid_box": [
+            158,
+            27,
+            160,
+            29
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1852,
+            1021
+          ],
+          "box": [
+            1838,
+            1006,
+            1880,
+            1050
+          ],
+          "grid_box": [
+            131,
+            27,
+            134,
+            30
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1445,
+            982
+          ],
+          "box": [
+            1431,
+            977,
+            1473,
+            1006
+          ],
+          "grid_box": [
+            102,
+            25,
+            105,
+            27
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1866,
+            958
+          ],
+          "box": [
+            1852,
+            948,
+            1894,
+            977
+          ],
+          "grid_box": [
+            132,
+            23,
+            135,
+            25
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-17-49-891",
+      "cam": "Cam3",
+      "defect": false,
+      "m0_score": 7.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 7,
+          "point": [
+            2496,
+            898
+          ],
+          "box": [
+            2484,
+            875,
+            2526,
+            948
+          ],
+          "grid_box": [
+            177,
+            18,
+            180,
+            23
+          ]
+        },
+        {
+          "area": 4,
+          "point": [
+            487,
+            794
+          ],
+          "box": [
+            477,
+            772,
+            505,
+            831
+          ],
+          "grid_box": [
+            34,
+            11,
+            36,
+            15
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2224,
+            999
+          ],
+          "box": [
+            2217,
+            992,
+            2245,
+            1021
+          ],
+          "grid_box": [
+            158,
+            26,
+            160,
+            28
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1901,
+            999
+          ],
+          "box": [
+            1894,
+            992,
+            1922,
+            1021
+          ],
+          "grid_box": [
+            135,
+            26,
+            137,
+            28
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2056,
+            919
+          ],
+          "box": [
+            2049,
+            919,
+            2077,
+            933
+          ],
+          "grid_box": [
+            146,
+            21,
+            148,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-18-02-520 - 副本",
+      "cam": "Cam3",
+      "defect": false,
+      "m0_score": 4.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 4,
+          "point": [
+            2291,
+            966
+          ],
+          "box": [
+            2273,
+            963,
+            2315,
+            992
+          ],
+          "grid_box": [
+            162,
+            24,
+            165,
+            26
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1487,
+            977
+          ],
+          "box": [
+            1473,
+            963,
+            1515,
+            1006
+          ],
+          "grid_box": [
+            105,
+            24,
+            108,
+            27
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1698,
+            772
+          ],
+          "box": [
+            1698,
+            758,
+            1712,
+            802
+          ],
+          "grid_box": [
+            121,
+            10,
+            122,
+            13
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1529,
+            999
+          ],
+          "box": [
+            1529,
+            992,
+            1543,
+            1021
+          ],
+          "grid_box": [
+            109,
+            26,
+            110,
+            28
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1024,
+            984
+          ],
+          "box": [
+            1024,
+            977,
+            1038,
+            1006
+          ],
+          "grid_box": [
+            73,
+            25,
+            74,
+            27
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-18-03-405",
+      "cam": "Cam3",
+      "defect": false,
+      "m0_score": 8.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 8,
+          "point": [
+            2501,
+            911
+          ],
+          "box": [
+            2484,
+            889,
+            2526,
+            963
+          ],
+          "grid_box": [
+            177,
+            19,
+            180,
+            24
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2446,
+            880
+          ],
+          "box": [
+            2442,
+            875,
+            2470,
+            904
+          ],
+          "grid_box": [
+            174,
+            18,
+            176,
+            20
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2231,
+            999
+          ],
+          "box": [
+            2231,
+            992,
+            2245,
+            1021
+          ],
+          "grid_box": [
+            159,
+            26,
+            160,
+            28
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2308,
+            977
+          ],
+          "box": [
+            2301,
+            977,
+            2329,
+            992
+          ],
+          "grid_box": [
+            164,
+            25,
+            166,
+            26
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1459,
+            970
+          ],
+          "box": [
+            1459,
+            963,
+            1473,
+            992
+          ],
+          "grid_box": [
+            104,
+            24,
+            105,
+            26
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-10-14-561",
+      "cam": "Cam4",
+      "defect": false,
+      "m0_score": 4.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 4,
+          "point": [
+            968,
+            633
+          ],
+          "box": [
+            968,
+            612,
+            982,
+            670
+          ],
+          "grid_box": [
+            69,
+            0,
+            70,
+            4
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1501,
+            999
+          ],
+          "box": [
+            1501,
+            992,
+            1515,
+            1021
+          ],
+          "grid_box": [
+            107,
+            26,
+            108,
+            28
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1712,
+            970
+          ],
+          "box": [
+            1712,
+            963,
+            1726,
+            992
+          ],
+          "grid_box": [
+            122,
+            24,
+            123,
+            26
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1129,
+            984
+          ],
+          "box": [
+            1122,
+            977,
+            1150,
+            1006
+          ],
+          "grid_box": [
+            80,
+            25,
+            82,
+            27
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2042,
+            955
+          ],
+          "box": [
+            2035,
+            948,
+            2063,
+            977
+          ],
+          "grid_box": [
+            145,
+            23,
+            147,
+            25
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-11-40-179",
+      "cam": "Cam4",
+      "defect": false,
+      "m0_score": 3.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 3,
+          "point": [
+            2109,
+            865
+          ],
+          "box": [
+            2105,
+            860,
+            2133,
+            889
+          ],
+          "grid_box": [
+            150,
+            17,
+            152,
+            19
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2371,
+            1028
+          ],
+          "box": [
+            2371,
+            1021,
+            2385,
+            1050
+          ],
+          "grid_box": [
+            169,
+            28,
+            170,
+            30
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1326,
+            963
+          ],
+          "box": [
+            1319,
+            963,
+            1347,
+            977
+          ],
+          "grid_box": [
+            94,
+            24,
+            96,
+            25
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            673,
+            955
+          ],
+          "box": [
+            673,
+            948,
+            687,
+            977
+          ],
+          "grid_box": [
+            48,
+            23,
+            49,
+            25
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1354,
+            846
+          ],
+          "box": [
+            1347,
+            846,
+            1375,
+            860
+          ],
+          "grid_box": [
+            96,
+            16,
+            98,
+            17
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-11-45-648",
+      "cam": "Cam4",
+      "defect": false,
+      "m0_score": 4.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 4,
+          "point": [
+            1792,
+            831
+          ],
+          "box": [
+            1782,
+            816,
+            1824,
+            860
+          ],
+          "grid_box": [
+            127,
+            14,
+            130,
+            17
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            842,
+            992
+          ],
+          "box": [
+            842,
+            977,
+            856,
+            1021
+          ],
+          "grid_box": [
+            60,
+            25,
+            61,
+            28
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2308,
+            1021
+          ],
+          "box": [
+            2301,
+            1021,
+            2329,
+            1036
+          ],
+          "grid_box": [
+            164,
+            28,
+            166,
+            29
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            3038,
+            1014
+          ],
+          "box": [
+            3031,
+            1006,
+            3059,
+            1036
+          ],
+          "grid_box": [
+            216,
+            27,
+            218,
+            29
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1866,
+            999
+          ],
+          "box": [
+            1866,
+            992,
+            1880,
+            1021
+          ],
+          "grid_box": [
+            133,
+            26,
+            134,
+            28
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-11-55-179",
+      "cam": "Cam4",
+      "defect": true,
+      "m0_score": 44.0,
+      "m0_point_hit": true,
+      "candidate_hits": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 44,
+          "point": [
+            1345,
+            795
+          ],
+          "box": [
+            1291,
+            743,
+            1417,
+            875
+          ],
+          "grid_box": [
+            92,
+            9,
+            101,
+            18
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1192,
+            626
+          ],
+          "box": [
+            1192,
+            612,
+            1207,
+            655
+          ],
+          "grid_box": [
+            85,
+            0,
+            86,
+            3
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1200,
+            977
+          ],
+          "box": [
+            1192,
+            977,
+            1221,
+            992
+          ],
+          "grid_box": [
+            85,
+            25,
+            87,
+            26
+          ]
+        },
+        {
+          "area": 1,
+          "point": [
+            1852,
+            1065
+          ],
+          "box": [
+            1852,
+            1065,
+            1866,
+            1080
+          ],
+          "grid_box": [
+            132,
+            31,
+            133,
+            32
+          ]
+        },
+        {
+          "area": 1,
+          "point": [
+            1712,
+            1050
+          ],
+          "box": [
+            1712,
+            1050,
+            1726,
+            1065
+          ],
+          "grid_box": [
+            122,
+            30,
+            123,
+            31
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-11-56-694",
+      "cam": "Cam4",
+      "defect": true,
+      "m0_score": 18.0,
+      "m0_point_hit": true,
+      "candidate_hits": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 18,
+          "point": [
+            1348,
+            781
+          ],
+          "box": [
+            1319,
+            743,
+            1403,
+            831
+          ],
+          "grid_box": [
+            94,
+            9,
+            100,
+            15
+          ]
+        },
+        {
+          "area": 7,
+          "point": [
+            2043,
+            823
+          ],
+          "box": [
+            2021,
+            802,
+            2077,
+            846
+          ],
+          "grid_box": [
+            144,
+            13,
+            148,
+            16
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1403,
+            641
+          ],
+          "box": [
+            1403,
+            626,
+            1417,
+            670
+          ],
+          "grid_box": [
+            100,
+            1,
+            101,
+            4
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2070,
+            889
+          ],
+          "box": [
+            2063,
+            889,
+            2091,
+            904
+          ],
+          "grid_box": [
+            147,
+            19,
+            149,
+            20
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1347,
+            853
+          ],
+          "box": [
+            1347,
+            846,
+            1361,
+            875
+          ],
+          "grid_box": [
+            96,
+            16,
+            97,
+            18
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-14-15-405",
+      "cam": "Cam4",
+      "defect": false,
+      "m0_score": 13.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 13,
+          "point": [
+            1357,
+            852
+          ],
+          "box": [
+            1333,
+            831,
+            1403,
+            889
+          ],
+          "grid_box": [
+            95,
+            15,
+            100,
+            19
+          ]
+        },
+        {
+          "area": 13,
+          "point": [
+            1177,
+            843
+          ],
+          "box": [
+            1150,
+            802,
+            1207,
+            889
+          ],
+          "grid_box": [
+            82,
+            13,
+            86,
+            19
+          ]
+        },
+        {
+          "area": 9,
+          "point": [
+            1299,
+            696
+          ],
+          "box": [
+            1277,
+            670,
+            1333,
+            729
+          ],
+          "grid_box": [
+            91,
+            4,
+            95,
+            8
+          ]
+        },
+        {
+          "area": 9,
+          "point": [
+            1169,
+            685
+          ],
+          "box": [
+            1150,
+            670,
+            1207,
+            729
+          ],
+          "grid_box": [
+            82,
+            4,
+            86,
+            8
+          ]
+        },
+        {
+          "area": 7,
+          "point": [
+            1192,
+            912
+          ],
+          "box": [
+            1164,
+            904,
+            1235,
+            933
+          ],
+          "grid_box": [
+            83,
+            20,
+            88,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-14-40-475",
+      "cam": "Cam4",
+      "defect": false,
+      "m0_score": 7.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 7,
+          "point": [
+            2061,
+            823
+          ],
+          "box": [
+            2035,
+            802,
+            2091,
+            846
+          ],
+          "grid_box": [
+            145,
+            13,
+            149,
+            16
+          ]
+        },
+        {
+          "area": 6,
+          "point": [
+            2098,
+            860
+          ],
+          "box": [
+            2077,
+            846,
+            2133,
+            889
+          ],
+          "grid_box": [
+            148,
+            16,
+            152,
+            19
+          ]
+        },
+        {
+          "area": 5,
+          "point": [
+            2495,
+            851
+          ],
+          "box": [
+            2484,
+            831,
+            2526,
+            875
+          ],
+          "grid_box": [
+            177,
+            15,
+            180,
+            18
+          ]
+        },
+        {
+          "area": 4,
+          "point": [
+            3073,
+            867
+          ],
+          "box": [
+            3059,
+            860,
+            3101,
+            889
+          ],
+          "grid_box": [
+            218,
+            17,
+            221,
+            19
+          ]
+        },
+        {
+          "area": 4,
+          "point": [
+            2540,
+            882
+          ],
+          "box": [
+            2540,
+            860,
+            2554,
+            919
+          ],
+          "grid_box": [
+            181,
+            17,
+            182,
+            21
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-11-55-176",
+      "cam": "Cam5",
+      "defect": true,
+      "m0_score": 30.0,
+      "m0_point_hit": true,
+      "candidate_hits": [
+        true,
+        false,
+        false,
+        false,
+        true
+      ],
+      "candidates": [
+        {
+          "area": 30,
+          "point": [
+            2010,
+            776
+          ],
+          "box": [
+            1964,
+            729,
+            2077,
+            875
+          ],
+          "grid_box": [
+            140,
+            8,
+            148,
+            18
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1553,
+            802
+          ],
+          "box": [
+            1543,
+            787,
+            1571,
+            831
+          ],
+          "grid_box": [
+            110,
+            12,
+            112,
+            15
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            589,
+            867
+          ],
+          "box": [
+            589,
+            860,
+            603,
+            889
+          ],
+          "grid_box": [
+            42,
+            17,
+            43,
+            19
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2280,
+            816
+          ],
+          "box": [
+            2273,
+            816,
+            2301,
+            831
+          ],
+          "grid_box": [
+            162,
+            14,
+            164,
+            15
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1985,
+            824
+          ],
+          "box": [
+            1978,
+            816,
+            2007,
+            846
+          ],
+          "grid_box": [
+            141,
+            14,
+            143,
+            16
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-11-56-689",
+      "cam": "Cam5",
+      "defect": true,
+      "m0_score": 27.0,
+      "m0_point_hit": true,
+      "candidate_hits": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 27,
+          "point": [
+            2015,
+            793
+          ],
+          "box": [
+            1978,
+            743,
+            2077,
+            860
+          ],
+          "grid_box": [
+            141,
+            9,
+            148,
+            17
+          ]
+        },
+        {
+          "area": 5,
+          "point": [
+            1167,
+            854
+          ],
+          "box": [
+            1164,
+            831,
+            1192,
+            889
+          ],
+          "grid_box": [
+            83,
+            15,
+            85,
+            19
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2273,
+            850
+          ],
+          "box": [
+            2259,
+            846,
+            2301,
+            875
+          ],
+          "grid_box": [
+            161,
+            16,
+            164,
+            18
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1607,
+            846
+          ],
+          "box": [
+            1600,
+            846,
+            1628,
+            860
+          ],
+          "grid_box": [
+            114,
+            16,
+            116,
+            17
+          ]
+        },
+        {
+          "area": 1,
+          "point": [
+            968,
+            1021
+          ],
+          "box": [
+            968,
+            1021,
+            982,
+            1036
+          ],
+          "grid_box": [
+            69,
+            28,
+            70,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-14-15-402",
+      "cam": "Cam5",
+      "defect": false,
+      "m0_score": 19.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 19,
+          "point": [
+            2072,
+            666
+          ],
+          "box": [
+            2049,
+            626,
+            2119,
+            729
+          ],
+          "grid_box": [
+            146,
+            1,
+            151,
+            8
+          ]
+        },
+        {
+          "area": 14,
+          "point": [
+            1901,
+            898
+          ],
+          "box": [
+            1880,
+            875,
+            1936,
+            948
+          ],
+          "grid_box": [
+            134,
+            18,
+            138,
+            23
+          ]
+        },
+        {
+          "area": 14,
+          "point": [
+            1896,
+            816
+          ],
+          "box": [
+            1866,
+            787,
+            1936,
+            860
+          ],
+          "grid_box": [
+            133,
+            12,
+            138,
+            17
+          ]
+        },
+        {
+          "area": 14,
+          "point": [
+            1880,
+            707
+          ],
+          "box": [
+            1838,
+            685,
+            1936,
+            743
+          ],
+          "grid_box": [
+            131,
+            5,
+            138,
+            9
+          ]
+        },
+        {
+          "area": 4,
+          "point": [
+            1901,
+            648
+          ],
+          "box": [
+            1880,
+            641,
+            1936,
+            670
+          ],
+          "grid_box": [
+            134,
+            2,
+            138,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-14-40-474",
+      "cam": "Cam5",
+      "defect": false,
+      "m0_score": 5.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 5,
+          "point": [
+            1361,
+            963
+          ],
+          "box": [
+            1361,
+            933,
+            1375,
+            1006
+          ],
+          "grid_box": [
+            97,
+            22,
+            98,
+            27
+          ]
+        },
+        {
+          "area": 4,
+          "point": [
+            1726,
+            941
+          ],
+          "box": [
+            1726,
+            919,
+            1740,
+            977
+          ],
+          "grid_box": [
+            123,
+            21,
+            124,
+            25
+          ]
+        },
+        {
+          "area": 4,
+          "point": [
+            3185,
+            838
+          ],
+          "box": [
+            3185,
+            816,
+            3200,
+            875
+          ],
+          "grid_box": [
+            227,
+            14,
+            228,
+            18
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2872,
+            850
+          ],
+          "box": [
+            2863,
+            846,
+            2891,
+            875
+          ],
+          "grid_box": [
+            204,
+            16,
+            206,
+            18
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            919,
+            809
+          ],
+          "box": [
+            912,
+            802,
+            940,
+            831
+          ],
+          "grid_box": [
+            65,
+            13,
+            67,
+            15
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-14-54-477",
+      "cam": "Cam5",
+      "defect": false,
+      "m0_score": 3.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 3,
+          "point": [
+            2516,
+            772
+          ],
+          "box": [
+            2512,
+            758,
+            2540,
+            802
+          ],
+          "grid_box": [
+            179,
+            10,
+            181,
+            13
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2231,
+            748
+          ],
+          "box": [
+            2217,
+            743,
+            2259,
+            772
+          ],
+          "grid_box": [
+            158,
+            9,
+            161,
+            11
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2161,
+            1043
+          ],
+          "box": [
+            2161,
+            1036,
+            2175,
+            1065
+          ],
+          "grid_box": [
+            154,
+            29,
+            155,
+            31
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1894,
+            838
+          ],
+          "box": [
+            1894,
+            831,
+            1908,
+            860
+          ],
+          "grid_box": [
+            135,
+            15,
+            136,
+            17
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1817,
+            824
+          ],
+          "box": [
+            1810,
+            816,
+            1838,
+            846
+          ],
+          "grid_box": [
+            129,
+            14,
+            131,
+            16
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-17-33-755",
+      "cam": "Cam5",
+      "defect": false,
+      "m0_score": 7.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 7,
+          "point": [
+            1160,
+            808
+          ],
+          "box": [
+            1136,
+            802,
+            1192,
+            831
+          ],
+          "grid_box": [
+            81,
+            13,
+            85,
+            15
+          ]
+        },
+        {
+          "area": 5,
+          "point": [
+            1148,
+            860
+          ],
+          "box": [
+            1136,
+            846,
+            1178,
+            889
+          ],
+          "grid_box": [
+            81,
+            16,
+            84,
+            19
+          ]
+        },
+        {
+          "area": 4,
+          "point": [
+            2224,
+            750
+          ],
+          "box": [
+            2217,
+            729,
+            2245,
+            787
+          ],
+          "grid_box": [
+            158,
+            8,
+            160,
+            12
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            991,
+            924
+          ],
+          "box": [
+            982,
+            919,
+            1010,
+            948
+          ],
+          "grid_box": [
+            70,
+            21,
+            72,
+            23
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1838,
+            651
+          ],
+          "box": [
+            1824,
+            641,
+            1866,
+            670
+          ],
+          "grid_box": [
+            130,
+            2,
+            133,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-17-44-353",
+      "cam": "Cam5",
+      "defect": false,
+      "m0_score": 7.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 7,
+          "point": [
+            2285,
+            839
+          ],
+          "box": [
+            2273,
+            816,
+            2315,
+            889
+          ],
+          "grid_box": [
+            162,
+            14,
+            165,
+            19
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1960,
+            836
+          ],
+          "box": [
+            1950,
+            831,
+            1978,
+            860
+          ],
+          "grid_box": [
+            139,
+            15,
+            141,
+            17
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1160,
+            821
+          ],
+          "box": [
+            1150,
+            816,
+            1178,
+            846
+          ],
+          "grid_box": [
+            82,
+            14,
+            84,
+            16
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2442,
+            1043
+          ],
+          "box": [
+            2442,
+            1036,
+            2456,
+            1065
+          ],
+          "grid_box": [
+            174,
+            29,
+            175,
+            31
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1312,
+            963
+          ],
+          "box": [
+            1305,
+            963,
+            1333,
+            977
+          ],
+          "grid_box": [
+            93,
+            24,
+            95,
+            25
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-17-49-885",
+      "cam": "Cam5",
+      "defect": false,
+      "m0_score": 4.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 4,
+          "point": [
+            1943,
+            824
+          ],
+          "box": [
+            1936,
+            816,
+            1964,
+            846
+          ],
+          "grid_box": [
+            138,
+            14,
+            140,
+            16
+          ]
+        },
+        {
+          "area": 4,
+          "point": [
+            1564,
+            809
+          ],
+          "box": [
+            1543,
+            802,
+            1600,
+            831
+          ],
+          "grid_box": [
+            110,
+            13,
+            114,
+            15
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1155,
+            855
+          ],
+          "box": [
+            1150,
+            846,
+            1178,
+            875
+          ],
+          "grid_box": [
+            82,
+            16,
+            84,
+            18
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2498,
+            787
+          ],
+          "box": [
+            2498,
+            772,
+            2512,
+            816
+          ],
+          "grid_box": [
+            178,
+            11,
+            179,
+            14
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2589,
+            1014
+          ],
+          "box": [
+            2582,
+            1006,
+            2610,
+            1036
+          ],
+          "grid_box": [
+            184,
+            27,
+            186,
+            29
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-18-02-459",
+      "cam": "Cam5",
+      "defect": false,
+      "m0_score": 3.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 3,
+          "point": [
+            1141,
+            850
+          ],
+          "box": [
+            1136,
+            846,
+            1164,
+            875
+          ],
+          "grid_box": [
+            81,
+            16,
+            83,
+            18
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1174,
+            807
+          ],
+          "box": [
+            1164,
+            802,
+            1192,
+            831
+          ],
+          "grid_box": [
+            83,
+            13,
+            85,
+            15
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1656,
+            970
+          ],
+          "box": [
+            1656,
+            963,
+            1670,
+            992
+          ],
+          "grid_box": [
+            118,
+            24,
+            119,
+            26
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2554,
+            955
+          ],
+          "box": [
+            2554,
+            948,
+            2568,
+            977
+          ],
+          "grid_box": [
+            182,
+            23,
+            183,
+            25
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2877,
+            838
+          ],
+          "box": [
+            2877,
+            831,
+            2891,
+            860
+          ],
+          "grid_box": [
+            205,
+            15,
+            206,
+            17
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-18-03-402",
+      "cam": "Cam5",
+      "defect": false,
+      "m0_score": 3.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 3,
+          "point": [
+            1843,
+            958
+          ],
+          "box": [
+            1838,
+            948,
+            1866,
+            977
+          ],
+          "grid_box": [
+            131,
+            23,
+            133,
+            25
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1136,
+            933
+          ],
+          "box": [
+            1122,
+            919,
+            1164,
+            963
+          ],
+          "grid_box": [
+            80,
+            21,
+            83,
+            24
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1815,
+            729
+          ],
+          "box": [
+            1810,
+            714,
+            1838,
+            758
+          ],
+          "grid_box": [
+            129,
+            7,
+            131,
+            10
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2512,
+            897
+          ],
+          "box": [
+            2512,
+            889,
+            2526,
+            919
+          ],
+          "grid_box": [
+            179,
+            19,
+            180,
+            21
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1936,
+            853
+          ],
+          "box": [
+            1936,
+            846,
+            1950,
+            875
+          ],
+          "grid_box": [
+            138,
+            16,
+            139,
+            18
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-10-14-550",
+      "cam": "Cam6",
+      "defect": false,
+      "m0_score": 7.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 7,
+          "point": [
+            2562,
+            1046
+          ],
+          "box": [
+            2554,
+            1021,
+            2582,
+            1080
+          ],
+          "grid_box": [
+            182,
+            28,
+            184,
+            32
+          ]
+        },
+        {
+          "area": 5,
+          "point": [
+            3023,
+            1003
+          ],
+          "box": [
+            3017,
+            977,
+            3045,
+            1036
+          ],
+          "grid_box": [
+            215,
+            25,
+            217,
+            29
+          ]
+        },
+        {
+          "area": 4,
+          "point": [
+            2270,
+            981
+          ],
+          "box": [
+            2259,
+            963,
+            2287,
+            1006
+          ],
+          "grid_box": [
+            161,
+            24,
+            163,
+            27
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1801,
+            992
+          ],
+          "box": [
+            1796,
+            977,
+            1824,
+            1021
+          ],
+          "grid_box": [
+            128,
+            25,
+            130,
+            28
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1417,
+            977
+          ],
+          "box": [
+            1417,
+            963,
+            1431,
+            1006
+          ],
+          "grid_box": [
+            101,
+            24,
+            102,
+            27
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-11-40-177",
+      "cam": "Cam6",
+      "defect": false,
+      "m0_score": 9.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 9,
+          "point": [
+            1833,
+            961
+          ],
+          "box": [
+            1810,
+            933,
+            1866,
+            1006
+          ],
+          "grid_box": [
+            129,
+            22,
+            133,
+            27
+          ]
+        },
+        {
+          "area": 4,
+          "point": [
+            1614,
+            721
+          ],
+          "box": [
+            1614,
+            699,
+            1628,
+            758
+          ],
+          "grid_box": [
+            115,
+            6,
+            116,
+            10
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2222,
+            724
+          ],
+          "box": [
+            2217,
+            714,
+            2245,
+            743
+          ],
+          "grid_box": [
+            158,
+            7,
+            160,
+            9
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1740,
+            926
+          ],
+          "box": [
+            1740,
+            919,
+            1754,
+            948
+          ],
+          "grid_box": [
+            124,
+            21,
+            125,
+            23
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1115,
+            846
+          ],
+          "box": [
+            1108,
+            846,
+            1136,
+            860
+          ],
+          "grid_box": [
+            79,
+            16,
+            81,
+            17
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-11-45-648",
+      "cam": "Cam6",
+      "defect": false,
+      "m0_score": 9.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 9,
+          "point": [
+            2270,
+            976
+          ],
+          "box": [
+            2231,
+            963,
+            2315,
+            1006
+          ],
+          "grid_box": [
+            159,
+            24,
+            165,
+            27
+          ]
+        },
+        {
+          "area": 4,
+          "point": [
+            1859,
+            1036
+          ],
+          "box": [
+            1852,
+            1021,
+            1880,
+            1065
+          ],
+          "grid_box": [
+            132,
+            28,
+            134,
+            31
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            3038,
+            1043
+          ],
+          "box": [
+            3031,
+            1036,
+            3059,
+            1065
+          ],
+          "grid_box": [
+            216,
+            29,
+            218,
+            31
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2982,
+            1043
+          ],
+          "box": [
+            2975,
+            1036,
+            3003,
+            1065
+          ],
+          "grid_box": [
+            212,
+            29,
+            214,
+            31
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1670,
+            1028
+          ],
+          "box": [
+            1670,
+            1021,
+            1684,
+            1050
+          ],
+          "grid_box": [
+            119,
+            28,
+            120,
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-11-55-178",
+      "cam": "Cam6",
+      "defect": true,
+      "m0_score": 17.0,
+      "m0_point_hit": true,
+      "candidate_hits": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 17,
+          "point": [
+            2859,
+            923
+          ],
+          "box": [
+            2835,
+            889,
+            2891,
+            963
+          ],
+          "grid_box": [
+            202,
+            19,
+            206,
+            24
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2975,
+            1026
+          ],
+          "box": [
+            2961,
+            1021,
+            3003,
+            1050
+          ],
+          "grid_box": [
+            211,
+            28,
+            214,
+            30
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            3167,
+            977
+          ],
+          "box": [
+            3157,
+            963,
+            3185,
+            1006
+          ],
+          "grid_box": [
+            225,
+            24,
+            227,
+            27
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            3181,
+            670
+          ],
+          "box": [
+            3171,
+            655,
+            3200,
+            699
+          ],
+          "grid_box": [
+            226,
+            3,
+            228,
+            6
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2842,
+            977
+          ],
+          "box": [
+            2835,
+            977,
+            2863,
+            992
+          ],
+          "grid_box": [
+            202,
+            25,
+            204,
+            26
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-11-56-719",
+      "cam": "Cam6",
+      "defect": true,
+      "m0_score": 12.0,
+      "m0_point_hit": true,
+      "candidate_hits": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 12,
+          "point": [
+            2859,
+            924
+          ],
+          "box": [
+            2835,
+            889,
+            2891,
+            963
+          ],
+          "grid_box": [
+            202,
+            19,
+            206,
+            24
+          ]
+        },
+        {
+          "area": 10,
+          "point": [
+            1821,
+            977
+          ],
+          "box": [
+            1810,
+            933,
+            1852,
+            1021
+          ],
+          "grid_box": [
+            129,
+            22,
+            132,
+            28
+          ]
+        },
+        {
+          "area": 5,
+          "point": [
+            2863,
+            638
+          ],
+          "box": [
+            2849,
+            612,
+            2891,
+            670
+          ],
+          "grid_box": [
+            203,
+            0,
+            206,
+            4
+          ]
+        },
+        {
+          "area": 4,
+          "point": [
+            2526,
+            867
+          ],
+          "box": [
+            2512,
+            860,
+            2554,
+            889
+          ],
+          "grid_box": [
+            179,
+            17,
+            182,
+            19
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2463,
+            911
+          ],
+          "box": [
+            2456,
+            904,
+            2484,
+            933
+          ],
+          "grid_box": [
+            175,
+            20,
+            177,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-14-15-407",
+      "cam": "Cam6",
+      "defect": false,
+      "m0_score": 10.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 10,
+          "point": [
+            2899,
+            708
+          ],
+          "box": [
+            2863,
+            699,
+            2947,
+            729
+          ],
+          "grid_box": [
+            204,
+            6,
+            210,
+            8
+          ]
+        },
+        {
+          "area": 1,
+          "point": [
+            2877,
+            1050
+          ],
+          "box": [
+            2877,
+            1050,
+            2891,
+            1065
+          ],
+          "grid_box": [
+            205,
+            30,
+            206,
+            31
+          ]
+        },
+        {
+          "area": 1,
+          "point": [
+            2905,
+            1006
+          ],
+          "box": [
+            2905,
+            1006,
+            2919,
+            1021
+          ],
+          "grid_box": [
+            207,
+            27,
+            208,
+            28
+          ]
+        },
+        {
+          "area": 1,
+          "point": [
+            2933,
+            963
+          ],
+          "box": [
+            2933,
+            963,
+            2947,
+            977
+          ],
+          "grid_box": [
+            209,
+            24,
+            210,
+            25
+          ]
+        },
+        {
+          "area": 1,
+          "point": [
+            2891,
+            963
+          ],
+          "box": [
+            2891,
+            963,
+            2905,
+            977
+          ],
+          "grid_box": [
+            206,
+            24,
+            207,
+            25
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-14-40-478",
+      "cam": "Cam6",
+      "defect": false,
+      "m0_score": 6.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 6,
+          "point": [
+            1819,
+            992
+          ],
+          "box": [
+            1810,
+            963,
+            1838,
+            1036
+          ],
+          "grid_box": [
+            129,
+            24,
+            131,
+            29
+          ]
+        },
+        {
+          "area": 6,
+          "point": [
+            1127,
+            853
+          ],
+          "box": [
+            1108,
+            831,
+            1164,
+            889
+          ],
+          "grid_box": [
+            79,
+            15,
+            83,
+            19
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1600,
+            860
+          ],
+          "box": [
+            1600,
+            846,
+            1614,
+            889
+          ],
+          "grid_box": [
+            114,
+            16,
+            115,
+            19
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            3038,
+            1050
+          ],
+          "box": [
+            3031,
+            1050,
+            3059,
+            1065
+          ],
+          "grid_box": [
+            216,
+            30,
+            218,
+            31
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2933,
+            926
+          ],
+          "box": [
+            2933,
+            919,
+            2947,
+            948
+          ],
+          "grid_box": [
+            209,
+            21,
+            210,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-14-54-492",
+      "cam": "Cam6",
+      "defect": false,
+      "m0_score": 6.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 6,
+          "point": [
+            1616,
+            846
+          ],
+          "box": [
+            1600,
+            831,
+            1656,
+            875
+          ],
+          "grid_box": [
+            114,
+            15,
+            118,
+            18
+          ]
+        },
+        {
+          "area": 5,
+          "point": [
+            1847,
+            939
+          ],
+          "box": [
+            1824,
+            919,
+            1880,
+            977
+          ],
+          "grid_box": [
+            130,
+            21,
+            134,
+            25
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2311,
+            967
+          ],
+          "box": [
+            2301,
+            963,
+            2329,
+            992
+          ],
+          "grid_box": [
+            164,
+            24,
+            166,
+            26
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2058,
+            865
+          ],
+          "box": [
+            2049,
+            860,
+            2077,
+            889
+          ],
+          "grid_box": [
+            146,
+            17,
+            148,
+            19
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2491,
+            911
+          ],
+          "box": [
+            2484,
+            904,
+            2512,
+            933
+          ],
+          "grid_box": [
+            177,
+            20,
+            179,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-17-33-774",
+      "cam": "Cam6",
+      "defect": false,
+      "m0_score": 3.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 3,
+          "point": [
+            2867,
+            1011
+          ],
+          "box": [
+            2863,
+            1006,
+            2891,
+            1036
+          ],
+          "grid_box": [
+            204,
+            27,
+            206,
+            29
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1861,
+            987
+          ],
+          "box": [
+            1852,
+            977,
+            1880,
+            1006
+          ],
+          "grid_box": [
+            132,
+            25,
+            134,
+            27
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1852,
+            948
+          ],
+          "box": [
+            1838,
+            948,
+            1880,
+            963
+          ],
+          "grid_box": [
+            131,
+            23,
+            134,
+            24
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2432,
+            885
+          ],
+          "box": [
+            2428,
+            875,
+            2456,
+            904
+          ],
+          "grid_box": [
+            173,
+            18,
+            175,
+            20
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1845,
+            1065
+          ],
+          "box": [
+            1838,
+            1065,
+            1866,
+            1080
+          ],
+          "grid_box": [
+            131,
+            31,
+            133,
+            32
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-17-44-376",
+      "cam": "Cam6",
+      "defect": false,
+      "m0_score": 4.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 4,
+          "point": [
+            2224,
+            970
+          ],
+          "box": [
+            2203,
+            963,
+            2259,
+            992
+          ],
+          "grid_box": [
+            157,
+            24,
+            161,
+            26
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1824,
+            948
+          ],
+          "box": [
+            1824,
+            933,
+            1838,
+            977
+          ],
+          "grid_box": [
+            130,
+            22,
+            131,
+            25
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2877,
+            855
+          ],
+          "box": [
+            2863,
+            846,
+            2905,
+            875
+          ],
+          "grid_box": [
+            204,
+            16,
+            207,
+            18
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1642,
+            1058
+          ],
+          "box": [
+            1642,
+            1050,
+            1656,
+            1080
+          ],
+          "grid_box": [
+            117,
+            30,
+            118,
+            32
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2000,
+            787
+          ],
+          "box": [
+            1992,
+            787,
+            2021,
+            802
+          ],
+          "grid_box": [
+            142,
+            12,
+            144,
+            13
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-17-49-886",
+      "cam": "Cam6",
+      "defect": false,
+      "m0_score": 3.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 3,
+          "point": [
+            1833,
+            987
+          ],
+          "box": [
+            1824,
+            977,
+            1852,
+            1006
+          ],
+          "grid_box": [
+            130,
+            25,
+            132,
+            27
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1880,
+            714
+          ],
+          "box": [
+            1880,
+            699,
+            1894,
+            743
+          ],
+          "grid_box": [
+            134,
+            6,
+            135,
+            9
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1370,
+            714
+          ],
+          "box": [
+            1361,
+            699,
+            1389,
+            743
+          ],
+          "grid_box": [
+            97,
+            6,
+            99,
+            9
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1375,
+            1028
+          ],
+          "box": [
+            1375,
+            1021,
+            1389,
+            1050
+          ],
+          "grid_box": [
+            98,
+            28,
+            99,
+            30
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2526,
+            970
+          ],
+          "box": [
+            2526,
+            963,
+            2540,
+            992
+          ],
+          "grid_box": [
+            180,
+            24,
+            181,
+            26
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-18-02-458",
+      "cam": "Cam6",
+      "defect": false,
+      "m0_score": 6.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 6,
+          "point": [
+            2474,
+            885
+          ],
+          "box": [
+            2456,
+            875,
+            2512,
+            919
+          ],
+          "grid_box": [
+            175,
+            18,
+            179,
+            21
+          ]
+        },
+        {
+          "area": 4,
+          "point": [
+            1814,
+            981
+          ],
+          "box": [
+            1796,
+            977,
+            1838,
+            1006
+          ],
+          "grid_box": [
+            128,
+            25,
+            131,
+            27
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            3045,
+            1006
+          ],
+          "box": [
+            3045,
+            992,
+            3059,
+            1036
+          ],
+          "grid_box": [
+            217,
+            26,
+            218,
+            29
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            2063,
+            724
+          ],
+          "box": [
+            2049,
+            714,
+            2091,
+            743
+          ],
+          "grid_box": [
+            146,
+            7,
+            149,
+            9
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1712,
+            1028
+          ],
+          "box": [
+            1712,
+            1021,
+            1726,
+            1050
+          ],
+          "grid_box": [
+            122,
+            28,
+            123,
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-18-03-408 - 副本",
+      "cam": "Cam6",
+      "defect": false,
+      "m0_score": 4.0,
+      "m0_point_hit": false,
+      "candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "candidates": [
+        {
+          "area": 4,
+          "point": [
+            1835,
+            948
+          ],
+          "box": [
+            1824,
+            933,
+            1866,
+            977
+          ],
+          "grid_box": [
+            130,
+            22,
+            133,
+            25
+          ]
+        },
+        {
+          "area": 4,
+          "point": [
+            1705,
+            904
+          ],
+          "box": [
+            1698,
+            889,
+            1726,
+            933
+          ],
+          "grid_box": [
+            121,
+            19,
+            123,
+            22
+          ]
+        },
+        {
+          "area": 3,
+          "point": [
+            1642,
+            924
+          ],
+          "box": [
+            1628,
+            919,
+            1670,
+            948
+          ],
+          "grid_box": [
+            116,
+            21,
+            119,
+            23
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            2842,
+            1028
+          ],
+          "box": [
+            2835,
+            1021,
+            2863,
+            1050
+          ],
+          "grid_box": [
+            202,
+            28,
+            204,
+            30
+          ]
+        },
+        {
+          "area": 2,
+          "point": [
+            1635,
+            1028
+          ],
+          "box": [
+            1628,
+            1021,
+            1656,
+            1050
+          ],
+          "grid_box": [
+            116,
+            28,
+            118,
+            30
+          ]
+        }
+      ]
+    }
+  ]
+}

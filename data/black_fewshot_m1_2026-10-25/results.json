@@ -1,0 +1,1245 @@
+{
+  "summary": {
+    "protocol": "M1 六折留相机，验证相机轮换；异常图使用既有同机位留一参考",
+    "limitations": "16 个框来自同一现场故障；7 月批现为开发集，M0 历史结果非独立测试；F2 未参与",
+    "frames": 69,
+    "positive_frames": 16,
+    "image_auroc": 0.9233490566037736,
+    "image_ap": 0.6606540467294143,
+    "fixed_val_threshold_recall": 0.8125,
+    "fixed_val_threshold_fpr": 0.09433962264150944,
+    "point_hits": 7,
+    "point_total": 16,
+    "epochs": 20,
+    "seed": 20261024
+  },
+  "rows": [
+    {
+      "id": "DI2_Cam1_2026-07-18_10-10-14-549",
+      "cam": "Cam1",
+      "defect": false,
+      "score": 0.3421271741390228,
+      "point_hit": false,
+      "pred_box": [
+        954,
+        933,
+        1094,
+        992
+      ],
+      "fold": 0,
+      "test_cam": "Cam1",
+      "val_cam": "Cam2",
+      "threshold": 0.4511187613010406,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-11-40-176",
+      "cam": "Cam1",
+      "defect": true,
+      "score": 0.7709444761276245,
+      "point_hit": false,
+      "pred_box": null,
+      "fold": 0,
+      "test_cam": "Cam1",
+      "val_cam": "Cam2",
+      "threshold": 0.4511187613010406,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-11-45-636",
+      "cam": "Cam1",
+      "defect": true,
+      "score": 0.6952917575836182,
+      "point_hit": false,
+      "pred_box": [
+        1361,
+        933,
+        1417,
+        977
+      ],
+      "fold": 0,
+      "test_cam": "Cam1",
+      "val_cam": "Cam2",
+      "threshold": 0.4511187613010406,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-11-55-175",
+      "cam": "Cam1",
+      "defect": false,
+      "score": 0.38839399814605713,
+      "point_hit": false,
+      "pred_box": [
+        954,
+        919,
+        1094,
+        1006
+      ],
+      "fold": 0,
+      "test_cam": "Cam1",
+      "val_cam": "Cam2",
+      "threshold": 0.4511187613010406,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-11-56-690",
+      "cam": "Cam1",
+      "defect": false,
+      "score": 0.4624423682689667,
+      "point_hit": false,
+      "pred_box": [
+        912,
+        919,
+        1024,
+        992
+      ],
+      "fold": 0,
+      "test_cam": "Cam1",
+      "val_cam": "Cam2",
+      "threshold": 0.4511187613010406,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-14-15-404",
+      "cam": "Cam1",
+      "defect": false,
+      "score": 0.4421325623989105,
+      "point_hit": false,
+      "pred_box": [
+        926,
+        919,
+        1024,
+        1006
+      ],
+      "fold": 0,
+      "test_cam": "Cam1",
+      "val_cam": "Cam2",
+      "threshold": 0.4511187613010406,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-14-40-482",
+      "cam": "Cam1",
+      "defect": true,
+      "score": 0.511608362197876,
+      "point_hit": true,
+      "pred_box": [
+        645,
+        889,
+        743,
+        992
+      ],
+      "fold": 0,
+      "test_cam": "Cam1",
+      "val_cam": "Cam2",
+      "threshold": 0.4511187613010406,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-14-54-478",
+      "cam": "Cam1",
+      "defect": true,
+      "score": 0.7096830010414124,
+      "point_hit": false,
+      "pred_box": [
+        1431,
+        948,
+        1459,
+        963
+      ],
+      "fold": 0,
+      "test_cam": "Cam1",
+      "val_cam": "Cam2",
+      "threshold": 0.4511187613010406,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-17-33-756",
+      "cam": "Cam1",
+      "defect": false,
+      "score": 0.39770805835723877,
+      "point_hit": false,
+      "pred_box": [
+        2035,
+        787,
+        2105,
+        875
+      ],
+      "fold": 0,
+      "test_cam": "Cam1",
+      "val_cam": "Cam2",
+      "threshold": 0.4511187613010406,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-17-44-354",
+      "cam": "Cam1",
+      "defect": false,
+      "score": 0.38210052251815796,
+      "point_hit": false,
+      "pred_box": [
+        2035,
+        816,
+        2105,
+        889
+      ],
+      "fold": 0,
+      "test_cam": "Cam1",
+      "val_cam": "Cam2",
+      "threshold": 0.4511187613010406,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-17-49-889",
+      "cam": "Cam1",
+      "defect": false,
+      "score": 0.396098792552948,
+      "point_hit": false,
+      "pred_box": [
+        968,
+        904,
+        1094,
+        992
+      ],
+      "fold": 0,
+      "test_cam": "Cam1",
+      "val_cam": "Cam2",
+      "threshold": 0.4511187613010406,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-18-02-377",
+      "cam": "Cam1",
+      "defect": false,
+      "score": 0.3352581560611725,
+      "point_hit": false,
+      "pred_box": [
+        940,
+        933,
+        1066,
+        1006
+      ],
+      "fold": 0,
+      "test_cam": "Cam1",
+      "val_cam": "Cam2",
+      "threshold": 0.4511187613010406,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-18-03-404",
+      "cam": "Cam1",
+      "defect": false,
+      "score": 0.5034932494163513,
+      "point_hit": false,
+      "pred_box": [
+        2021,
+        802,
+        2147,
+        875
+      ],
+      "fold": 0,
+      "test_cam": "Cam1",
+      "val_cam": "Cam2",
+      "threshold": 0.4511187613010406,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-10-14-552",
+      "cam": "Cam2",
+      "defect": false,
+      "score": 0.4355672001838684,
+      "point_hit": false,
+      "pred_box": [
+        435,
+        802,
+        533,
+        889
+      ],
+      "fold": 1,
+      "test_cam": "Cam2",
+      "val_cam": "Cam3",
+      "threshold": 0.7116305828094482,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-11-40-181",
+      "cam": "Cam2",
+      "defect": true,
+      "score": 0.7867879867553711,
+      "point_hit": false,
+      "pred_box": [
+        701,
+        772,
+        743,
+        846
+      ],
+      "fold": 1,
+      "test_cam": "Cam2",
+      "val_cam": "Cam3",
+      "threshold": 0.7116305828094482,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-11-45-634",
+      "cam": "Cam2",
+      "defect": true,
+      "score": 0.7166152000427246,
+      "point_hit": true,
+      "pred_box": [
+        2371,
+        816,
+        2470,
+        919
+      ],
+      "fold": 1,
+      "test_cam": "Cam2",
+      "val_cam": "Cam3",
+      "threshold": 0.7116305828094482,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-11-55-176",
+      "cam": "Cam2",
+      "defect": false,
+      "score": 0.5952165126800537,
+      "point_hit": false,
+      "pred_box": [
+        800,
+        816,
+        884,
+        889
+      ],
+      "fold": 1,
+      "test_cam": "Cam2",
+      "val_cam": "Cam3",
+      "threshold": 0.7116305828094482,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-11-56-689",
+      "cam": "Cam2",
+      "defect": false,
+      "score": 0.6884903311729431,
+      "point_hit": false,
+      "pred_box": [
+        1094,
+        772,
+        1207,
+        875
+      ],
+      "fold": 1,
+      "test_cam": "Cam2",
+      "val_cam": "Cam3",
+      "threshold": 0.7116305828094482,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-14-15-408",
+      "cam": "Cam2",
+      "defect": false,
+      "score": 0.6272164583206177,
+      "point_hit": false,
+      "pred_box": [
+        154,
+        831,
+        280,
+        977
+      ],
+      "fold": 1,
+      "test_cam": "Cam2",
+      "val_cam": "Cam3",
+      "threshold": 0.7116305828094482,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-14-40-480",
+      "cam": "Cam2",
+      "defect": true,
+      "score": 0.8598215579986572,
+      "point_hit": false,
+      "pred_box": null,
+      "fold": 1,
+      "test_cam": "Cam2",
+      "val_cam": "Cam3",
+      "threshold": 0.7116305828094482,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-14-54-481",
+      "cam": "Cam2",
+      "defect": true,
+      "score": 0.6600844264030457,
+      "point_hit": true,
+      "pred_box": [
+        2385,
+        816,
+        2512,
+        904
+      ],
+      "fold": 1,
+      "test_cam": "Cam2",
+      "val_cam": "Cam3",
+      "threshold": 0.7116305828094482,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-17-33-758",
+      "cam": "Cam2",
+      "defect": false,
+      "score": 0.44878825545310974,
+      "point_hit": false,
+      "pred_box": [
+        182,
+        875,
+        308,
+        1036
+      ],
+      "fold": 1,
+      "test_cam": "Cam2",
+      "val_cam": "Cam3",
+      "threshold": 0.7116305828094482,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-17-44-355",
+      "cam": "Cam2",
+      "defect": false,
+      "score": 0.5520699620246887,
+      "point_hit": false,
+      "pred_box": [
+        659,
+        758,
+        771,
+        860
+      ],
+      "fold": 1,
+      "test_cam": "Cam2",
+      "val_cam": "Cam3",
+      "threshold": 0.7116305828094482,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-17-49-889",
+      "cam": "Cam2",
+      "defect": false,
+      "score": 0.40774601697921753,
+      "point_hit": false,
+      "pred_box": [
+        1249,
+        846,
+        1319,
+        933
+      ],
+      "fold": 1,
+      "test_cam": "Cam2",
+      "val_cam": "Cam3",
+      "threshold": 0.7116305828094482,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-18-02-517",
+      "cam": "Cam2",
+      "defect": false,
+      "score": 0.3083226680755615,
+      "point_hit": false,
+      "pred_box": [
+        224,
+        889,
+        294,
+        963
+      ],
+      "fold": 1,
+      "test_cam": "Cam2",
+      "val_cam": "Cam3",
+      "threshold": 0.7116305828094482,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-18-03-407",
+      "cam": "Cam2",
+      "defect": false,
+      "score": 0.5597596764564514,
+      "point_hit": false,
+      "pred_box": [
+        1080,
+        802,
+        1164,
+        875
+      ],
+      "fold": 1,
+      "test_cam": "Cam2",
+      "val_cam": "Cam3",
+      "threshold": 0.7116305828094482,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-10-14-550",
+      "cam": "Cam3",
+      "defect": false,
+      "score": 0.5256184339523315,
+      "point_hit": false,
+      "pred_box": [
+        2035,
+        860,
+        2105,
+        992
+      ],
+      "fold": 2,
+      "test_cam": "Cam3",
+      "val_cam": "Cam4",
+      "threshold": 0.7457063794136047,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-11-40-175",
+      "cam": "Cam3",
+      "defect": false,
+      "score": 0.4667768180370331,
+      "point_hit": false,
+      "pred_box": [
+        3101,
+        889,
+        3171,
+        977
+      ],
+      "fold": 2,
+      "test_cam": "Cam3",
+      "val_cam": "Cam4",
+      "threshold": 0.7457063794136047,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-11-45-637",
+      "cam": "Cam3",
+      "defect": false,
+      "score": 0.36003565788269043,
+      "point_hit": false,
+      "pred_box": [
+        2259,
+        948,
+        2371,
+        1006
+      ],
+      "fold": 2,
+      "test_cam": "Cam3",
+      "val_cam": "Cam4",
+      "threshold": 0.7457063794136047,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-11-55-177",
+      "cam": "Cam3",
+      "defect": false,
+      "score": 0.5783630609512329,
+      "point_hit": false,
+      "pred_box": [
+        645,
+        860,
+        743,
+        1006
+      ],
+      "fold": 2,
+      "test_cam": "Cam3",
+      "val_cam": "Cam4",
+      "threshold": 0.7457063794136047,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-11-56-691",
+      "cam": "Cam3",
+      "defect": true,
+      "score": 0.6042376160621643,
+      "point_hit": true,
+      "pred_box": [
+        659,
+        889,
+        729,
+        977
+      ],
+      "fold": 2,
+      "test_cam": "Cam3",
+      "val_cam": "Cam4",
+      "threshold": 0.7457063794136047,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-14-15-409",
+      "cam": "Cam3",
+      "defect": true,
+      "score": 0.8448808789253235,
+      "point_hit": false,
+      "pred_box": [
+        449,
+        699,
+        505,
+        743
+      ],
+      "fold": 2,
+      "test_cam": "Cam3",
+      "val_cam": "Cam4",
+      "threshold": 0.7457063794136047,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-14-40-488",
+      "cam": "Cam3",
+      "defect": false,
+      "score": 0.5153566002845764,
+      "point_hit": false,
+      "pred_box": [
+        2666,
+        889,
+        2750,
+        992
+      ],
+      "fold": 2,
+      "test_cam": "Cam3",
+      "val_cam": "Cam4",
+      "threshold": 0.7457063794136047,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-14-54-482",
+      "cam": "Cam3",
+      "defect": false,
+      "score": 0.3840102255344391,
+      "point_hit": false,
+      "pred_box": [
+        2035,
+        875,
+        2091,
+        977
+      ],
+      "fold": 2,
+      "test_cam": "Cam3",
+      "val_cam": "Cam4",
+      "threshold": 0.7457063794136047,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-17-33-757",
+      "cam": "Cam3",
+      "defect": false,
+      "score": 0.3295004367828369,
+      "point_hit": false,
+      "pred_box": [
+        2245,
+        948,
+        2343,
+        1036
+      ],
+      "fold": 2,
+      "test_cam": "Cam3",
+      "val_cam": "Cam4",
+      "threshold": 0.7457063794136047,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-17-44-358",
+      "cam": "Cam3",
+      "defect": false,
+      "score": 0.3447561264038086,
+      "point_hit": false,
+      "pred_box": [
+        1838,
+        933,
+        1894,
+        1050
+      ],
+      "fold": 2,
+      "test_cam": "Cam3",
+      "val_cam": "Cam4",
+      "threshold": 0.7457063794136047,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-17-49-891",
+      "cam": "Cam3",
+      "defect": false,
+      "score": 0.4514804482460022,
+      "point_hit": false,
+      "pred_box": [
+        2470,
+        846,
+        2540,
+        948
+      ],
+      "fold": 2,
+      "test_cam": "Cam3",
+      "val_cam": "Cam4",
+      "threshold": 0.7457063794136047,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-18-02-520 - 副本",
+      "cam": "Cam3",
+      "defect": false,
+      "score": 0.3591976761817932,
+      "point_hit": false,
+      "pred_box": [
+        2245,
+        933,
+        2371,
+        1021
+      ],
+      "fold": 2,
+      "test_cam": "Cam3",
+      "val_cam": "Cam4",
+      "threshold": 0.7457063794136047,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-18-03-405",
+      "cam": "Cam3",
+      "defect": false,
+      "score": 0.4270973205566406,
+      "point_hit": false,
+      "pred_box": [
+        2428,
+        875,
+        2540,
+        963
+      ],
+      "fold": 2,
+      "test_cam": "Cam3",
+      "val_cam": "Cam4",
+      "threshold": 0.7457063794136047,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-10-14-561",
+      "cam": "Cam4",
+      "defect": false,
+      "score": 0.2630689740180969,
+      "point_hit": false,
+      "pred_box": [
+        2484,
+        846,
+        2582,
+        933
+      ],
+      "fold": 3,
+      "test_cam": "Cam4",
+      "val_cam": "Cam5",
+      "threshold": 0.7907224446535108,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-11-40-179",
+      "cam": "Cam4",
+      "defect": false,
+      "score": 0.3236493170261383,
+      "point_hit": false,
+      "pred_box": [
+        2077,
+        831,
+        2161,
+        904
+      ],
+      "fold": 3,
+      "test_cam": "Cam4",
+      "val_cam": "Cam5",
+      "threshold": 0.7907224446535108,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-11-45-648",
+      "cam": "Cam4",
+      "defect": false,
+      "score": 0.3841445744037628,
+      "point_hit": false,
+      "pred_box": [
+        2484,
+        846,
+        2582,
+        963
+      ],
+      "fold": 3,
+      "test_cam": "Cam4",
+      "val_cam": "Cam5",
+      "threshold": 0.7907224446535108,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-11-55-179",
+      "cam": "Cam4",
+      "defect": true,
+      "score": 0.9093484878540039,
+      "point_hit": false,
+      "pred_box": null,
+      "fold": 3,
+      "test_cam": "Cam4",
+      "val_cam": "Cam5",
+      "threshold": 0.7907224446535108,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-11-56-694",
+      "cam": "Cam4",
+      "defect": true,
+      "score": 0.7030683755874634,
+      "point_hit": true,
+      "pred_box": [
+        1291,
+        743,
+        1417,
+        875
+      ],
+      "fold": 3,
+      "test_cam": "Cam4",
+      "val_cam": "Cam5",
+      "threshold": 0.7907224446535108,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-14-15-405",
+      "cam": "Cam4",
+      "defect": false,
+      "score": 0.9032436013221741,
+      "point_hit": false,
+      "pred_box": [
+        1108,
+        802,
+        1235,
+        933
+      ],
+      "fold": 3,
+      "test_cam": "Cam4",
+      "val_cam": "Cam5",
+      "threshold": 0.7907224446535108,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-14-40-475",
+      "cam": "Cam4",
+      "defect": false,
+      "score": 0.6058724522590637,
+      "point_hit": false,
+      "pred_box": [
+        2049,
+        787,
+        2147,
+        919
+      ],
+      "fold": 3,
+      "test_cam": "Cam4",
+      "val_cam": "Cam5",
+      "threshold": 0.7907224446535108,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-11-55-176",
+      "cam": "Cam5",
+      "defect": true,
+      "score": 0.7909967303276062,
+      "point_hit": false,
+      "pred_box": [
+        1557,
+        772,
+        1571,
+        816
+      ],
+      "fold": 4,
+      "test_cam": "Cam5",
+      "val_cam": "Cam6",
+      "threshold": 0.7518857717514038,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-11-56-689",
+      "cam": "Cam5",
+      "defect": true,
+      "score": 0.7740920782089233,
+      "point_hit": false,
+      "pred_box": [
+        1150,
+        816,
+        1207,
+        875
+      ],
+      "fold": 4,
+      "test_cam": "Cam5",
+      "val_cam": "Cam6",
+      "threshold": 0.7518857717514038,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-14-15-402",
+      "cam": "Cam5",
+      "defect": false,
+      "score": 0.901309072971344,
+      "point_hit": false,
+      "pred_box": [
+        1880,
+        772,
+        1936,
+        933
+      ],
+      "fold": 4,
+      "test_cam": "Cam5",
+      "val_cam": "Cam6",
+      "threshold": 0.7518857717514038,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-14-40-474",
+      "cam": "Cam5",
+      "defect": false,
+      "score": 0.3731469511985779,
+      "point_hit": false,
+      "pred_box": [
+        1571,
+        772,
+        1642,
+        860
+      ],
+      "fold": 4,
+      "test_cam": "Cam5",
+      "val_cam": "Cam6",
+      "threshold": 0.7518857717514038,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-14-54-477",
+      "cam": "Cam5",
+      "defect": false,
+      "score": 0.5062846541404724,
+      "point_hit": false,
+      "pred_box": [
+        2484,
+        685,
+        2568,
+        816
+      ],
+      "fold": 4,
+      "test_cam": "Cam5",
+      "val_cam": "Cam6",
+      "threshold": 0.7518857717514038,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-17-33-755",
+      "cam": "Cam5",
+      "defect": false,
+      "score": 0.4527096152305603,
+      "point_hit": false,
+      "pred_box": [
+        1122,
+        787,
+        1207,
+        904
+      ],
+      "fold": 4,
+      "test_cam": "Cam5",
+      "val_cam": "Cam6",
+      "threshold": 0.7518857717514038,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-17-44-353",
+      "cam": "Cam5",
+      "defect": false,
+      "score": 0.5668143630027771,
+      "point_hit": false,
+      "pred_box": [
+        1122,
+        802,
+        1221,
+        860
+      ],
+      "fold": 4,
+      "test_cam": "Cam5",
+      "val_cam": "Cam6",
+      "threshold": 0.7518857717514038,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-17-49-885",
+      "cam": "Cam5",
+      "defect": false,
+      "score": 0.6013192534446716,
+      "point_hit": false,
+      "pred_box": [
+        1936,
+        714,
+        2063,
+        846
+      ],
+      "fold": 4,
+      "test_cam": "Cam5",
+      "val_cam": "Cam6",
+      "threshold": 0.7518857717514038,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-18-02-459",
+      "cam": "Cam5",
+      "defect": false,
+      "score": 0.42896178364753723,
+      "point_hit": false,
+      "pred_box": [
+        1122,
+        787,
+        1221,
+        889
+      ],
+      "fold": 4,
+      "test_cam": "Cam5",
+      "val_cam": "Cam6",
+      "threshold": 0.7518857717514038,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-18-03-402",
+      "cam": "Cam5",
+      "defect": false,
+      "score": 0.5196179151535034,
+      "point_hit": false,
+      "pred_box": [
+        1796,
+        699,
+        1880,
+        787
+      ],
+      "fold": 4,
+      "test_cam": "Cam5",
+      "val_cam": "Cam6",
+      "threshold": 0.7518857717514038,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-10-14-550",
+      "cam": "Cam6",
+      "defect": false,
+      "score": 0.51005619764328,
+      "point_hit": false,
+      "pred_box": [
+        2989,
+        963,
+        3059,
+        1050
+      ],
+      "fold": 5,
+      "test_cam": "Cam6",
+      "val_cam": "Cam1",
+      "threshold": 0.6117644190788268,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-11-40-177",
+      "cam": "Cam6",
+      "defect": false,
+      "score": 0.5494025945663452,
+      "point_hit": false,
+      "pred_box": [
+        1796,
+        904,
+        1880,
+        1006
+      ],
+      "fold": 5,
+      "test_cam": "Cam6",
+      "val_cam": "Cam1",
+      "threshold": 0.6117644190788268,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-11-45-648",
+      "cam": "Cam6",
+      "defect": false,
+      "score": 0.47590649127960205,
+      "point_hit": false,
+      "pred_box": [
+        2189,
+        948,
+        2329,
+        992
+      ],
+      "fold": 5,
+      "test_cam": "Cam6",
+      "val_cam": "Cam1",
+      "threshold": 0.6117644190788268,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-11-55-178",
+      "cam": "Cam6",
+      "defect": true,
+      "score": 0.7171095013618469,
+      "point_hit": true,
+      "pred_box": [
+        2821,
+        860,
+        2905,
+        992
+      ],
+      "fold": 5,
+      "test_cam": "Cam6",
+      "val_cam": "Cam1",
+      "threshold": 0.6117644190788268,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-11-56-719",
+      "cam": "Cam6",
+      "defect": true,
+      "score": 0.7228771448135376,
+      "point_hit": true,
+      "pred_box": [
+        2821,
+        875,
+        2905,
+        992
+      ],
+      "fold": 5,
+      "test_cam": "Cam6",
+      "val_cam": "Cam1",
+      "threshold": 0.6117644190788268,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-14-15-407",
+      "cam": "Cam6",
+      "defect": false,
+      "score": 0.9296038746833801,
+      "point_hit": false,
+      "pred_box": [
+        2891,
+        699,
+        2933,
+        743
+      ],
+      "fold": 5,
+      "test_cam": "Cam6",
+      "val_cam": "Cam1",
+      "threshold": 0.6117644190788268,
+      "alarm": true
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-14-40-478",
+      "cam": "Cam6",
+      "defect": false,
+      "score": 0.5085602402687073,
+      "point_hit": false,
+      "pred_box": [
+        1796,
+        919,
+        1936,
+        1036
+      ],
+      "fold": 5,
+      "test_cam": "Cam6",
+      "val_cam": "Cam1",
+      "threshold": 0.6117644190788268,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-14-54-492",
+      "cam": "Cam6",
+      "defect": false,
+      "score": 0.5480060577392578,
+      "point_hit": false,
+      "pred_box": [
+        1810,
+        919,
+        1894,
+        1006
+      ],
+      "fold": 5,
+      "test_cam": "Cam6",
+      "val_cam": "Cam1",
+      "threshold": 0.6117644190788268,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-17-33-774",
+      "cam": "Cam6",
+      "defect": false,
+      "score": 0.47611215710639954,
+      "point_hit": false,
+      "pred_box": [
+        1838,
+        933,
+        1922,
+        1050
+      ],
+      "fold": 5,
+      "test_cam": "Cam6",
+      "val_cam": "Cam1",
+      "threshold": 0.6117644190788268,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-17-44-376",
+      "cam": "Cam6",
+      "defect": false,
+      "score": 0.5821734666824341,
+      "point_hit": false,
+      "pred_box": [
+        1796,
+        904,
+        1866,
+        1006
+      ],
+      "fold": 5,
+      "test_cam": "Cam6",
+      "val_cam": "Cam1",
+      "threshold": 0.6117644190788268,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-17-49-886",
+      "cam": "Cam6",
+      "defect": false,
+      "score": 0.4540727734565735,
+      "point_hit": false,
+      "pred_box": [
+        1796,
+        904,
+        1894,
+        1006
+      ],
+      "fold": 5,
+      "test_cam": "Cam6",
+      "val_cam": "Cam1",
+      "threshold": 0.6117644190788268,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-18-02-458",
+      "cam": "Cam6",
+      "defect": false,
+      "score": 0.4609978497028351,
+      "point_hit": false,
+      "pred_box": [
+        1796,
+        933,
+        1922,
+        1021
+      ],
+      "fold": 5,
+      "test_cam": "Cam6",
+      "val_cam": "Cam1",
+      "threshold": 0.6117644190788268,
+      "alarm": false
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-18-03-408 - 副本",
+      "cam": "Cam6",
+      "defect": false,
+      "score": 0.4669867753982544,
+      "point_hit": false,
+      "pred_box": [
+        1810,
+        919,
+        1880,
+        1006
+      ],
+      "fold": 5,
+      "test_cam": "Cam6",
+      "val_cam": "Cam1",
+      "threshold": 0.6117644190788268,
+      "alarm": false
+    }
+  ]
+}

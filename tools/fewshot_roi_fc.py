@@ -6,6 +6,7 @@ No new M0/DINO inference and no F2 training/evaluation.
 
 import json
 import sys
+from functools import lru_cache
 from pathlib import Path
 
 import numpy as np
@@ -19,10 +20,16 @@ import fewshot_semantic_heads as S  # noqa: E402
 from diagnose_m4_candidates import OUT, hit  # noqa: E402
 
 
-def features(row, cand):
-    with np.load(S.CACHE / (row["id"] + ".npz")) as z:
+@lru_cache(maxsize=80)
+def cached_semantics(image_id):
+    with np.load(S.CACHE / (image_id + ".npz")) as z:
         diff = z["diff"].astype(np.float32)
         cos = z["cos"].astype(np.float32)
+    return diff, cos
+
+
+def features(row, cand):
+    diff, cos = cached_semantics(row["id"])
     x0, y0, x1, y1 = cand["grid_box"]
     # Candidate plus a fixed two-patch halo for contrast with its background.
     h, w = cos.shape

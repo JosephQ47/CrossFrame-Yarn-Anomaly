@@ -1,0 +1,16 @@
+{"file": "DI2_Cam1_2026-07-18_10-11-40-176.jpg", "cam": "Cam1", "state": "YARN_DEFECT", "hand_intrusion": false, "score": 32.0, "threshold": 7.5, "alarm": true, "box": [1389, 831, 1487, 963]}
+{"file": "DI2_Cam1_2026-07-18_10-11-45-636.jpg", "cam": "Cam1", "state": "YARN_DEFECT", "hand_intrusion": false, "score": 32.0, "threshold": 7.5, "alarm": true, "box": [1810, 816, 1922, 919]}
+{"file": "DI2_Cam1_2026-07-18_10-14-40-482.jpg", "cam": "Cam1", "state": "YARN_DEFECT", "hand_intrusion": false, "score": 13.0, "threshold": 7.5, "alarm": true, "box": [659, 904, 729, 992]}
+{"file": "DI2_Cam1_2026-07-18_10-14-54-478.jpg", "cam": "Cam1", "state": "YARN_DEFECT", "hand_intrusion": false, "score": 31.0, "threshold": 7.5, "alarm": true, "box": [1824, 802, 1950, 875]}
+{"file": "DI2_Cam2_2026-07-18_10-11-40-181.jpg", "cam": "Cam2", "state": "YARN_DEFECT", "hand_intrusion": false, "score": 21.0, "threshold": 9.2, "alarm": true, "box": [2077, 816, 2161, 904]}
+{"file": "DI2_Cam2_2026-07-18_10-11-45-634.jpg", "cam": "Cam2", "state": "YARN_DEFECT", "hand_intrusion": false, "score": 16.0, "threshold": 9.2, "alarm": true, "box": [2385, 846, 2456, 904]}
+{"file": "DI2_Cam2_2026-07-18_10-14-40-480.jpg", "cam": "Cam2", "state": "YARN_DEFECT", "hand_intrusion": false, "score": 29.0, "threshold": 9.2, "alarm": true, "box": [1291, 802, 1417, 919]}
+{"file": "DI2_Cam2_2026-07-18_10-14-54-481.jpg", "cam": "Cam2", "state": "YARN_DEFECT", "hand_intrusion": false, "score": 17.0, "threshold": 9.2, "alarm": true, "box": [2400, 831, 2498, 889]}
+{"file": "DI2_Cam3_2026-07-18_10-11-56-691.jpg", "cam": "Cam3", "state": "NORMAL", "hand_intrusion": false, "score": 16.0, "threshold": 16.4, "alarm": false, "box": [659, 889, 729, 977]}
+{"file": "DI2_Cam3_2026-07-18_10-14-15-409.jpg", "cam": "Cam3", "state": "YARN_DEFECT", "hand_intrusion": false, "score": 49.0, "threshold": 16.4, "alarm": true, "box": [435, 772, 575, 933]}
+{"file": "DI2_Cam4_2026-07-18_10-11-55-179.jpg", "cam": "Cam4", "state": "NOT_READY", "hand_intrusion": false, "score": null, "threshold": null, "alarm": false, "box": null}
+{"file": "DI2_Cam4_2026-07-18_10-11-56-694.jpg", "cam": "Cam4", "state": "NOT_READY", "hand_intrusion": false, "score": null, "threshold": null, "alarm": false, "box": null}
+{"file": "DI2_Cam5_2026-07-18_10-11-55-176.jpg", "cam": "Cam5", "state": "YARN_DEFECT", "hand_intrusion": false, "score": 36.0, "threshold": 9.2, "alarm": true, "box": [1964, 729, 2077, 846]}
+{"file": "DI2_Cam5_2026-07-18_10-11-56-689.jpg", "cam": "Cam5", "state": "YARN_DEFECT", "hand_intrusion": false, "score": 27.0, "threshold": 9.2, "alarm": true, "box": [1978, 743, 2077, 860]}
+{"file": "DI2_Cam6_2026-07-18_10-11-55-178.jpg", "cam": "Cam6", "state": "YARN_DEFECT", "hand_intrusion": false, "score": 19.0, "threshold": 10.2, "alarm": true, "box": [2835, 889, 2891, 977]}
+{"file": "DI2_Cam6_2026-07-18_10-11-56-719.jpg", "cam": "Cam6", "state": "YARN_DEFECT", "hand_intrusion": false, "score": 12.0, "threshold": 10.2, "alarm": true, "box": [2835, 889, 2891, 963]}

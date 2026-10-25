@@ -27,7 +27,7 @@ from pathlib import Path
 from collections import deque, defaultdict
 import numpy as np, cv2, torch, timm
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from black_yarn_detector import INTRUDER_MASK, band_lab, intruder_mask   # 可选入侵屏蔽，默认关
+from black_yarn_detector import INTRUDER_MASK, band_lab, intruder_mask, score_and_locate
 from hand_gate import DetectionState, HandIntrusionGate, load_hand_events
 
 MODEL = os.environ.get("DET_MODEL", "vit_base_patch14_dinov2.lvd142m")
@@ -92,25 +92,9 @@ def analyze(cur, refs, hw, y0, y1, valid=None):
     sims = np.einsum('tijc,ijc->tij', R, cur)
     kk = max(1, min(TOPK, sims.shape[0]))
     anom = 1.0 - np.sort(sims, axis=0)[-kk:].mean(axis=0)
-    # 图级：P99 二值化后最大连通域面积
-    if valid is None:
-        thr = np.percentile(anom, 99)
-        bw = (anom >= thr).astype(np.uint8)
-    else:   # 预算=全网格 1%（绝对数），在有效 patch 上取前 K 个，与 black_yarn_detector 一致
-        K = max(1, min(int(round(anom.size * 0.01)), int(valid.sum())))
-        thr = np.sort(anom[valid])[-K]
-        bw = ((anom >= thr) & valid).astype(np.uint8)
-    n, lab, stats, _ = cv2.connectedComponentsWithStats(bw, connectivity=8)
-    areas = [(stats[i, cv2.CC_STAT_AREA], i) for i in range(1, n)]
-    score = float(max([a for a,_ in areas] or [0]))
-    # 定位：最大连通域在原图的外接框
-    H, W = hw; gh, gw = anom.shape
-    box = None
-    if areas:
-        _, bi = max(areas)
-        ys, xs = np.where(lab == bi)
-        sx, sy = W/gw, (y1-y0)/gh
-        box = [int(xs.min()*sx), int(y0+ys.min()*sy), int((xs.max()+1)*sx), int(y0+(ys.max()+1)*sy)]
+    # 使用与基准、C# 契约相同的 P99 / 面积上限 55 / 连通域规则。
+    H, W = hw
+    score, _, box = score_and_locate(anom, hw, y0, y1, valid=valid)
     hm = cv2.resize(anom, (W, y1-y0), interpolation=cv2.INTER_CUBIC)
     full = np.zeros((H, W), np.float32); full[y0:y1] = hm
     return score, box, cv2.GaussianBlur(full, (0,0), 9)

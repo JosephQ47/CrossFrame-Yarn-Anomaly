@@ -1,0 +1,1168 @@
+{
+  "scope": "July retrospective gate accounting only; same-fault batch, archived scores",
+  "gate": "per camera; hand frame and first hand-free recovery frame skipped",
+  "summary": {
+    "frames": 69,
+    "manual_hand_frames": 4,
+    "dll_disagreements": 0,
+    "gate_states": {
+      "HAND_INTRUSION": 4,
+      "RECOVERING": 4,
+      "ELIGIBLE": 61
+    },
+    "m0_all_frames_without_gate": {
+      "frames": 69,
+      "positive_frames": 16,
+      "normal_frames": 53,
+      "positive_alarms": 14,
+      "normal_false_alarms": 7,
+      "positive_alarm_and_point_hit": 13
+    },
+    "m4_all_frames_without_gate": {
+      "frames": 69,
+      "positive_frames": 16,
+      "normal_frames": 53,
+      "positive_alarms": 13,
+      "normal_false_alarms": 7,
+      "positive_alarm_and_point_hit": 12
+    },
+    "m0_after_gate_all_frames": {
+      "frames": 69,
+      "positive_frames": 16,
+      "normal_frames": 53,
+      "positive_alarms": 13,
+      "normal_false_alarms": 4,
+      "positive_alarm_and_point_hit": 13
+    },
+    "m4_after_gate_all_frames": {
+      "frames": 69,
+      "positive_frames": 16,
+      "normal_frames": 53,
+      "positive_alarms": 13,
+      "normal_false_alarms": 4,
+      "positive_alarm_and_point_hit": 12
+    },
+    "m0_after_gate_eligible_only": {
+      "frames": 61,
+      "positive_frames": 15,
+      "normal_frames": 46,
+      "positive_alarms": 13,
+      "normal_false_alarms": 4,
+      "positive_alarm_and_point_hit": 13
+    },
+    "m4_after_gate_eligible_only": {
+      "frames": 61,
+      "positive_frames": 15,
+      "normal_frames": 46,
+      "positive_alarms": 13,
+      "normal_false_alarms": 4,
+      "positive_alarm_and_point_hit": 12
+    }
+  },
+  "frames": [
+    {
+      "id": "DI2_Cam1_2026-07-18_10-10-14-549",
+      "cam": "Cam1",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-11-40-176",
+      "cam": "Cam1",
+      "defect": true,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": true,
+        "point_hit": true
+      },
+      "m4": {
+        "alarm": true,
+        "point_hit": true
+      }
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-11-45-636",
+      "cam": "Cam1",
+      "defect": true,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": true,
+        "point_hit": true
+      },
+      "m4": {
+        "alarm": true,
+        "point_hit": true
+      }
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-11-55-175",
+      "cam": "Cam1",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-11-56-690",
+      "cam": "Cam1",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-14-15-404",
+      "cam": "Cam1",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-14-40-482",
+      "cam": "Cam1",
+      "defect": true,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": true,
+        "point_hit": true
+      },
+      "m4": {
+        "alarm": true,
+        "point_hit": true
+      }
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-14-54-478",
+      "cam": "Cam1",
+      "defect": true,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": true,
+        "point_hit": true
+      },
+      "m4": {
+        "alarm": true,
+        "point_hit": true
+      }
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-17-33-756",
+      "cam": "Cam1",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-17-44-354",
+      "cam": "Cam1",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-17-49-889",
+      "cam": "Cam1",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-18-02-377",
+      "cam": "Cam1",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam1_2026-07-18_10-18-03-404",
+      "cam": "Cam1",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-10-14-552",
+      "cam": "Cam2",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-11-40-181",
+      "cam": "Cam2",
+      "defect": true,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": true,
+        "point_hit": true
+      },
+      "m4": {
+        "alarm": true,
+        "point_hit": true
+      }
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-11-45-634",
+      "cam": "Cam2",
+      "defect": true,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": true
+      },
+      "m4": {
+        "alarm": true,
+        "point_hit": true
+      }
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-11-55-176",
+      "cam": "Cam2",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-11-56-689",
+      "cam": "Cam2",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-14-15-408",
+      "cam": "Cam2",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-14-40-480",
+      "cam": "Cam2",
+      "defect": true,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": true,
+        "point_hit": true
+      },
+      "m4": {
+        "alarm": true,
+        "point_hit": true
+      }
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-14-54-481",
+      "cam": "Cam2",
+      "defect": true,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": true
+      },
+      "m4": {
+        "alarm": true,
+        "point_hit": true
+      }
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-17-33-758",
+      "cam": "Cam2",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-17-44-355",
+      "cam": "Cam2",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-17-49-889",
+      "cam": "Cam2",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-18-02-517",
+      "cam": "Cam2",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam2_2026-07-18_10-18-03-407",
+      "cam": "Cam2",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-10-14-550",
+      "cam": "Cam3",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-11-40-175",
+      "cam": "Cam3",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-11-45-637",
+      "cam": "Cam3",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-11-55-177",
+      "cam": "Cam3",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": true,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-11-56-691",
+      "cam": "Cam3",
+      "defect": true,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": true,
+        "point_hit": true
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": true
+      }
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-14-15-409",
+      "cam": "Cam3",
+      "defect": true,
+      "manual_hand": true,
+      "production_dll_hand": true,
+      "gate_state": "HAND_INTRUSION",
+      "m0": {
+        "alarm": true,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": true
+      }
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-14-40-488",
+      "cam": "Cam3",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "RECOVERING",
+      "m0": {
+        "alarm": true,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-14-54-482",
+      "cam": "Cam3",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-17-33-757",
+      "cam": "Cam3",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-17-44-358",
+      "cam": "Cam3",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-17-49-891",
+      "cam": "Cam3",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-18-02-520 - 副本",
+      "cam": "Cam3",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-18-03-405",
+      "cam": "Cam3",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-10-14-561",
+      "cam": "Cam4",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-11-40-179",
+      "cam": "Cam4",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-11-45-648",
+      "cam": "Cam4",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-11-55-179",
+      "cam": "Cam4",
+      "defect": true,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": true,
+        "point_hit": true
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": true
+      }
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-11-56-694",
+      "cam": "Cam4",
+      "defect": true,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": true,
+        "point_hit": true
+      },
+      "m4": {
+        "alarm": true,
+        "point_hit": true
+      }
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-14-15-405",
+      "cam": "Cam4",
+      "defect": false,
+      "manual_hand": true,
+      "production_dll_hand": true,
+      "gate_state": "HAND_INTRUSION",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam4_2026-07-18_10-14-40-475",
+      "cam": "Cam4",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "RECOVERING",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": true,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-11-55-176",
+      "cam": "Cam5",
+      "defect": true,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": true,
+        "point_hit": true
+      },
+      "m4": {
+        "alarm": true,
+        "point_hit": true
+      }
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-11-56-689",
+      "cam": "Cam5",
+      "defect": true,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": true,
+        "point_hit": true
+      },
+      "m4": {
+        "alarm": true,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-14-15-402",
+      "cam": "Cam5",
+      "defect": false,
+      "manual_hand": true,
+      "production_dll_hand": true,
+      "gate_state": "HAND_INTRUSION",
+      "m0": {
+        "alarm": true,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": true,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-14-40-474",
+      "cam": "Cam5",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "RECOVERING",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-14-54-477",
+      "cam": "Cam5",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": true,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-17-33-755",
+      "cam": "Cam5",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-17-44-353",
+      "cam": "Cam5",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": true,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-17-49-885",
+      "cam": "Cam5",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": true,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-18-02-459",
+      "cam": "Cam5",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-18-03-402",
+      "cam": "Cam5",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": true,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-10-14-550",
+      "cam": "Cam6",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": true,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-11-40-177",
+      "cam": "Cam6",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": true,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-11-45-648",
+      "cam": "Cam6",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": true,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-11-55-178",
+      "cam": "Cam6",
+      "defect": true,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": true,
+        "point_hit": true
+      },
+      "m4": {
+        "alarm": true,
+        "point_hit": true
+      }
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-11-56-719",
+      "cam": "Cam6",
+      "defect": true,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": true,
+        "point_hit": true
+      },
+      "m4": {
+        "alarm": true,
+        "point_hit": true
+      }
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-14-15-407",
+      "cam": "Cam6",
+      "defect": false,
+      "manual_hand": true,
+      "production_dll_hand": true,
+      "gate_state": "HAND_INTRUSION",
+      "m0": {
+        "alarm": true,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": true,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-14-40-478",
+      "cam": "Cam6",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "RECOVERING",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-14-54-492",
+      "cam": "Cam6",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-17-33-774",
+      "cam": "Cam6",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-17-44-376",
+      "cam": "Cam6",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-17-49-886",
+      "cam": "Cam6",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-18-02-458",
+      "cam": "Cam6",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    },
+    {
+      "id": "DI2_Cam6_2026-07-18_10-18-03-408 - 副本",
+      "cam": "Cam6",
+      "defect": false,
+      "manual_hand": false,
+      "production_dll_hand": false,
+      "gate_state": "ELIGIBLE",
+      "m0": {
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "alarm": false,
+        "point_hit": false
+      }
+    }
+  ]
+}

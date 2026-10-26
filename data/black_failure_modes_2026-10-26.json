@@ -1,0 +1,517 @@
+{
+  "scope": "archived six-fold July batch; retrospective, same fault event",
+  "source_files": [
+    "data/black_fusion_2026-10-25/roi_fc_results.json",
+    "data/black_fewshot_semantic_2026-10-25/M4_results.json",
+    "data/black_fusion_2026-10-25/oof/yolo_oof_rank_best_results.json",
+    "data/black_fusion_2026-10-25/diagnostic.json"
+  ],
+  "cameras": {
+    "Cam1": {
+      "val_cam": "Cam2",
+      "m4_threshold": 0.21913212239742277,
+      "normal_count": 9,
+      "positive_count": 4,
+      "m4_normal_scores": [
+        0.018830176442861557,
+        0.025576425716280937,
+        0.03287288546562195,
+        0.05416789650917053,
+        0.06024538353085518,
+        0.07538044452667236,
+        0.10130063444375992,
+        0.12514710426330566,
+        0.13957759737968445
+      ],
+      "m4_positive_scores": [
+        0.25169870257377625,
+        0.29656171798706055,
+        0.42791563272476196,
+        0.6227536201477051
+      ],
+      "m4_normal_false_alarms": 0,
+      "m4_positive_alarms": 4,
+      "m0_normal_false_alarms": 0,
+      "m0_positive_alarms": 4
+    },
+    "Cam2": {
+      "val_cam": "Cam3",
+      "m4_threshold": 0.4590124934911728,
+      "normal_count": 9,
+      "positive_count": 4,
+      "m4_normal_scores": [
+        0.19830742478370667,
+        0.2246846705675125,
+        0.33955439925193787,
+        0.34692609310150146,
+        0.37113043665885925,
+        0.3740519881248474,
+        0.4058908224105835,
+        0.42102888226509094,
+        0.45501723885536194
+      ],
+      "m4_positive_scores": [
+        0.5791217088699341,
+        0.6988174319267273,
+        0.7624092102050781,
+        0.8254391551017761
+      ],
+      "m4_normal_false_alarms": 0,
+      "m4_positive_alarms": 4,
+      "m0_normal_false_alarms": 0,
+      "m0_positive_alarms": 2
+    },
+    "Cam3": {
+      "val_cam": "Cam4",
+      "m4_threshold": 0.9315638303756714,
+      "normal_count": 11,
+      "positive_count": 2,
+      "m4_normal_scores": [
+        0.10090280324220657,
+        0.12720683217048645,
+        0.23260356485843658,
+        0.2405138611793518,
+        0.275856077671051,
+        0.4681895077228546,
+        0.5731670260429382,
+        0.631852388381958,
+        0.6515525579452515,
+        0.691061794757843,
+        0.7411584854125977
+      ],
+      "m4_positive_scores": [
+        0.8586467504501343,
+        0.9285427927970886
+      ],
+      "m4_normal_false_alarms": 0,
+      "m4_positive_alarms": 0,
+      "m0_normal_false_alarms": 2,
+      "m0_positive_alarms": 2
+    },
+    "Cam4": {
+      "val_cam": "Cam5",
+      "m4_threshold": 0.6180597923696038,
+      "normal_count": 5,
+      "positive_count": 2,
+      "m4_normal_scores": [
+        0.05435700714588165,
+        0.06569470465183258,
+        0.376800000667572,
+        0.601249635219574,
+        0.9800817370414734
+      ],
+      "m4_positive_scores": [
+        0.34384885430336,
+        0.7709254622459412
+      ],
+      "m4_normal_false_alarms": 1,
+      "m4_positive_alarms": 1,
+      "m0_normal_false_alarms": 0,
+      "m0_positive_alarms": 2
+    },
+    "Cam5": {
+      "val_cam": "Cam6",
+      "m4_threshold": 0.3190753608942032,
+      "normal_count": 8,
+      "positive_count": 2,
+      "m4_normal_scores": [
+        0.15568654239177704,
+        0.17371562123298645,
+        0.30902454257011414,
+        0.3196541368961334,
+        0.4291694462299347,
+        0.45278099179267883,
+        0.45437872409820557,
+        0.9386754631996155
+      ],
+      "m4_positive_scores": [
+        0.6121780276298523,
+        0.7182981967926025
+      ],
+      "m4_normal_false_alarms": 5,
+      "m4_positive_alarms": 2,
+      "m0_normal_false_alarms": 1,
+      "m0_positive_alarms": 2
+    },
+    "Cam6": {
+      "val_cam": "Cam1",
+      "m4_threshold": 0.2745531499385834,
+      "normal_count": 11,
+      "positive_count": 2,
+      "m4_normal_scores": [
+        0.017578020691871643,
+        0.03599335625767708,
+        0.06769875437021255,
+        0.07119455188512802,
+        0.07653568685054779,
+        0.09121537953615189,
+        0.09475479274988174,
+        0.10274741798639297,
+        0.14225144684314728,
+        0.20634028315544128,
+        0.5001896619796753
+      ],
+      "m4_positive_scores": [
+        0.32577332854270935,
+        0.39553123712539673
+      ],
+      "m4_normal_false_alarms": 1,
+      "m4_positive_alarms": 2,
+      "m0_normal_false_alarms": 4,
+      "m0_positive_alarms": 2
+    }
+  },
+  "selected_frames": [
+    {
+      "id": "DI2_Cam3_2026-07-18_10-11-56-691",
+      "cam": "Cam3",
+      "defect": true,
+      "m0": {
+        "score": 18.0,
+        "threshold": 11.799999999999999,
+        "alarm": true,
+        "point_hit": true
+      },
+      "m4": {
+        "score": 0.8586467504501343,
+        "threshold": 0.9315638303756714,
+        "alarm": false,
+        "point_hit": true,
+        "pred_box": [
+          631,
+          875,
+          771,
+          977
+        ]
+      },
+      "yolo_dino_rank_best_diagnostic": {
+        "score": 0.3900770421102843,
+        "threshold": 0.9578361647975948,
+        "alarm": false,
+        "point_hit": true,
+        "candidate_hit": true,
+        "best_true_candidate_rank": 1,
+        "candidate_count": 23
+      },
+      "m0_top5_candidate_hits": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "DI2_Cam3_2026-07-18_10-14-15-409",
+      "cam": "Cam3",
+      "defect": true,
+      "m0": {
+        "score": 49.0,
+        "threshold": 11.799999999999999,
+        "alarm": true,
+        "point_hit": false
+      },
+      "m4": {
+        "score": 0.9285427927970886,
+        "threshold": 0.9315638303756714,
+        "alarm": false,
+        "point_hit": true,
+        "pred_box": [
+          617,
+          860,
+          743,
+          992
+        ]
+      },
+      "yolo_dino_rank_best_diagnostic": {
+        "score": 0.5402822263634958,
+        "threshold": 0.9578361647975948,
+        "alarm": false,
+        "point_hit": false,
+        "candidate_hit": true,
+        "best_true_candidate_rank": 15,
+        "candidate_count": 23
+      },
+      "m0_top5_candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-11-55-176",
+      "cam": "Cam5",
+      "defect": true,
+      "m0": {
+        "score": 30.0,
+        "threshold": 9.5,
+        "alarm": true,
+        "point_hit": true
+      },
+      "m4": {
+        "score": 0.6121780276298523,
+        "threshold": 0.3190753608942032,
+        "alarm": true,
+        "point_hit": true,
+        "pred_box": [
+          1936,
+          714,
+          2077,
+          860
+        ]
+      },
+      "yolo_dino_rank_best_diagnostic": {
+        "score": 0.9854299839737172,
+        "threshold": 0.637832616128596,
+        "alarm": true,
+        "point_hit": true,
+        "candidate_hit": true,
+        "best_true_candidate_rank": 1,
+        "candidate_count": 23
+      },
+      "m0_top5_candidate_hits": [
+        true,
+        false,
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-11-56-689",
+      "cam": "Cam5",
+      "defect": true,
+      "m0": {
+        "score": 27.0,
+        "threshold": 9.5,
+        "alarm": true,
+        "point_hit": true
+      },
+      "m4": {
+        "score": 0.7182981967926025,
+        "threshold": 0.3190753608942032,
+        "alarm": true,
+        "point_hit": false,
+        "pred_box": [
+          1108,
+          699,
+          1192,
+          743
+        ]
+      },
+      "yolo_dino_rank_best_diagnostic": {
+        "score": 0.9577111478190098,
+        "threshold": 0.637832616128596,
+        "alarm": true,
+        "point_hit": true,
+        "candidate_hit": true,
+        "best_true_candidate_rank": 1,
+        "candidate_count": 23
+      },
+      "m0_top5_candidate_hits": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-14-15-402",
+      "cam": "Cam5",
+      "defect": false,
+      "m0": {
+        "score": 19.0,
+        "threshold": 9.5,
+        "alarm": true,
+        "point_hit": false
+      },
+      "m4": {
+        "score": 0.9386754631996155,
+        "threshold": 0.3190753608942032,
+        "alarm": true,
+        "point_hit": false,
+        "pred_box": [
+          1670,
+          772,
+          1768,
+          875
+        ]
+      },
+      "yolo_dino_rank_best_diagnostic": {
+        "score": 0.9777807026319877,
+        "threshold": 0.637832616128596,
+        "alarm": true,
+        "point_hit": false,
+        "candidate_hit": false,
+        "best_true_candidate_rank": null,
+        "candidate_count": 23
+      },
+      "m0_top5_candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-14-54-477",
+      "cam": "Cam5",
+      "defect": false,
+      "m0": {
+        "score": 3.0,
+        "threshold": 9.5,
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "score": 0.45278099179267883,
+        "threshold": 0.3190753608942032,
+        "alarm": true,
+        "point_hit": false,
+        "pred_box": [
+          2287,
+          699,
+          2357,
+          772
+        ]
+      },
+      "yolo_dino_rank_best_diagnostic": {
+        "score": 0.12310915399331449,
+        "threshold": 0.637832616128596,
+        "alarm": false,
+        "point_hit": false,
+        "candidate_hit": false,
+        "best_true_candidate_rank": null,
+        "candidate_count": 23
+      },
+      "m0_top5_candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-17-44-353",
+      "cam": "Cam5",
+      "defect": false,
+      "m0": {
+        "score": 7.0,
+        "threshold": 9.5,
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "score": 0.4291694462299347,
+        "threshold": 0.3190753608942032,
+        "alarm": true,
+        "point_hit": false,
+        "pred_box": [
+          2287,
+          714,
+          2371,
+          743
+        ]
+      },
+      "yolo_dino_rank_best_diagnostic": {
+        "score": 0.4223881802485801,
+        "threshold": 0.637832616128596,
+        "alarm": false,
+        "point_hit": false,
+        "candidate_hit": false,
+        "best_true_candidate_rank": null,
+        "candidate_count": 17
+      },
+      "m0_top5_candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-17-49-885",
+      "cam": "Cam5",
+      "defect": false,
+      "m0": {
+        "score": 4.0,
+        "threshold": 9.5,
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "score": 0.3196541368961334,
+        "threshold": 0.3190753608942032,
+        "alarm": true,
+        "point_hit": false,
+        "pred_box": [
+          1950,
+          699,
+          2007,
+          758
+        ]
+      },
+      "yolo_dino_rank_best_diagnostic": {
+        "score": 0.3595321394705003,
+        "threshold": 0.637832616128596,
+        "alarm": false,
+        "point_hit": false,
+        "candidate_hit": false,
+        "best_true_candidate_rank": null,
+        "candidate_count": 12
+      },
+      "m0_top5_candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "DI2_Cam5_2026-07-18_10-18-03-402",
+      "cam": "Cam5",
+      "defect": false,
+      "m0": {
+        "score": 3.0,
+        "threshold": 9.5,
+        "alarm": false,
+        "point_hit": false
+      },
+      "m4": {
+        "score": 0.45437872409820557,
+        "threshold": 0.3190753608942032,
+        "alarm": true,
+        "point_hit": false,
+        "pred_box": [
+          1543,
+          699,
+          1628,
+          743
+        ]
+      },
+      "yolo_dino_rank_best_diagnostic": {
+        "score": 0.07813139494669806,
+        "threshold": 0.637832616128596,
+        "alarm": false,
+        "point_hit": false,
+        "candidate_hit": false,
+        "best_true_candidate_rank": null,
+        "candidate_count": 23
+      },
+      "m0_top5_candidate_hits": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    }
+  ]
+}

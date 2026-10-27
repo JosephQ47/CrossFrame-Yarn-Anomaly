@@ -1,0 +1,94 @@
+{
+  "scope": "asset identity and archived-code provenance; no new training or accuracy claim",
+  "backbone_name": "vit_base_patch14_dinov2.lvd142m",
+  "backbone_hf_revision": "4685c99dabffe5affac90bd99dbffd25801ae58d",
+  "backbone": {
+    "path": "C:\\Users\\quanzhonghui\\.cache\\huggingface\\hub\\models--timm--vit_base_patch14_dinov2.lvd142m\\snapshots\\4685c99dabffe5affac90bd99dbffd25801ae58d\\model.safetensors",
+    "bytes": 346334872,
+    "sha256": "55cbb5d887b336d430e649c277b85a1429e724871f9d02ac16203235886d8c7b"
+  },
+  "m4_projection": {
+    "path": "D:\\研究生课程\\课题\\色纱研究\\CrossFrame-Yarn-Anomaly\\outputs\\black_fewshot_semantic\\fixed_projection.npy",
+    "bytes": 1572992,
+    "sha256": "f432a2292067cf812de95adcf807ee2b8b4c3c710bb664ab0ff7f370d0bc793b"
+  },
+  "m4_checkpoints": {
+    "Cam1": {
+      "path": "D:\\研究生课程\\课题\\色纱研究\\CrossFrame-Yarn-Anomaly\\outputs\\black_fewshot_semantic\\M4_fold1_Cam1.pt",
+      "bytes": 51080,
+      "sha256": "9656b2c5a89068dcd1eb8a06dd89daeb4a04c4b1901f401b24810b5a82193fb4"
+    },
+    "Cam2": {
+      "path": "D:\\研究生课程\\课题\\色纱研究\\CrossFrame-Yarn-Anomaly\\outputs\\black_fewshot_semantic\\M4_fold2_Cam2.pt",
+      "bytes": 51080,
+      "sha256": "3a30b3dfbf8a2aad892a97150c6b255c7b2ad24dcfb735488f77c1fec1b67f89"
+    },
+    "Cam3": {
+      "path": "D:\\研究生课程\\课题\\色纱研究\\CrossFrame-Yarn-Anomaly\\outputs\\black_fewshot_semantic\\M4_fold3_Cam3.pt",
+      "bytes": 51080,
+      "sha256": "92ddc6dda70cc16445218287a23521a12c3db548aa4c355a5ad5c477b815385b"
+    },
+    "Cam4": {
+      "path": "D:\\研究生课程\\课题\\色纱研究\\CrossFrame-Yarn-Anomaly\\outputs\\black_fewshot_semantic\\M4_fold4_Cam4.pt",
+      "bytes": 51080,
+      "sha256": "c6b70630502adf8821c68ae5e94e61bb89fa40685ac1238812917b836ebe4490"
+    },
+    "Cam5": {
+      "path": "D:\\研究生课程\\课题\\色纱研究\\CrossFrame-Yarn-Anomaly\\outputs\\black_fewshot_semantic\\M4_fold5_Cam5.pt",
+      "bytes": 51080,
+      "sha256": "117e61bfd62f550224b1d9ce858b72b98aab97b71945b755ae09bf131f80b490"
+    },
+    "Cam6": {
+      "path": "D:\\研究生课程\\课题\\色纱研究\\CrossFrame-Yarn-Anomaly\\outputs\\black_fewshot_semantic\\M4_fold6_Cam6.pt",
+      "bytes": 51080,
+      "sha256": "76c476be68a468024ca2730c433c904eb5273b9b2a589492f6bdc39b87cd7948"
+    }
+  },
+  "archived_m4_results": {
+    "path": "D:\\研究生课程\\课题\\色纱研究\\CrossFrame-Yarn-Anomaly\\data\\black_fewshot_semantic_2026-10-25\\M4_results.json",
+    "bytes": 27713,
+    "sha256": "797f37bcb2afdacb92e8a0fcab790583ff75771069a6162a625d3fa3687a063b"
+  },
+  "source_files": {
+    "src/black_yarn_detector.py": {
+      "path": "D:\\研究生课程\\课题\\色纱研究\\CrossFrame-Yarn-Anomaly\\src\\black_yarn_detector.py",
+      "bytes": 16874,
+      "sha256": "c8531fb5152db658a70170456f348e6f1137e2b41408494c3d1b04d9a71d1947"
+    },
+    "src/deploy_black_detector.py": {
+      "path": "D:\\研究生课程\\课题\\色纱研究\\CrossFrame-Yarn-Anomaly\\src\\deploy_black_detector.py",
+      "bytes": 13486,
+      "sha256": "dd4bf98c60dedf1e9997289a8bdfef0618119bc1c22bb6656b8a644c92231fd3"
+    },
+    "tools/fewshot_semantic_heads.py": {
+      "path": "D:\\研究生课程\\课题\\色纱研究\\CrossFrame-Yarn-Anomaly\\tools\\fewshot_semantic_heads.py",
+      "bytes": 15899,
+      "sha256": "deb464a393a58ac484739d1a8b7a7b18c4aeab1b397bdc6ed3fd1b7415baf192"
+    },
+    "tools/m4_causal_shadow.py": {
+      "path": "D:\\研究生课程\\课题\\色纱研究\\CrossFrame-Yarn-Anomaly\\tools\\m4_causal_shadow.py",
+      "bytes": 8895,
+      "sha256": "8ff1596ec76d2aa15d5c9ede096041706db5f42c33689cbd4d213a71c13e6628"
+    }
+  },
+  "software_versions": {
+    "torch": "2.6.0+cu124",
+    "timm": "1.0.27",
+    "numpy": "2.5.3",
+    "opencv-python": "4.13.0.92"
+  },
+  "feature_contract": {
+    "dino_last_layers": 8,
+    "topk_same_position": 1,
+    "band_y_fraction": [
+      0.34,
+      0.6
+    ],
+    "tile_wh": [
+      588,
+      448
+    ],
+    "projection_dim": 64,
+    "m4_channels": 193
+  }
+}

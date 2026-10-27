@@ -1,0 +1,16 @@
+{
+  "scope": "filename inventory only; same-state normal status cannot be inferred from filename",
+  "roots": [
+    "D:\\研究生课程\\课题\\色纱研究",
+    "D:\\dataset"
+  ],
+  "july_research_path_count": 2205,
+  "july_research_distinct_names": 80,
+  "july_dataset_path_count": 80,
+  "july_dataset_distinct_names": 80,
+  "canonical_black_fabric_names": 80,
+  "july_raw_style_names_not_in_canonical": [],
+  "other_date_dataset_raw_style_names": {
+    "2026-03-03": 6
+  }
+}

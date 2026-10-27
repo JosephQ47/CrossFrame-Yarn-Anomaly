@@ -1,7 +1,7 @@
 """Frozen M4 shadow input and archived-checkpoint parity checks.
 
-The causal builder accepts only same-camera, same-state, earlier confirmed
-normal feature frames. It does not fetch data or assign labels itself.
+The causal builder accepts only same-camera, same-state, earlier frames
+admitted by the frozen online policy. It never reads post-hoc defect labels.
 """
 
 import argparse
@@ -22,10 +22,11 @@ PARITY_OUT = ROOT / "data/black_m4_archive_parity_2026-10-27.json"
 
 
 def causal_m4_array(query, references, projection, device="cpu"):
-    """Build the exact 193-channel training-format tensor from past normals.
+    """Build the exact 193-channel training-format tensor from past references.
 
     Each item is a dict with id, cam, time (datetime), run_state, feature
-    (unit-normalized HWC array); refs additionally require confirmed_normal.
+    (unit-normalized HWC array); refs require admitted_by_policy plus an
+    admission_reason assigned online, without later defect labels.
     The caller must supply at least eight eligible references for deployment.
     """
     if len(references) < 8:
@@ -37,7 +38,10 @@ def causal_m4_array(query, references, projection, device="cpu"):
         raise ValueError("query feature/projection shape mismatch")
     for ref in references:
         if (ref["cam"] != query["cam"] or ref["run_state"] != query["run_state"]
-                or not ref["confirmed_normal"] or ref["time"] >= query["time"]):
+                or not ref.get("admitted_by_policy")
+                or ref.get("admission_reason") not in {
+                    "warmup_confirmed", "normal_calibration_confirmed", "ordinary_nonhand"}
+                or ref["time"] >= query["time"]):
             raise ValueError(f"inadmissible causal M4 reference: {ref['id']}")
         if np.shape(ref["feature"]) != cur.shape:
             raise ValueError(f"reference feature shape mismatch: {ref['id']}")
@@ -136,10 +140,14 @@ def smoke_causal():
         f = rng.normal(size=(2, 3, 8)).astype(np.float32)
         f /= np.linalg.norm(f, axis=-1, keepdims=True)
         refs.append({"id": f"ref{i}", "cam": "Cam1", "run_state": "steady",
-                     "time": now - timedelta(seconds=8-i), "confirmed_normal": True, "feature": f})
+                     "time": now - timedelta(seconds=8-i), "admitted_by_policy": True,
+                     "admission_reason": "warmup_confirmed", "feature": f})
     projection = rng.normal(size=(8, 2)).astype(np.float32)
     x, chosen = causal_m4_array(query, refs, projection)
     assert x.shape == (2, 3, 7) and sum(chosen.values()) == 6
+    ordinary = [dict(ref) for ref in refs]
+    ordinary[0]["admission_reason"] = "ordinary_nonhand"
+    causal_m4_array(query, ordinary, projection)
     stacked = np.stack([ref["feature"] for ref in refs])
     sims = np.einsum("tijc,ijc->tij", stacked, query["feature"], optimize=True)
     best = np.argmax(sims, axis=0)
@@ -151,7 +159,7 @@ def smoke_causal():
         (1.0 - np.max(sims, axis=0))[..., None]], axis=-1)
     assert np.allclose(x, expected.astype(np.float16).astype(np.float32), atol=0)
     for field, value in (("time", now), ("cam", "Cam2"), ("run_state", "stopped"),
-                         ("confirmed_normal", False)):
+                         ("admitted_by_policy", False), ("admission_reason", "posthoc_label")):
         bad = [dict(ref) for ref in refs]
         bad[0][field] = value
         try:
@@ -167,7 +175,7 @@ def smoke_causal():
     else:
         raise AssertionError("unknown run_state must be rejected")
     return {"shape": list(x.shape), "selected_patch_count": sum(chosen.values()),
-            "future_wrong_camera_wrong_state_and_non_normal_rejected": True}
+            "future_wrong_camera_wrong_state_and_posthoc_admission_rejected": True}
 
 
 def main():

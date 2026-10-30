@@ -65,18 +65,22 @@ def band_feat(sess, img):
 
 def score_and_locate(anom, hw, y0, y1, cap=AREA_CAP):
     """严格复刻 C# score_and_locate。"""
-    thr = np.percentile(anom, 99)
+    thr = np.float32(np.percentile(anom, 99))
     n, lab, stats, cent = cv2.connectedComponentsWithStats(
         (anom >= thr).astype(np.uint8), connectivity=8)
-    cands = [(stats[i, cv2.CC_STAT_AREA], i) for i in range(1, n)
-             if cap is None or stats[i, cv2.CC_STAT_AREA] <= cap]
-    if not cands: return 0.0, None, None
-    area, bi = max(cands)
+    # C# retains the first component when multiple components share max area.
+    bi, area = -1, 0
+    for i in range(1, n):
+        candidate = int(stats[i, cv2.CC_STAT_AREA])
+        if (cap is None or candidate <= cap) and candidate > area:
+            bi, area = i, candidate
+    if bi < 0: return 0.0, None, None
     gh, gw = anom.shape; H, W = hw
     sx, sy = W / gw, (y1 - y0) / gh
     px, py = int(cent[bi][0] * sx), int(y0 + cent[bi][1] * sy)
-    ys, xs_ = np.where(lab == bi)
-    box = [int(xs_.min()*sx), int(y0+ys.min()*sy), int((xs_.max()+1)*sx), int(y0+(ys.max()+1)*sy)]
+    x, y, width, height = (int(value) for value in stats[bi, :4])
+    left, top = int(x*sx), int(y0+y*sy)
+    box = [left, top, left+int(width*sx), top+int(height*sy)]
     return float(area), (px, py), box
 
 

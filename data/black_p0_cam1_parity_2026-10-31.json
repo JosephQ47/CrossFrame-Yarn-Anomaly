@@ -1,0 +1,207 @@
+{
+  "scope": "archived Cam1 P0 C#/Python ONNX parity; not causal accuracy",
+  "onnx_sha256": "a783f618f9c733e0cd00f36d6d8b68d80e6b6cb551f171347a3acf67ca3fd1ce",
+  "csharp_csv_sha256": "55c388fa3c6d091f1348b7ca4b7efc61afe2bc12887733f4f5c26100a1d0da45",
+  "frames": 13,
+  "ready_frames": 5,
+  "max_score_error": 0.0,
+  "max_threshold_error": 5.000000000165983e-05,
+  "ready_all_match": true,
+  "alarm_all_match": true,
+  "box_all_match": true,
+  "comparisons": [
+    {
+      "file": "DI2_Cam1_2026-07-18_10-10-14-549.jpg",
+      "image_sha256": "2b550dfe931e42e579afcce68cf0986f2a3e9908e80e9852c90757707ada7b55",
+      "ready_match": true,
+      "score_error": 0.0,
+      "threshold_error": 0.0,
+      "alarm_match": true,
+      "box_match": true,
+      "python_box": null,
+      "csharp_box": null
+    },
+    {
+      "file": "DI2_Cam1_2026-07-18_10-11-40-176.jpg",
+      "image_sha256": "33822149d67116e58b1a5f2a597180b855fd9b995e170da619371736c3a74389",
+      "ready_match": true,
+      "score_error": 0.0,
+      "threshold_error": 0.0,
+      "alarm_match": true,
+      "box_match": true,
+      "python_box": null,
+      "csharp_box": null
+    },
+    {
+      "file": "DI2_Cam1_2026-07-18_10-11-45-636.jpg",
+      "image_sha256": "ef8a4ee6ed89a52db5972d056e444edbdbed59df9cdb4923e4c647729b0c4525",
+      "ready_match": true,
+      "score_error": 0.0,
+      "threshold_error": 0.0,
+      "alarm_match": true,
+      "box_match": true,
+      "python_box": null,
+      "csharp_box": null
+    },
+    {
+      "file": "DI2_Cam1_2026-07-18_10-11-55-175.jpg",
+      "image_sha256": "d3f2b19ab7ff48bfb6399fd85c505744665f665a91a059943878ca58c43a6f11",
+      "ready_match": true,
+      "score_error": 0.0,
+      "threshold_error": 0.0,
+      "alarm_match": true,
+      "box_match": true,
+      "python_box": null,
+      "csharp_box": null
+    },
+    {
+      "file": "DI2_Cam1_2026-07-18_10-11-56-690.jpg",
+      "image_sha256": "ab25244fd19db90db298e058d7b25ba27616ce4b631b58343eeabf59b886d3bb",
+      "ready_match": true,
+      "score_error": 0.0,
+      "threshold_error": 0.0,
+      "alarm_match": true,
+      "box_match": true,
+      "python_box": null,
+      "csharp_box": null
+    },
+    {
+      "file": "DI2_Cam1_2026-07-18_10-14-15-404.jpg",
+      "image_sha256": "b74d27071614bced358843654922b0e4ce77ad8c26e1229c090124c43fd2c86c",
+      "ready_match": true,
+      "score_error": 0.0,
+      "threshold_error": 0.0,
+      "alarm_match": true,
+      "box_match": true,
+      "python_box": null,
+      "csharp_box": null
+    },
+    {
+      "file": "DI2_Cam1_2026-07-18_10-14-40-482.jpg",
+      "image_sha256": "5122dffdc57b41215a7df182dfb2b2c0fb74d647acd2ce7873b475e87130c89f",
+      "ready_match": true,
+      "score_error": 0.0,
+      "threshold_error": 0.0,
+      "alarm_match": true,
+      "box_match": true,
+      "python_box": null,
+      "csharp_box": null
+    },
+    {
+      "file": "DI2_Cam1_2026-07-18_10-14-54-478.jpg",
+      "image_sha256": "18dc6e69253202f65ec2c7d320174e573b108659627269fa6881450a69c8f773",
+      "ready_match": true,
+      "score_error": 0.0,
+      "threshold_error": 0.0,
+      "alarm_match": true,
+      "box_match": true,
+      "python_box": null,
+      "csharp_box": null
+    },
+    {
+      "file": "DI2_Cam1_2026-07-18_10-17-33-756.jpg",
+      "image_sha256": "6e9f5c5606545b2ed6d61eb5876747abf2c9f6d742c6c767c6d2de27edf3db2f",
+      "ready_match": true,
+      "score_error": 0.0,
+      "threshold_error": 5.000000000165983e-05,
+      "alarm_match": true,
+      "box_match": true,
+      "python_box": [
+        2049,
+        802,
+        2091,
+        904
+      ],
+      "csharp_box": [
+        2049,
+        802,
+        2091,
+        904
+      ]
+    },
+    {
+      "file": "DI2_Cam1_2026-07-18_10-17-44-354.jpg",
+      "image_sha256": "d62722d124b62b788555cf88dbb289318f78b794a4be44971b489d29899aa771",
+      "ready_match": true,
+      "score_error": 0.0,
+      "threshold_error": 5.000000000165983e-05,
+      "alarm_match": true,
+      "box_match": true,
+      "python_box": [
+        1585,
+        831,
+        1613,
+        860
+      ],
+      "csharp_box": [
+        1585,
+        831,
+        1613,
+        860
+      ]
+    },
+    {
+      "file": "DI2_Cam1_2026-07-18_10-17-49-889.jpg",
+      "image_sha256": "925c0a6a5ea24873f330fa21f2fe7030c168a27adb7e4476aeab2d1b1193a423",
+      "ready_match": true,
+      "score_error": 0.0,
+      "threshold_error": 5.000000000165983e-05,
+      "alarm_match": true,
+      "box_match": true,
+      "python_box": [
+        1880,
+        685,
+        1908,
+        743
+      ],
+      "csharp_box": [
+        1880,
+        685,
+        1908,
+        743
+      ]
+    },
+    {
+      "file": "DI2_Cam1_2026-07-18_10-18-02-377.jpg",
+      "image_sha256": "b1676d98693b9a99058c4ba07da46e0555898d6e44b9a82592dde84488e2883e",
+      "ready_match": true,
+      "score_error": 0.0,
+      "threshold_error": 5.000000000165983e-05,
+      "alarm_match": true,
+      "box_match": true,
+      "python_box": [
+        2063,
+        846,
+        2077,
+        889
+      ],
+      "csharp_box": [
+        2063,
+        846,
+        2077,
+        889
+      ]
+    },
+    {
+      "file": "DI2_Cam1_2026-07-18_10-18-03-404.jpg",
+      "image_sha256": "da382d13bcfa7e9ef6ece806455accf92af4714d6ec4f4bfe739de213e81eaec",
+      "ready_match": true,
+      "score_error": 0.0,
+      "threshold_error": 5.000000000165983e-05,
+      "alarm_match": true,
+      "box_match": true,
+      "python_box": [
+        912,
+        933,
+        982,
+        991
+      ],
+      "csharp_box": [
+        912,
+        933,
+        982,
+        991
+      ]
+    }
+  ]
+}

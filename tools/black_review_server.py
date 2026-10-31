@@ -7,6 +7,7 @@ Then open http://127.0.0.1:8765/?reviewer=A (or B) in a browser.
 import argparse
 import csv
 import hashlib
+import io
 import json
 import math
 import os
@@ -32,12 +33,78 @@ def sheet_path(reviewer):
     return REVIEW_DIR / f"july_reviewer_{reviewer}.csv"
 
 
-def read_sheet(reviewer):
+def journal_path(reviewer):
+    sheet_path(reviewer)
+    return REVIEW_DIR / f"july_reviewer_{reviewer}.reviews.jsonl"
+
+
+def read_base_sheet(reviewer):
     with sheet_path(reviewer).open(newline="", encoding="utf-8-sig") as handle:
         rows = list(csv.DictReader(handle))
     if len(rows) != 69 or len({r["frame_id"] for r in rows}) != 69:
         raise ValueError("review sheet must contain 69 unique frames")
     return rows
+
+
+def append_review(reviewer, entry):
+    with journal_path(reviewer).open("a", encoding="utf-8", newline="\n") as handle:
+        handle.write(json.dumps(entry, ensure_ascii=False) + "\n")
+        handle.flush()
+        os.fsync(handle.fileno())
+
+
+def read_sheet(reviewer):
+    rows = read_base_sheet(reviewer)
+    by_id = {r["frame_id"]: r for r in rows}
+    journal = journal_path(reviewer)
+    if journal.exists():
+        with journal.open(encoding="utf-8") as handle:
+            for line in handle:
+                if not line.strip():
+                    continue
+                entry = json.loads(line)
+                frame_id = entry["frame_id"]
+                if frame_id not in by_id or entry["reviewer_id"] != reviewer:
+                    raise ValueError("review journal does not match image roster")
+                by_id[frame_id].update({k: entry[k] for k in FIELDS
+                                        if k in entry and k not in
+                                        ("frame_id", "source_path", "sha256", "cam")})
+    return rows
+
+
+def recover_old_temp(reviewer):
+    """Keep a failed Excel-locked CSV save as durable reviewer input."""
+    temp = sheet_path(reviewer).with_suffix(".tmp")
+    if not temp.exists():
+        return 0
+    base = read_base_sheet(reviewer)
+    with temp.open(newline="", encoding="utf-8-sig") as handle:
+        old = list(csv.DictReader(handle))
+    if len(old) != len(base) or any(
+        any(a[k] != b[k] for k in ("frame_id", "source_path", "sha256", "cam"))
+        for a, b in zip(base, old)
+    ):
+        raise ValueError(f"cannot safely recover mismatched temp sheet: {temp}")
+    current = {r["frame_id"]: r for r in read_sheet(reviewer)}
+    already_recovered = set()
+    journal = journal_path(reviewer)
+    if journal.exists():
+        with journal.open(encoding="utf-8") as handle:
+            for line in handle:
+                if line.strip():
+                    entry = json.loads(line)
+                    already_recovered.add((entry["frame_id"], entry["reviewed_at"]))
+    count = 0
+    for row in old:
+        if (row["reviewed_at"] and
+                (row["frame_id"], row["reviewed_at"]) not in already_recovered and
+                (not current[row["frame_id"]]["reviewed_at"] or
+                 row["reviewed_at"] > current[row["frame_id"]]["reviewed_at"])):
+            append_review(reviewer, {k: row[k] for k in FIELDS if k != "source_path"})
+            count += 1
+    if count:
+        print(f"recovered {count} prior {reviewer} reviews from {temp}", flush=True)
+    return count
 
 
 def verified_images():
@@ -104,6 +171,21 @@ class Handler(BaseHTTPRequestHandler):
                 rows = read_sheet(reviewer)
                 return self.reply(200, [{k: v for k, v in r.items() if k != "source_path"}
                                         for r in rows])
+            if path.startswith("/api/export/"):
+                reviewer = path.removeprefix("/api/export/")
+                output = io.StringIO()
+                writer = csv.DictWriter(output, fieldnames=FIELDS)
+                writer.writeheader()
+                writer.writerows(read_sheet(reviewer))
+                data = ("\ufeff" + output.getvalue()).encode("utf-8")
+                self.send_response(200)
+                self.send_header("Content-Type", "text/csv; charset=utf-8")
+                self.send_header("Content-Disposition", f'attachment; filename="july_reviewer_{reviewer}_export.csv"')
+                self.send_header("Content-Length", str(len(data)))
+                self.send_header("Cache-Control", "no-store")
+                self.end_headers()
+                self.wfile.write(data)
+                return
             if path.startswith("/image/"):
                 frame_id = path.removeprefix("/image/")
                 image = self.images.get(frame_id)
@@ -130,19 +212,12 @@ class Handler(BaseHTTPRequestHandler):
             updates = validate_update(json.loads(self.rfile.read(length)))
             with LOCK:
                 rows = read_sheet(reviewer)
-                row = next(r for r in rows if r["frame_id"] == frame_id)
-                row.update(updates)
-                row["reviewer_id"] = reviewer
+                next(r for r in rows if r["frame_id"] == frame_id)
                 from datetime import datetime, timezone
-                row["reviewed_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
-                target = sheet_path(reviewer)
-                temp = target.with_suffix(".tmp")
-                with temp.open("w", newline="", encoding="utf-8-sig") as handle:
-                    writer = csv.DictWriter(handle, fieldnames=FIELDS)
-                    writer.writeheader()
-                    writer.writerows(rows)
-                os.replace(temp, target)
-            return self.reply(200, {"ok": True, "reviewed_at": row["reviewed_at"]})
+                reviewed_at = datetime.now(timezone.utc).isoformat(timespec="microseconds")
+                append_review(reviewer, {"frame_id": frame_id, "reviewer_id": reviewer,
+                                         "reviewed_at": reviewed_at, **updates})
+            return self.reply(200, {"ok": True, "reviewed_at": reviewed_at})
         except (ValueError, KeyError, StopIteration, json.JSONDecodeError) as exc:
             return self.reply(400, {"error": str(exc)})
 
@@ -154,6 +229,8 @@ def main():
     parser.add_argument("--review-dir", type=Path, default=REVIEW_DIR)
     args = parser.parse_args()
     REVIEW_DIR = args.review_dir.resolve()
+    for reviewer in ("A", "B"):
+        recover_old_temp(reviewer)
     Handler.images = verified_images()
     server = ThreadingHTTPServer(("127.0.0.1", args.port), Handler)
     print(f"Blind review: http://127.0.0.1:{args.port}/?reviewer=A", flush=True)

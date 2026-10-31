@@ -7,3 +7,5 @@ __pycache__/
 obj/
 bin/
 outputs/
+data/black_july_blind_review_2026-10-31/*.reviews.jsonl
+data/black_july_blind_review_2026-10-31/*.tmp

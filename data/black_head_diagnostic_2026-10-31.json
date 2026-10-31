@@ -1,0 +1,93 @@
+{
+  "scope": "single July fault; posthoc sensitivity only; do not select threshold",
+  "independent_fault_test": false,
+  "causal_references": false,
+  "joint_result_sha256": "6629ee4332ef45cfec0ff54bb78596cbccad8e94c39215bf8f522f0fe238c779",
+  "frozen_result_sha256": "593af7af1237e42c4c70d74400bb4da021728f39e8ca205e177d5dcc72714fb2",
+  "same_69_ids_and_m4_baseline": true,
+  "joint_vs_m4": {
+    "alarm_and_point_hits": [
+      10,
+      12
+    ],
+    "false_alarms": [
+      7,
+      7
+    ]
+  },
+  "frozen_alarm_vs_m4": {
+    "alarm_and_point_hits": [
+      11,
+      12
+    ],
+    "false_alarms": [
+      4,
+      7
+    ]
+  },
+  "normal_p95_influence": [
+    {
+      "test_cam": "Cam1",
+      "val_cam": "Cam2",
+      "normal_count": 9,
+      "p95": 0.21600282788276673,
+      "highest_normal_id": "DI2_Cam2_2026-07-18_10-11-56-689",
+      "highest_normal_score": 0.2172209620475769,
+      "p95_without_highest_diagnostic_only": 0.2106054827570915
+    },
+    {
+      "test_cam": "Cam2",
+      "val_cam": "Cam3",
+      "normal_count": 11,
+      "p95": 0.6394824981689453,
+      "highest_normal_id": "DI2_Cam3_2026-07-18_10-11-55-177",
+      "highest_normal_score": 0.9116865992546082,
+      "p95_without_highest_diagnostic_only": 0.3366823583841323
+    },
+    {
+      "test_cam": "Cam3",
+      "val_cam": "Cam4",
+      "normal_count": 5,
+      "p95": 0.6802250146865845,
+      "highest_normal_id": "DI2_Cam4_2026-07-18_10-14-40-475",
+      "highest_normal_score": 0.7151777148246765,
+      "p95_without_highest_diagnostic_only": 0.5293892398476601
+    },
+    {
+      "test_cam": "Cam4",
+      "val_cam": "Cam5",
+      "normal_count": 8,
+      "p95": 0.6786143891513343,
+      "highest_normal_id": "DI2_Cam5_2026-07-18_10-14-15-402",
+      "highest_normal_score": 0.9501241445541382,
+      "p95_without_highest_diagnostic_only": 0.17022335082292556
+    },
+    {
+      "test_cam": "Cam5",
+      "val_cam": "Cam6",
+      "normal_count": 11,
+      "p95": 0.17127250880002975,
+      "highest_normal_id": "DI2_Cam6_2026-07-18_10-14-15-407",
+      "highest_normal_score": 0.30210667848587036,
+      "p95_without_highest_diagnostic_only": 0.038419916480779644
+    },
+    {
+      "test_cam": "Cam6",
+      "val_cam": "Cam1",
+      "normal_count": 9,
+      "p95": 0.4442327260971069,
+      "highest_normal_id": "DI2_Cam1_2026-07-18_10-11-56-690",
+      "highest_normal_score": 0.48188257217407227,
+      "p95_without_highest_diagnostic_only": 0.3835669711232185
+    }
+  ],
+  "cam2_suspect_sensitivity": {
+    "suspect_id": "DI2_Cam3_2026-07-18_10-11-55-177",
+    "label_status": "unresolved; independent raw-image review needed",
+    "original_p95": 0.6394824981689453,
+    "p95_without_suspect_diagnostic_only": 0.3366823583841323,
+    "test_positive_alarms_at_original": 2,
+    "test_positive_alarms_without_suspect_diagnostic_only": 4,
+    "test_normal_false_alarms_without_suspect_diagnostic_only": 0
+  }
+}

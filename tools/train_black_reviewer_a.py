@@ -83,6 +83,40 @@ def load(row, mean, std):
 def loss_for(logits, y, row, method):
     if method == "mil":
         return MIL.box_mil_loss(logits, row)
+    if method == "mil_hard":
+        grid = logits[0, 0]
+        if row["gt"]:
+            boxes, far_normal = MIL.box_masks(row, *grid.shape, grid.device)
+            positive = torch.stack([
+                F.softplus(-grid[mask].topk(max(1, math.ceil(mask.sum().item() * .1))).values.mean())
+                for mask in boxes]).mean()
+            negatives = grid[far_normal]
+        else:
+            positive = None
+            negatives = grid.flatten()
+        hard_k = max(1, math.ceil(negatives.numel() * .01))
+        hard_negative = F.softplus(negatives.topk(hard_k).values).mean()
+        return hard_negative if positive is None else positive + hard_negative
+    if method == "mil_normalhard":
+        if row["gt"]:
+            return MIL.box_mil_loss(logits, row)
+        negatives = logits.flatten()
+        hard_k = max(1, math.ceil(negatives.numel() * .01))
+        return F.softplus(negatives.topk(hard_k).values).mean()
+    if method == "mil_rank":
+        if not row["gt"]:
+            negatives = logits.flatten()
+            hard_k = max(1, math.ceil(negatives.numel() * .01))
+            return F.softplus(negatives.topk(hard_k).values).mean()
+        grid = logits[0, 0]
+        boxes, far_normal = MIL.box_masks(row, *grid.shape, grid.device)
+        positive = torch.stack([
+            grid[mask].topk(max(1, math.ceil(mask.sum().item() * .1))).values.mean()
+            for mask in boxes]).mean()
+        far = grid[far_normal]
+        far_top = far.topk(max(1, math.ceil(far.numel() * .01))).values.mean()
+        return (MIL.box_mil_loss(logits, row)
+                + F.softplus(far_top - positive))
     positives = float(y.sum())
     weight = min(max((y.numel() - positives) / max(positives, 1), 1), 100)
     return F.binary_cross_entropy_with_logits(logits, y,
@@ -222,7 +256,7 @@ def run(methods, epochs, out):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--epochs", type=int, default=20)
-    parser.add_argument("--methods", nargs="+", choices=("bce", "mil"), default=["bce", "mil"])
+    parser.add_argument("--methods", nargs="+", choices=("bce", "mil", "mil_hard", "mil_normalhard", "mil_rank"), default=["bce", "mil"])
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
     args = parser.parse_args()
     result = run(args.methods, args.epochs, args.out)

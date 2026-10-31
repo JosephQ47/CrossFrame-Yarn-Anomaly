@@ -1,3 +1,5 @@
 # 七月原图双人盲审
 
-A、B 两人分别填写自己的 CSV，不共享判断。仅看 `source_path` 原图，不看旧 JSON、模型热图、分数或对方表格。`defect_status` 选 `normal/black_yarn/other_defect/uncertain`；无法判断必须写 uncertain。缺陷写最小框 `[x0,y0,x1,y1]` 或中心线 `[[x,y],...]`，标记运行状态、手/遮挡及事件 ID。完成后保存原 CSV，核对 SHA，再由第三人处理分歧。不得用模型输出给争议帧定真值。F2 使用既有独立盲判模板，不混入本批。
+A、B 两人分别双击 `tools/打开黑纱盲审_A.cmd`、`tools/打开黑纱盲审_B.cmd`，在浏览器中逐张看原图、放大、画框、选择类别并保存。页面将结果写入各自的 CSV；不要直接把 CSV 当看图入口，也不要互相查看判断。服务只监听本机 `127.0.0.1:8765`；页面地址分别是 `http://127.0.0.1:8765/?reviewer=A` 和 `?reviewer=B`。
+
+仅看原图，不看旧 JSON、模型热图、分数或对方表格。`defect_status` 选 `normal/black_yarn/other_defect/uncertain`；无法判断必须写 uncertain。缺陷在图上拖动最小框，标记运行状态、手/遮挡及事件 ID。完成后保存原 CSV，核对 SHA，再由第三人处理分歧。不得用模型输出给争议帧定真值。F2 使用既有独立盲判模板，不混入本批。

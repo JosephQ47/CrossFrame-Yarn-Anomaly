@@ -32,7 +32,9 @@
     </aside>
   </main>
   <script>
-    const reviewer=new URLSearchParams(location.search).get('reviewer');
+    const query=new URLSearchParams(location.search);
+    const reviewer=query.get('reviewer');
+    const initialFrame=query.get('frame');
     const $=id=>document.getElementById(id);
     const state={rows:[],index:0,boxes:[],status:'',zoom:1,dirty:false,drag:null,loaded:false};
     if(!['A','B'].includes(reviewer)){document.body.innerHTML='<main style="padding:3rem"><h1>请使用审核人 A 或 B 的专属链接</h1><p>地址末尾加 <code>?reviewer=A</code> 或 <code>?reviewer=B</code>。</p></main>';throw Error('reviewer required')}
@@ -60,7 +62,7 @@
     $('prev').onclick=()=>navigate(state.index-1);$('next').onclick=()=>navigate(state.index+1);$('save').onclick=save;$('undoBox').onclick=()=>{state.boxes.pop();markDirty();renderBoxes()};$('clearBoxes').onclick=()=>{state.boxes=[];markDirty();renderBoxes()};$('search').oninput=renderList;
     document.querySelectorAll('.choice').forEach(b=>b.onclick=()=>selectStatus(b.dataset.value));['defectType','runState','hand','eventId','notes'].forEach(id=>$(id).addEventListener('input',markDirty));
     document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='s'){e.preventDefault();save();return}if(['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName))return;if(['1','2','3','4'].includes(e.key)){selectStatus(['normal','black_yarn','other_defect','uncertain'][Number(e.key)-1]);return}if(e.key==='ArrowRight')navigate(state.index+1);if(e.key==='ArrowLeft')navigate(state.index-1)});
-    fetch(`/api/frames/${reviewer}`).then(r=>{if(!r.ok)throw Error('无法读取审核表');return r.json()}).then(rows=>{state.rows=rows;show()}).catch(e=>{message(e.message,true);$('frameName').textContent='读取失败';$('loading').textContent=e.message});
+    fetch(`/api/frames/${reviewer}`).then(r=>{if(!r.ok)throw Error('无法读取审核表');return r.json()}).then(rows=>{state.rows=rows;const target=rows.findIndex(r=>r.frame_id===initialFrame);state.index=target>=0?target:0;show()}).catch(e=>{message(e.message,true);$('frameName').textContent='读取失败';$('loading').textContent=e.message});
   </script>
 </body>
 </html>

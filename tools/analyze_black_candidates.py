@@ -23,8 +23,8 @@ RUNS = {
 OUT = ROOT / "outputs/black_reviewer_a_candidates.json"
 
 
-def component_candidates(prob, row):
-    threshold = np.percentile(prob, 99)
+def component_candidates(prob, row, *, quantile=99, cap=None):
+    threshold = np.percentile(prob, quantile)
     mask = (prob >= threshold).astype(np.uint8)
     count, _, stats, centroids = cv2.connectedComponentsWithStats(mask, connectivity=8)
     gh, gw = prob.shape
@@ -33,7 +33,7 @@ def component_candidates(prob, row):
     candidates = []
     for index in range(1, count):
         area = int(stats[index, cv2.CC_STAT_AREA])
-        if area > S.D.AREA_CAP:
+        if cap is not None and area > cap:
             continue
         px = int(centroids[index][0] * sx)
         py = int(row["y0"] + centroids[index][1] * sy)
@@ -70,12 +70,22 @@ def main():
                         continue
                     x, _ = A.load(row, checkpoint["mean"], checkpoint["std"])
                     prob = torch.sigmoid(model(x[None].to(device)))[0, 0].cpu().numpy()
-                    candidates = component_candidates(prob, row)
+                    candidates = component_candidates(prob, row, cap=S.D.AREA_CAP)
+                    uncapped = component_candidates(prob, row, cap=None)
                     hits = [i + 1 for i, c in enumerate(candidates) if c["hit"]]
+                    sweep = {}
+                    for quantile in (99, 98.5, 98, 97):
+                        for cap in (S.D.AREA_CAP, None):
+                            name = f"q{quantile}_cap{cap}"
+                            variants = component_candidates(prob, row, quantile=quantile, cap=cap)
+                            ranks = [i + 1 for i, c in enumerate(variants) if c["hit"]]
+                            sweep[name] = min(ranks) if ranks else None
                     output.append({"id": frame_id, "cam": row["cam"],
                                    "first_hit_rank": min(hits) if hits else None,
                                    "candidate_count": len(candidates),
                                    "top5": candidates[:5],
+                                   "uncapped_top5": uncapped[:5],
+                                   "sweep": sweep,
                                    "box_max_probability": float(prob[
                                        S.M1.box_grid(row["gt"], row["hw"], row["y0"],
                                                      row["y1"], *prob.shape).astype(bool)
@@ -86,13 +96,16 @@ def main():
                                       "top5": sum(r["first_hit_rank"] is not None and
                                                   r["first_hit_rank"] <= 5 for r in output),
                                       "any": sum(r["first_hit_rank"] is not None for r in output),
-                                      "total": len(output), "rows": output}
+                                      "total": len(output), "rows": output,
+                                      "sweep_top5": {key: sum(r["sweep"][key] is not None and
+                                                              r["sweep"][key] <= 5 for r in output)
+                                                     for key in output[0]["sweep"]}}
         if result["methods"][method]["top1"] != bundle["metrics"]["point_hits"]:
             raise RuntimeError(f"component replay mismatch: {method}")
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n",
                         encoding="utf-8")
-    print(json.dumps({m: {k: v[k] for k in ("top1", "top3", "top5", "any", "total")}
+    print(json.dumps({m: {k: v[k] for k in ("top1", "top3", "top5", "any", "total", "sweep_top5")}
                       for m, v in result["methods"].items()}, ensure_ascii=False, indent=2))
 
 

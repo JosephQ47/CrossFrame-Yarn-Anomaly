@@ -1,4 +1,4 @@
-"""Start the local image-first hand detail review and open its page."""
+"""Start the local image-first black-yarn detail review and open its page."""
 
 import argparse
 import subprocess
@@ -36,7 +36,7 @@ def main():
                 break
             time.sleep(.25)
         else:
-            raise RuntimeError("手部精细复核服务启动失败；请运行 black_hand_detail_server.py 查看错误")
+            raise RuntimeError("黑纱复核服务启动失败；请运行 black_hand_detail_server.py 查看错误")
     if not args.no_open:
         webbrowser.open(BASE)
     print(BASE)

@@ -1,4 +1,4 @@
-"""Local image-based hand polygon / visible-yarn centerline review.
+"""Local image-based visible-yarn centerline review.
 
 Runs separately from the locked A blind review. Drafts are append-only in the
 gitignored outputs directory and are never consumed as training truth here.
@@ -20,8 +20,9 @@ ROOT = Path(__file__).resolve().parents[1]
 LOCKED = ROOT / "outputs/black_july_blind_review/july_reviewer_A_locked.csv"
 LOCK_MANIFEST = ROOT / "outputs/black_july_blind_review/july_reviewer_A_lock.json"
 OUT = ROOT / "outputs/black_hand_detail_review"
-JOURNAL = OUT / "hand_detail.reviews.jsonl"
+JOURNAL = OUT / "yarn_detail.reviews.jsonl"
 UI = Path(__file__).with_name("black_hand_detail_ui.html")
+SCRIPT = Path(__file__).with_name("black_yarn_detail.js")
 MUTEX = threading.Lock()
 
 
@@ -78,10 +79,6 @@ def validate(payload, source):
     if img is None:
         raise ValueError("source image unreadable")
     size = img.shape[:2]
-    polygons = payload.get("hand_polygons", [])
-    if not isinstance(polygons, list) or len(polygons) > 5:
-        raise ValueError("too many hand polygons")
-    hand = [valid_points(poly, 3, 100, size) for poly in polygons]
     line = payload.get("yarn_centerline", [])
     centerline = valid_points(line, 0, 100, size)
     if centerline and len(centerline) < 2:
@@ -92,12 +89,11 @@ def validate(payload, source):
     if not isinstance(note, str) or len(note) > 2000:
         raise ValueError("invalid note")
     note = note.strip()
-    if not hand and not note:
-        raise ValueError("draw a hand outline or explain why it cannot be drawn")
     if source["defect_status"] == "black_yarn" and not centerline and not note:
         raise ValueError("draw the visible yarn centerline or explain why it cannot be drawn")
-    return {"hand_polygons": hand, "yarn_centerline": centerline,
-            "notes": note}
+    if source["defect_status"] != "black_yarn" and not note:
+        raise ValueError("explain that the yarn cannot be determined")
+    return {"yarn_centerline": centerline, "notes": note}
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -118,6 +114,8 @@ class Handler(BaseHTTPRequestHandler):
         try:
             if path == "/":
                 return self.reply(200, UI.read_bytes(), "text/html; charset=utf-8")
+            if path == "/detail.js":
+                return self.reply(200, SCRIPT.read_bytes(), "text/javascript; charset=utf-8")
             if path == "/api/items":
                 reviews = current_reviews(self.items)
                 return self.reply(200, [{"frame_id": key, "cam": row["cam"],
@@ -128,7 +126,7 @@ class Handler(BaseHTTPRequestHandler):
                                         for key, row in self.items.items()])
             if path == "/api/export":
                 reviews = current_reviews(self.items)
-                return self.reply(200, {"scope": "draft human hand detail; A review immutable",
+                return self.reply(200, {"scope": "draft visible-yarn detail; A review immutable",
                                         "items": list(reviews.values())})
             if path.startswith("/image/"):
                 key = path.removeprefix("/image/")

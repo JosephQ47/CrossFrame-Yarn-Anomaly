@@ -26,18 +26,22 @@ RANK = ROOT / "outputs/black_reviewer_a_rank/results.json"
 OUT = ROOT / "outputs/black_yarn_candidate_audit/fc_rerank.json"
 UNION_OUT = ROOT / "outputs/black_yarn_candidate_audit/fc_yolo_union.json"
 TRAINED_UNION_OUT = ROOT / "outputs/black_yarn_candidate_audit/fc_yolo_trained_union.json"
+TRAINED_SOURCE_OUT = ROOT / "outputs/black_yarn_candidate_audit/fc_yolo_source_score.json"
 YOLO = ROOT / "outputs/black_fusion_diagnostic/yolo_black_results.json"
 YOLO_ALL = ROOT / "outputs/black_yarn_candidate_audit/yolo_fold_top1.json"
 SEED = 20261103
 K = 10
 
 
-def feature(m4, prob, patch):
+def feature(m4, prob, patch, is_yolo=False, yolo_confidence=0.0, source_score=False):
     i, j = patch
     h, w, _ = m4.shape
     local = m4[max(0, i-2):min(h, i+3), max(0, j-2):min(w, j+3)]
+    tail = [float(prob[i, j]), float(i/h), float(j/w)]
+    if source_score:
+        tail += [float(is_yolo), float(yolo_confidence)]
     return np.concatenate([m4[i, j], local.mean(axis=(0, 1)),
-                           np.array([float(prob[i, j]), float(i/h), float(j/w)], np.float32)])
+                           np.array(tail, np.float32)])
 
 
 def near_box(point, boxes, dx, dy):
@@ -46,7 +50,7 @@ def near_box(point, boxes, dx, dy):
                for x0, y0, x1, y1 in boxes)
 
 
-def prepare(row, model, checkpoint, device, yolo=None):
+def prepare(row, model, checkpoint, device, yolo=None, source_score=False):
     m4, _ = S.array_for(row, "M4")
     x = np.clip((m4 - checkpoint["mean"]) / checkpoint["std"], -5, 5)
     with torch.no_grad():
@@ -63,11 +67,16 @@ def prepare(row, model, checkpoint, device, yolo=None):
             peaks.append({"patch": [i, j],
                           "point": [float((j+.5)*row["hw"][1]/gw),
                                     float(row["y0"]+(i+.5)*(row["y1"]-row["y0"])/gh)],
-                          "score": float(prob[i, j]), "source": "yolo_top1"})
+                          "score": float(prob[i, j]), "source": "yolo_top1",
+                          "yolo_confidence": float(yolo.get("confidence", yolo["detections"][0]["confidence"]
+                                                       if yolo.get("detections") else 0.0))})
     dx = row["hw"][1] / gw
     dy = (row["y1"] - row["y0"]) / gh
     return {"id": row["id"], "cam": row["cam"], "defect": bool(row["gt"]),
-            "x": np.stack([feature(x, prob, p["patch"]) for p in peaks]),
+            "x": np.stack([feature(x, prob, p["patch"],
+                                   p.get("source") == "yolo_top1",
+                                   p.get("yolo_confidence", 0.0), source_score)
+                           for p in peaks]),
             "hit": np.array([C.hit(p["point"], row["gt"]) for p in peaks], bool),
             "usable": np.array([C.hit(p["point"], row["gt"]) or
                                 not near_box(p["point"], row["gt"], dx, dy)
@@ -75,9 +84,11 @@ def prepare(row, model, checkpoint, device, yolo=None):
             "peaks": peaks}
 
 
-def main(union_yolo=False, trained_union=False):
+def main(union_yolo=False, trained_union=False, source_score=False):
     if union_yolo and trained_union:
         raise ValueError("choose one YOLO union mode")
+    if source_score and not trained_union:
+        raise ValueError("source score requires training with YOLO candidates")
     rows, excluded, digest = A.reviewed_rows()
     bundle = json.loads(RANK.read_text(encoding="utf-8"))["methods"]["mil_rank"]
     by_cam = {f["test_cam"]: f for f in bundle["folds"]}
@@ -117,15 +128,18 @@ def main(union_yolo=False, trained_union=False):
            set(checkpoint["test_ids"]) != {r["id"] for r in te}:
             raise RuntimeError(f"split mismatch: {test_cam}")
         train = [prepare(r, model, checkpoint, device,
-                         yolo_all.get(f"{index+1}:{r['id']}") if trained_union else None)
+                         yolo_all.get(f"{index+1}:{r['id']}") if trained_union else None,
+                         source_score)
                  for r in tr]
         val = [prepare(r, model, checkpoint, device,
                        yolo_all.get(f"{index+1}:{r['id']}") if trained_union else
-                       yolo_rows.get((index+1, "val", r["id"])) if union_yolo else None)
+                       yolo_rows.get((index+1, "val", r["id"])) if union_yolo else None,
+                       source_score)
                for r in va]
         test = [prepare(r, model, checkpoint, device,
                         yolo_all.get(f"{index+1}:{r['id']}") if trained_union else
-                        yolo_rows.get((index+1, "test", r["id"])) if union_yolo else None)
+                        yolo_rows.get((index+1, "test", r["id"])) if union_yolo else None,
+                        source_score)
                 for r in te]
         xx = np.concatenate([r["x"][r["usable"]] for r in train])
         yy = np.concatenate([r["hit"][r["usable"]] for r in train]).astype(int)
@@ -172,13 +186,14 @@ def main(union_yolo=False, trained_union=False):
                             and not (r["rank_alarm"] and r["rank_point_hit"])],
                "lost_hits": [r["id"] for r in pos if r["rank_alarm"] and r["rank_point_hit"]
                              and not (r["fc_alarm"] and r["fc_point_hit"])]}
-    target = TRAINED_UNION_OUT if trained_union else UNION_OUT if union_yolo else OUT
+    target = TRAINED_SOURCE_OUT if source_score else TRAINED_UNION_OUT if trained_union else UNION_OUT if union_yolo else OUT
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps({"scope": "retrospective July one-event; noncausal DINO cache",
                                "A_label_sha256": digest, "excluded_uncertain": excluded,
                                "candidate_top_k": K, "nms_radius_patches": C.NMS_RADIUS,
                                "yolo_top1_union": union_yolo or trained_union,
                                "verifier_trained_with_yolo_candidates": trained_union,
+                               "source_score_feature": source_score,
                                "yolo_training_labels": "archived older labels; test camera held out" if (union_yolo or trained_union) else None,
                                "classifier": "L2 logistic FC on rank peak M4 and 5x5 context; C=0.1",
                                "summary": summary, "folds": folds, "rows": report},
@@ -190,5 +205,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--union-yolo", action="store_true")
     parser.add_argument("--union-yolo-trained", action="store_true")
+    parser.add_argument("--source-score", action="store_true")
     args = parser.parse_args()
-    main(args.union_yolo, args.union_yolo_trained)
+    main(args.union_yolo, args.union_yolo_trained, args.source_score)

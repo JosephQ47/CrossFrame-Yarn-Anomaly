@@ -1,0 +1,503 @@
+{
+  "scope": "July retrospective development audit; not independent accuracy",
+  "A_label_sha256": "4e714b308d539fe9c94b537c3d6cc35adfc684fcc800302c3791b8bffe44358a",
+  "excluded": [
+    "DI2_Cam3_2026-07-18_10-14-40-488",
+    "DI2_Cam5_2026-07-18_10-14-15-402"
+  ],
+  "by_camera": {
+    "Cam1": {
+      "positive": 4,
+      "normal": 9
+    },
+    "Cam2": {
+      "positive": 4,
+      "normal": 9
+    },
+    "Cam3": {
+      "positive": 3,
+      "normal": 9
+    },
+    "Cam4": {
+      "positive": 4,
+      "normal": 3
+    },
+    "Cam5": {
+      "positive": 2,
+      "normal": 7
+    },
+    "Cam6": {
+      "positive": 2,
+      "normal": 11
+    }
+  },
+  "folds": [
+    {
+      "test_cam": "Cam1",
+      "val_cam": "Cam2",
+      "groups": {
+        "train": {
+          "frames": 41,
+          "positive_frames": 11,
+          "normal_frames": 30,
+          "positive_without_candidate": [],
+          "ignored_candidates": 9,
+          "yolo_coincident_metadata_lost": 2,
+          "negative_center_crop_intersects_gt_box": 9,
+          "negative_center_candidates": 397,
+          "no_positive_loss_branch_ignored": 0
+        },
+        "val": {
+          "frames": 13,
+          "positive_frames": 4,
+          "normal_frames": 9,
+          "positive_without_candidate": [],
+          "ignored_candidates": 1,
+          "yolo_coincident_metadata_lost": 0,
+          "negative_center_crop_intersects_gt_box": 2,
+          "negative_center_candidates": 126,
+          "no_positive_loss_branch_ignored": 0
+        },
+        "test": {
+          "frames": 13,
+          "positive_frames": 4,
+          "normal_frames": 9,
+          "positive_without_candidate": [],
+          "ignored_candidates": 2,
+          "yolo_coincident_metadata_lost": 1,
+          "negative_center_crop_intersects_gt_box": 1,
+          "negative_center_candidates": 126,
+          "no_positive_loss_branch_ignored": 0
+        }
+      }
+    },
+    {
+      "test_cam": "Cam2",
+      "val_cam": "Cam3",
+      "groups": {
+        "train": {
+          "frames": 42,
+          "positive_frames": 12,
+          "normal_frames": 30,
+          "positive_without_candidate": [],
+          "ignored_candidates": 7,
+          "yolo_coincident_metadata_lost": 2,
+          "negative_center_crop_intersects_gt_box": 13,
+          "negative_center_candidates": 405,
+          "no_positive_loss_branch_ignored": 0
+        },
+        "val": {
+          "frames": 12,
+          "positive_frames": 3,
+          "normal_frames": 9,
+          "positive_without_candidate": [
+            "DI2_Cam3_2026-07-18_10-14-15-409"
+          ],
+          "ignored_candidates": 4,
+          "yolo_coincident_metadata_lost": 0,
+          "negative_center_crop_intersects_gt_box": 8,
+          "negative_center_candidates": 120,
+          "no_positive_loss_branch_ignored": 1
+        },
+        "test": {
+          "frames": 13,
+          "positive_frames": 4,
+          "normal_frames": 9,
+          "positive_without_candidate": [],
+          "ignored_candidates": 1,
+          "yolo_coincident_metadata_lost": 0,
+          "negative_center_crop_intersects_gt_box": 2,
+          "negative_center_candidates": 122,
+          "no_positive_loss_branch_ignored": 0
+        }
+      }
+    },
+    {
+      "test_cam": "Cam3",
+      "val_cam": "Cam4",
+      "groups": {
+        "train": {
+          "frames": 48,
+          "positive_frames": 12,
+          "normal_frames": 36,
+          "positive_without_candidate": [],
+          "ignored_candidates": 4,
+          "yolo_coincident_metadata_lost": 3,
+          "negative_center_crop_intersects_gt_box": 8,
+          "negative_center_candidates": 476,
+          "no_positive_loss_branch_ignored": 0
+        },
+        "val": {
+          "frames": 7,
+          "positive_frames": 4,
+          "normal_frames": 3,
+          "positive_without_candidate": [],
+          "ignored_candidates": 0,
+          "yolo_coincident_metadata_lost": 0,
+          "negative_center_crop_intersects_gt_box": 4,
+          "negative_center_candidates": 64,
+          "no_positive_loss_branch_ignored": 0
+        },
+        "test": {
+          "frames": 12,
+          "positive_frames": 3,
+          "normal_frames": 9,
+          "positive_without_candidate": [],
+          "ignored_candidates": 3,
+          "yolo_coincident_metadata_lost": 0,
+          "negative_center_crop_intersects_gt_box": 3,
+          "negative_center_candidates": 120,
+          "no_positive_loss_branch_ignored": 0
+        }
+      }
+    },
+    {
+      "test_cam": "Cam4",
+      "val_cam": "Cam5",
+      "groups": {
+        "train": {
+          "frames": 51,
+          "positive_frames": 13,
+          "normal_frames": 38,
+          "positive_without_candidate": [],
+          "ignored_candidates": 12,
+          "yolo_coincident_metadata_lost": 3,
+          "negative_center_crop_intersects_gt_box": 14,
+          "negative_center_candidates": 494,
+          "no_positive_loss_branch_ignored": 0
+        },
+        "val": {
+          "frames": 9,
+          "positive_frames": 2,
+          "normal_frames": 7,
+          "positive_without_candidate": [],
+          "ignored_candidates": 1,
+          "yolo_coincident_metadata_lost": 0,
+          "negative_center_crop_intersects_gt_box": 1,
+          "negative_center_candidates": 87,
+          "no_positive_loss_branch_ignored": 0
+        },
+        "test": {
+          "frames": 7,
+          "positive_frames": 4,
+          "normal_frames": 3,
+          "positive_without_candidate": [],
+          "ignored_candidates": 0,
+          "yolo_coincident_metadata_lost": 0,
+          "negative_center_crop_intersects_gt_box": 4,
+          "negative_center_candidates": 66,
+          "no_positive_loss_branch_ignored": 0
+        }
+      }
+    },
+    {
+      "test_cam": "Cam5",
+      "val_cam": "Cam6",
+      "groups": {
+        "train": {
+          "frames": 45,
+          "positive_frames": 15,
+          "normal_frames": 30,
+          "positive_without_candidate": [],
+          "ignored_candidates": 11,
+          "yolo_coincident_metadata_lost": 3,
+          "negative_center_crop_intersects_gt_box": 11,
+          "negative_center_candidates": 421,
+          "no_positive_loss_branch_ignored": 0
+        },
+        "val": {
+          "frames": 13,
+          "positive_frames": 2,
+          "normal_frames": 11,
+          "positive_without_candidate": [],
+          "ignored_candidates": 2,
+          "yolo_coincident_metadata_lost": 0,
+          "negative_center_crop_intersects_gt_box": 2,
+          "negative_center_candidates": 136,
+          "no_positive_loss_branch_ignored": 0
+        },
+        "test": {
+          "frames": 9,
+          "positive_frames": 2,
+          "normal_frames": 7,
+          "positive_without_candidate": [],
+          "ignored_candidates": 4,
+          "yolo_coincident_metadata_lost": 1,
+          "negative_center_crop_intersects_gt_box": 0,
+          "negative_center_candidates": 86,
+          "no_positive_loss_branch_ignored": 0
+        }
+      }
+    },
+    {
+      "test_cam": "Cam6",
+      "val_cam": "Cam1",
+      "groups": {
+        "train": {
+          "frames": 41,
+          "positive_frames": 13,
+          "normal_frames": 28,
+          "positive_without_candidate": [],
+          "ignored_candidates": 4,
+          "yolo_coincident_metadata_lost": 1,
+          "negative_center_crop_intersects_gt_box": 10,
+          "negative_center_candidates": 379,
+          "no_positive_loss_branch_ignored": 0
+        },
+        "val": {
+          "frames": 13,
+          "positive_frames": 4,
+          "normal_frames": 9,
+          "positive_without_candidate": [],
+          "ignored_candidates": 2,
+          "yolo_coincident_metadata_lost": 1,
+          "negative_center_crop_intersects_gt_box": 1,
+          "negative_center_candidates": 125,
+          "no_positive_loss_branch_ignored": 0
+        },
+        "test": {
+          "frames": 13,
+          "positive_frames": 2,
+          "normal_frames": 11,
+          "positive_without_candidate": [],
+          "ignored_candidates": 1,
+          "yolo_coincident_metadata_lost": 1,
+          "negative_center_crop_intersects_gt_box": 2,
+          "negative_center_candidates": 137,
+          "no_positive_loss_branch_ignored": 0
+        }
+      }
+    }
+  ],
+  "archived_metrics": {
+    "fc_rerank": {
+      "sha256": "10969fd42fefde9e5fe6571624b4c23a81f17ec293f6481a54ab93835b909a44",
+      "summary": {
+        "positive": 19,
+        "normal": 48,
+        "rank_alarm_and_point": 13,
+        "rank_false_alarms": 2,
+        "candidate_reachable": 18,
+        "fc_alarm_and_point": 17,
+        "fc_point_hits": 17,
+        "fc_false_alarms": 2,
+        "fc_selected_rank_gt1": 44,
+        "new_hits": [
+          "DI2_Cam2_2026-07-18_10-14-40-480",
+          "DI2_Cam3_2026-07-18_10-14-15-409",
+          "DI2_Cam4_2026-07-18_10-11-55-179",
+          "DI2_Cam5_2026-07-18_10-11-55-176"
+        ],
+        "lost_hits": []
+      },
+      "recomputed": {
+        "positive": 19,
+        "normal": 48,
+        "image_alarm_hits": 19,
+        "alarm_and_point_hits": 17,
+        "false_alarms": 2
+      }
+    },
+    "cnn_rerank": {
+      "sha256": "a9f6ca3d43d89abd6a736e2a664925e84715c5ea254bf91226b2ee18c58b5ab1",
+      "summary": {
+        "positive": 19,
+        "normal": 48,
+        "rank_alarm_and_point": 13,
+        "rank_false_alarms": 2,
+        "candidate_reachable": 18,
+        "cnn_alarm_and_point": 16,
+        "cnn_point_hits": 16,
+        "cnn_false_alarms": 13,
+        "new_hits": [
+          "DI2_Cam2_2026-07-18_10-14-40-480",
+          "DI2_Cam4_2026-07-18_10-11-55-179",
+          "DI2_Cam5_2026-07-18_10-11-55-176"
+        ],
+        "lost_hits": []
+      },
+      "recomputed": {
+        "positive": 19,
+        "normal": 48,
+        "image_alarm_hits": 19,
+        "alarm_and_point_hits": 16,
+        "false_alarms": 13
+      }
+    },
+    "fc_yolo_union": {
+      "sha256": "d1d5e53be183ddf2600313dcf959128f8083bd5909ac702927a87ba643433d4f",
+      "summary": {
+        "positive": 19,
+        "normal": 48,
+        "rank_alarm_and_point": 13,
+        "rank_false_alarms": 2,
+        "candidate_reachable": 19,
+        "fc_alarm_and_point": 16,
+        "fc_point_hits": 16,
+        "fc_false_alarms": 2,
+        "fc_selected_rank_gt1": 48,
+        "new_hits": [
+          "DI2_Cam2_2026-07-18_10-14-40-480",
+          "DI2_Cam3_2026-07-18_10-14-15-409",
+          "DI2_Cam4_2026-07-18_10-11-55-179",
+          "DI2_Cam5_2026-07-18_10-11-55-176"
+        ],
+        "lost_hits": [
+          "DI2_Cam6_2026-07-18_10-14-15-407"
+        ]
+      },
+      "recomputed": {
+        "positive": 19,
+        "normal": 48,
+        "image_alarm_hits": 19,
+        "alarm_and_point_hits": 16,
+        "false_alarms": 2
+      }
+    },
+    "fc_yolo_trained_union": {
+      "sha256": "961eca74b10cec9ec29703ba7cef13ae38e79572f0d340b375ba1d765613bcab",
+      "summary": {
+        "positive": 19,
+        "normal": 48,
+        "rank_alarm_and_point": 13,
+        "rank_false_alarms": 2,
+        "candidate_reachable": 19,
+        "fc_alarm_and_point": 17,
+        "fc_point_hits": 17,
+        "fc_false_alarms": 2,
+        "fc_selected_rank_gt1": 48,
+        "new_hits": [
+          "DI2_Cam2_2026-07-18_10-14-40-480",
+          "DI2_Cam3_2026-07-18_10-14-15-409",
+          "DI2_Cam4_2026-07-18_10-11-55-179",
+          "DI2_Cam5_2026-07-18_10-11-55-176"
+        ],
+        "lost_hits": []
+      },
+      "recomputed": {
+        "positive": 19,
+        "normal": 48,
+        "image_alarm_hits": 19,
+        "alarm_and_point_hits": 17,
+        "false_alarms": 2
+      }
+    },
+    "fc_yolo_source_score": {
+      "sha256": "545b8c954a5d6e6c81cf77755e7c47a751d6533762cb18e264f7a0730f3b8c93",
+      "summary": {
+        "positive": 19,
+        "normal": 48,
+        "rank_alarm_and_point": 13,
+        "rank_false_alarms": 2,
+        "candidate_reachable": 19,
+        "fc_alarm_and_point": 17,
+        "fc_point_hits": 17,
+        "fc_false_alarms": 2,
+        "fc_selected_rank_gt1": 48,
+        "new_hits": [
+          "DI2_Cam2_2026-07-18_10-14-40-480",
+          "DI2_Cam3_2026-07-18_10-14-15-409",
+          "DI2_Cam4_2026-07-18_10-11-55-179",
+          "DI2_Cam5_2026-07-18_10-11-55-176"
+        ],
+        "lost_hits": []
+      },
+      "recomputed": {
+        "positive": 19,
+        "normal": 48,
+        "image_alarm_hits": 19,
+        "alarm_and_point_hits": 17,
+        "false_alarms": 2
+      }
+    },
+    "rgb_fusion": {
+      "sha256": "aec7514197a4eb4b6619c42c58269e73b8984ea78c7b84d7519d07033e2f9b0b",
+      "summary": {
+        "rgb": {
+          "alarm_and_point": 7,
+          "point_hits": 14,
+          "false_alarms": 13,
+          "missed_ids": [
+            "DI2_Cam1_2026-07-18_10-11-40-176",
+            "DI2_Cam1_2026-07-18_10-11-45-636",
+            "DI2_Cam1_2026-07-18_10-14-40-482",
+            "DI2_Cam1_2026-07-18_10-14-54-478",
+            "DI2_Cam2_2026-07-18_10-11-45-634",
+            "DI2_Cam2_2026-07-18_10-14-54-481",
+            "DI2_Cam3_2026-07-18_10-11-55-177",
+            "DI2_Cam3_2026-07-18_10-11-56-691",
+            "DI2_Cam3_2026-07-18_10-14-15-409",
+            "DI2_Cam5_2026-07-18_10-11-56-689",
+            "DI2_Cam6_2026-07-18_10-11-56-719",
+            "DI2_Cam6_2026-07-18_10-14-15-407"
+          ]
+        },
+        "fusion": {
+          "alarm_and_point": 17,
+          "point_hits": 17,
+          "false_alarms": 2,
+          "missed_ids": [
+            "DI2_Cam4_2026-07-18_10-14-15-405",
+            "DI2_Cam4_2026-07-18_10-14-40-475"
+          ]
+        }
+      }
+    },
+    "pairwise_rank": {
+      "sha256": "09233c51820fb0334ab1e29d05f632955ff95c86208d7b4e4ecc11461dad16c3",
+      "summary": {
+        "positive": 19,
+        "normal": 48,
+        "candidate_reachable": 19,
+        "alarm_and_point": 15,
+        "point_hits": 16,
+        "false_alarms": 10,
+        "missed_ids": [
+          "DI2_Cam1_2026-07-18_10-14-40-482",
+          "DI2_Cam3_2026-07-18_10-14-15-409",
+          "DI2_Cam4_2026-07-18_10-14-40-475",
+          "DI2_Cam6_2026-07-18_10-14-15-407"
+        ]
+      },
+      "recomputed": {
+        "positive": 19,
+        "normal": 48,
+        "image_alarm_hits": 18,
+        "alarm_and_point_hits": 15,
+        "false_alarms": 10
+      }
+    }
+  },
+  "feature_geometry": [
+    {
+      "hw": [
+        1800,
+        3200
+      ],
+      "grid": [
+        32,
+        228,
+        193
+      ],
+      "patch_original_xy": [
+        14.035087719298245,
+        14.625
+      ],
+      "tile_offsets_mod14": [
+        0,
+        8
+      ]
+    }
+  ],
+  "input_sha256": {
+    "outputs\\black_reviewer_a_rank\\results.json": "0010c9fd6fe2f20f2792d2e357c3dd2b4b3018112243f45f703e98acd68cb67d",
+    "outputs\\black_yarn_candidate_audit\\yolo_fold_top1.json": "0b5e88e8a0c32d58a9e5debd49dfdefd4c3548fbfcd72a55ddc9abb5da5affdc",
+    "outputs\\black_fewshot_semantic\\index.json": "e7e40097aa16d3a56d1cd9f443cebe3834a2b500372e94d59daae45d2dbab99f",
+    "outputs\\black_july_blind_review\\july_reviewer_A_locked.csv": "4e714b308d539fe9c94b537c3d6cc35adfc684fcc800302c3791b8bffe44358a",
+    "tools\\fewshot_semantic_heads.py": "deb464a393a58ac484739d1a8b7a7b18c4aeab1b397bdc6ed3fd1b7415baf192",
+    "tools\\eval_black_rank_candidate_fc.py": "da163eb2062a1aaea3e4551d48fac5a96b82643f3c0981ad0e918298e16836c1",
+    "tools\\eval_black_candidate_pairwise.py": "2d8f10505761061162669796a8cf108ee378eca17c21137a0aa38a339e14a9cc",
+    "tools\\eval_black_rgb_candidate_fusion.py": "b5bddb629d07a5c996ec93b1f3ecc35dc20e7cbbba8e4e79ff45e61a134ca19b",
+    "src\\black_yarn_detector.py": "c8531fb5152db658a70170456f348e6f1137e2b41408494c3d1b04d9a71d1947"
+  }
+}
